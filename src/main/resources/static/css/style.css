@@ -1,0 +1,38 @@
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size: 72px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 50px;
+}
+
+nav {
+    height: 10vh;
+}
+
+#homeBgImg {
+    background-image: url("../img/homeImg.png");
+    height: 90vh;
+}
+
+.button {
+    background-color: #FF4591;
+    border-radius: 100px;
+    padding: 20px;
+    filter: drop-shadow(0px 12px 25px #4C609B);
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+a .button {
+
+}

@@ -1,0 +1,83 @@
+html {
+    font-size: 50px;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: white;
+    font-size: 72px;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 50px;
+}
+
+nav {
+    height: 10vh;
+}
+
+#homeBgImg {
+    background-image: url("../img/homeImg.png");
+    height: 90vh;
+}
+
+.button {
+    transition-duration: 0.6s;
+    background-color: #FF4591;
+    border-radius: 100px;
+    padding: 20px;
+    filter: drop-shadow(0px 12px 25px #4C609B);
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.button:hover {
+    transition-duration: 0.6s;
+    background-color: #FF4591;
+    border-radius: 100px;
+    padding: 25px;
+    filter: drop-shadow(0px 12px 25px #DC81C6);
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.homeInfo h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: #071BF3;
+    font-size: 85px;
+}
+
+.homeInfo p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 40px;
+}
+
+.homeInfo {
+    margin-top: 4rem;
+}
+
+.reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+}

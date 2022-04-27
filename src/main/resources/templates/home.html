@@ -24,7 +24,7 @@
                         <div style="margin-top: 20%">
                             <h1>Portal</h1>
                             <p class="m-0">We keep your clothes<br>safe until the metaverse arrives!</p>
-                            <a class="button" href="#">Get started</a>
+                            <a class="button" th:href="@{(${loginName} == '' ? '/login' : '/logout')}">Get started</a>
                         </div>
                     </div>
                     <div class="col-6">

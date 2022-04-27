@@ -9,8 +9,8 @@ public class Item {
 @Id
 private int id;
 private String name;
-private User creator;
-private User owner;
+//private User creator;
+//private User owner;
 private boolean forSale;
 private double price;
 private String link;
@@ -34,21 +34,21 @@ private String link;
         this.name = name;
     }
 
-    public User getCreator() {
-        return creator;
-    }
-
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
+//    public User getCreator() {
+//        return creator;
+//    }
+//
+//    public void setCreator(User creator) {
+//        this.creator = creator;
+//    }
+//
+//    public User getOwner() {
+//        return owner;
+//    }
+//
+//    public void setOwner(User owner) {
+//        this.owner = owner;
+//    }
 
     public boolean isForSale() {
         return forSale;

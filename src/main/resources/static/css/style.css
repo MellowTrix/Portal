@@ -20,6 +20,14 @@ nav {
     height: 10vh;
 }
 
+navbuttons {
+
+}
+
+loginbutton {
+
+}
+
 #homeBgImg {
     background-image: url("../img/homeImg.png");
     height: 90vh;

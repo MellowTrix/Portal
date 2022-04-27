@@ -1,0 +1,23 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../../static/css/style.css"/>
+</head>
+<body>
+<div th:fragment="header">
+    <div class="nav">
+        <div class="navbuttons">
+            <a class="buttonLook menuButton" th:href="@{/home}">PORTAL LOGO</a>
+            <a class="buttonLook menuButton" th:href="@{/webshop}">WEBSHOP</a>
+            <a class="buttonLook menuButton" th:href="@{/about}">ABOUT US</a>
+            <a class="buttonLook menuButton" th:href="@{/hub}">HUB</a>
+            <a class="buttonLook menuButton" th:href="@{/contact}">CONTACT</a>
+        </div>
+    </div>
+    <div class="loginbutton">
+        <a class="buttonLook loginButton" th:action="@{/login}">LOG IN</a>
+    </div>
+</div>
+</body>
+</html>

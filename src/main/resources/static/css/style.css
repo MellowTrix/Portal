@@ -94,6 +94,10 @@ nav {
     opacity: 1;
 }
 
+.card-body p, h4, h6, a{
+    font-size: initial;
+}
+
 .marketing .col-lg-4 {
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;

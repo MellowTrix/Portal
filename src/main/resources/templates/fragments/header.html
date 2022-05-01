@@ -2,22 +2,44 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../../static/css/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+
 </head>
 <body>
 <div th:fragment="header">
-    <div class="nav">
-        <div class="navbuttons">
-            <a class="buttonLook logoButton" th:src="@{/img/portal-logo.png}" src="../static/img/portal-logo.png" alt="Portal Logo" height="20" width="50"/>
-            <a class="buttonLook menuButton" th:href="@{/webshop}">WEBSHOP</a>
-            <a class="buttonLook menuButton" th:href="@{/about}">ABOUT US</a>
-            <a class="buttonLook menuButton" th:href="@{/hub}">HUB</a>
-            <a class="buttonLook menuButton" th:href="@{/contact}">CONTACT</a>
+    <nav class="navbar navbar-expand-xxl navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../../static/img/logoColor.png" th:src="@{/img/logoColor.png}" width="225" height="60" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">WEBSHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">HUB</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">CONTACT</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="buttonSmall" href="#">Login</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="loginbutton">
-        <a class="buttonLook loginButton" th:action="@{/login}">LOG IN</a>
-    </div>
+    </nav>
 </div>
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/animation.js}"></script>
 </body>
 </html>

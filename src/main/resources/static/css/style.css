@@ -1,5 +1,5 @@
 html {
-    font-size: 50px;
+    width: 100%
 }
 
 h1 {
@@ -16,9 +16,6 @@ p {
     font-size: 50px;
 }
 
-nav {
-    height: 10vh;
-}
 
 navbuttons {
 
@@ -32,6 +29,33 @@ loginbutton {
     background-image: url("../img/homeImg.png");
     height: 90vh;
 }
+
+.buttonSmall {
+    transition-duration: 0.6s;
+    background-color: #FF4591;
+    border-radius: 100px;
+    padding: 10px 50px;
+    filter: drop-shadow(0px 12px 25px #4C609B);
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.buttonSmall:hover {
+    transition-duration: 0.6s;
+    background-color: #FF4591;
+    border-radius: 100px;
+    padding: 10px 50px;
+    filter: drop-shadow(0px 12px 25px #DC81C6);
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+
 
 .button {
     transition-duration: 0.6s;
@@ -57,6 +81,52 @@ loginbutton {
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 30px;
+}
+
+.nav-item{
+    margin: 0 3rem;
+}
+
+
+
+
+
+.nav-item a{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: black;
+    font-size: 2.3vw;
+}
+
+@media only screen and (max-width: 500px) {
+    .nav-item a{
+        font-size: 5vw;!important;
+    }
+}
+
+.nav-item a:hover{
+    color: #071BF3;
+}
+
+.navbar-toggler{
+    border-color: black;
+    border-width: 3px;
+}
+
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-brand{
+    margin: 0 2rem;
+}
+
+.d-flex {
+    margin: 0 1rem;
+}
+
+.navbar {
+    background-color: #CEEEF4;
 }
 
 .homeInfo h1 {
@@ -89,3 +159,4 @@ loginbutton {
     transform: translateY(0);
     opacity: 1;
 }
+

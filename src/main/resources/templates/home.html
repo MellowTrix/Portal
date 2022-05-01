@@ -2,6 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,10 +11,8 @@
     <title>Portal - Home</title>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div th:replace="fragments/header :: header">Header</div>
-    </div>
+<div th:replace="fragments/header :: header">Header</div>
+    <div class="container-fluid">
     <div class="row">
         <div id="homeBgImg" class="bg-image">
             <div class="col-10 offset-1">
@@ -22,11 +21,12 @@
                         <div style="margin-top: 20%">
                             <h1>Portal</h1>
                             <p class="m-0">We keep your clothes<br>safe until the metaverse arrives!</p>
+                            <br>
                             <a class="button" href="#">Get started</a>
                         </div>
                     </div>
                     <div class="col-6">
-                        <iframe style="margin-top: 10%" src='https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/' frameborder='0' width='100%' height='100%'></iframe>
+                        <iframe style="margin-top: 10%" src='https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/' width='100%' height='100%'></iframe>
                     </div>
                 </div>
             </div>

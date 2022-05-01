@@ -22,7 +22,7 @@ public class ItemController {
         return "webshop";
     }
 
-    @GetMapping({"/itemDetails","/itemDetails/{id}"})
+    @GetMapping({"/item","/item/{id}"})
     public String itemDetails(Model model, @PathVariable(required = false) Integer id) {
         if (id == null) return "itemDetails";
 
@@ -31,7 +31,7 @@ public class ItemController {
             model.addAttribute("item", item.get());
         }
 
-        return "carDetails";
+        return "item";
     }
 
 //    @GetMapping({"/webshop/filter"})

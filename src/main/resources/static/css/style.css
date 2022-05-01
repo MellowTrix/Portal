@@ -130,6 +130,12 @@ nav {
     color: black;
 }
 
+.webshop {
+    font-size: revert;
+    font-weight: revert;
+    color: revert;
+}
+
 
 
 

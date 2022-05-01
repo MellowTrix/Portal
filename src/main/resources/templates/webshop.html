@@ -1,6 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"  class="webshop">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
@@ -20,36 +20,82 @@
         <h2 style="color: black; text-align: center; margin-bottom: 20px">Webshop</h2>
     </div>
     <div class="row">
-<!--        <form>-->
-<!--            <div class="form-group col-4">-->
-<!--                <label></label>-->
-<!--                <input>-->
-<!--            </div>-->
-<!--            <div class="form-group col-4">-->
-<!--                <label></label>-->
-<!--                <input>-->
-<!--            </div>-->
-<!--            <div class="form-group col-4">-->
-<!--                <label></label>-->
-<!--                <input>-->
-<!--            </div>-->
-<!--        </form>-->
-    </div>
-    <div class="row">
-        <div class="col-md-3" th:each="item : ${items}">
-            <div class="card">
-                <div class="card-body">
-                    <iframe style="margin-top: 10%" th:src="${item.link}" rameborder='0' width='100%'
-                            height='100%'></iframe>
-                    <h4 class="card-title" th:text="${item.name}">Title</h4>
-                    <h6 class="text-muted card-subtitle mb-2" th:text="${#numbers.formatCurrency(item.price)}">
-                        Subtitle</h6>
+        <div class="col-md-2">
+            <form>
+                <fieldset class="form-group border p-3">
+                    <legend class="w-auto px-2">Color</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="white" value="white">
+                        <label class="form-check-label" for="white">white</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="black" value="black">
+                        <label class="form-check-label" for="black">black</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="red" value="red">
+                        <label class="form-check-label" for="red">red</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="blue" value="blue">
+                        <label class="form-check-label" for="blue">blue</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="green" value="green">
+                        <label class="form-check-label" for="green">green</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="yellow" value="yellow">
+                        <label class="form-check-label" for="yellow">yellow</label>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-3" th:each="item : ${items}">
+                    <div class="card">
+                        <div class="card-body">
+                            <iframe style="margin-top: 10%" th:src="${item.link}" rameborder='0' width='100%'
+                                    height='100%'></iframe>
+                            <h4 class="card-title" th:text="${item.name}">Title</h4>
+                            <h6 class="text-muted card-subtitle mb-2" th:text="${#numbers.formatCurrency(item.price)}">
+                                Subtitle</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </div>
+
+    <div class="row mt-3"> <!-- center nav -->
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">5</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
 </div>
 
 

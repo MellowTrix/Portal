@@ -11,7 +11,7 @@
 <div th:fragment="header">
     <nav class="navbar navbar-expand-xxl navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" th:href="@{/home}">
                 <img src="../../static/img/logoColor.png" th:src="@{/img/logoColor.png}" width="225" height="60" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">WEBSHOP</a>
+                        <a class="nav-link" th:href="@{/Webshop}">WEBSHOP</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">ABOUT</a>
+                        <a class="nav-link" th:href="@{/AboutUs}">ABOUT</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">HUB</a>

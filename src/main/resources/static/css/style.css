@@ -30,6 +30,25 @@ loginbutton {
     height: 90vh;
 }
 
+.homeInfo p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: black;
+    font-size: 40px;
+}
+
+.homeInfo {
+    margin-top: 4rem;
+}
+
+.homeInfo h1 {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: #071BF3;
+    font-size: 85px;
+}
+
 .buttonSmall {
     transition-duration: 0.6s;
     background-color: #FF4591;
@@ -87,10 +106,6 @@ loginbutton {
     margin: 0 3rem;
 }
 
-
-
-
-
 .nav-item a{
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
@@ -129,23 +144,22 @@ loginbutton {
     background-color: #CEEEF4;
 }
 
-.homeInfo h1 {
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 900;
-    color: #071BF3;
-    font-size: 85px;
-}
-
-.homeInfo p {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+footer p{
+    font-size: 20px;
     color: black;
-    font-size: 40px;
+    margin-bottom: 5px;
 }
 
-.homeInfo {
-    margin-top: 4rem;
+
+footer h6{
+    font-size: 25px;
+    color: black;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
 }
 
 .reveal{

@@ -26,7 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin/**").authenticated()
                 .anyRequest().permitAll()
-                .and().formLogin();
+                .and().formLogin().loginPage("/login.html").defaultSuccessUrl("/home.html", true);
         http.csrf().ignoringAntMatchers("/h2-console/**")
                 .and().headers().frameOptions().sameOrigin();
         http.logout().logoutSuccessUrl("/home");

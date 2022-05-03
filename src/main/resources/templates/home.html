@@ -22,8 +22,9 @@
                         <div style="margin-top: 20%">
                             <h1>Portal</h1>
                             <p class="m-0">We keep your clothes<br>safe until the metaverse arrives!</p>
-                            <br>
-                            <a class="button" href="#">Get started</a>
+                            <!--<p class="mt-2 mb-0" th:if="${loginName} != ''" th:text="|Welcome back, ${loginName}!|"></p>-->
+                            <p class="mt-2 mb-0" sec:authorize="isAuthenticated()" th:text="|Welcome back, ${loginName}!|"></p>
+                            <a class="button" th:href="@{(${loginName} == '' ? '/login' : '/logout')}">Get started</a>
                         </div>
                     </div>
                     <div class="col-6">

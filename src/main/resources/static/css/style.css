@@ -15,7 +15,10 @@ p {
 
 
 #homeBgImg {
+    /*background gradient nog fixen*/
     background-image: url("../img/homeImg.png");
+    background-position: center;
+    background-repeat: no-repeat;
     height: 90vh;
 
 }
@@ -82,6 +85,13 @@ p {
     font-size: 25px;
 }
 
+.homeTopContent {
+    margin-top: 20%;
+}
+
+.homeTopShirt {
+    margin-top: 10%;
+}
 
 .homeInfo h1 {
     text-align: center;
@@ -232,6 +242,56 @@ footer a{
 @media (min-width: 62em) {
     .featurette-heading {
         margin-top: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    h1 {
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 30px;
+    }
+
+    .homeTopContent {
+        margin-top: 40%;
+    }
+
+    .homeTopShirt {
+        margin-top: 20%;
+    }
+
+    .homeInfo h1 {
+        font-size: 55px;
+    }
+
+    .homeInfo p {
+        font-size: 30px;
+    }
+
+    #getStartedButton {
+        font-size: 25px;
+        padding: 15px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .homeTopShirt {
+        margin-top: 45%;
+    }
+    .homeInfo h1 {
+        font-size: 50px;
+    }
+
+    .homeInfo p {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .shirtDiv {
+        display: none;
     }
 }
 

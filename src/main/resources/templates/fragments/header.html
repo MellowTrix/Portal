@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-xl navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/home}">
+                <img src="../../static/img/logoColor.png" th:src="@{/img/logoColor.png}" width="225" height="60" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/Webshop}">WEBSHOP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/AboutUs}">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">HUB</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">CONTACT</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a class="buttonSmall" href="#">Login</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/animation.js}"></script>
+</body>
+</html>

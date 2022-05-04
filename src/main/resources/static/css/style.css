@@ -114,6 +114,19 @@ p {
     font-size: 85px;
 }
 
+.bounce {
+    animation-name: bounce;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-1.75rem); }
+    100% { transform: translateY(0); }
+}
+
 .homeInfo p {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;

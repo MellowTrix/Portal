@@ -74,6 +74,19 @@ nav {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 25px;
+
+}
+.buttonFilter {
+    border: none;
+    margin-top: 10px ;
+    background-color: #FF4591;
+    border-radius: 50px;
+    padding: 5px 25px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
 }
 
 .buttonSmall:hover {

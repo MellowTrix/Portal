@@ -10,6 +10,21 @@
     <title>Portal - Logout</title>
 </head>
 <body>
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="row loginBorder">
+                <div class="col">
+                    <h1 class="text-center text-dark">See you next time!</h1>
+                    <form th:action="@{/logout}" method="post">
+                        <div class="form-group d-flex justify-content-center mt-5">
+                            <input class="loginButton" type="submit" value="Logout">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

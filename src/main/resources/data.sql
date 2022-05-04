@@ -1,30 +1,35 @@
 
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
-insert into Item (id, name, for_sale, price, link) values ('item_seq', 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 20, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 60, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 90, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 10, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 120, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 120, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 90, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 80, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 80, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 44, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 22.5, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 119.99, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+insert into Item (id, name, for_sale, price, link) values (nextval('item_seq'), 'item1', true, 1, 'https://my.spline.design/tshirtbodymaledarkcopycopy-d29d2fca2da7b8f1405891ebf7413247/');
+
 
 
 

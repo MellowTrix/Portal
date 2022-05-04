@@ -2,32 +2,29 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
     <title>Portal - AboutUs</title>
 </head>
 <body>
+<div th:replace="fragments/header :: header">Header</div>
 <div class="container-fluid">
     <div class="row">
-        <nav>
-
-        </nav>
-    </div>
-    <div class="row">
-        <div id="AboutUsBgImg" class="bg-image">
             <div class="col-12">
                 <div class="row">
-                    <div class="col text-center">
-                        <div style="margin-top: 35%">
+                    <div class="col text-center" style="background-color: #2c3034">
+                        <img class="mt-5 mx-auto img-fluid"  th:src="@{/img/logoColor.png}" alt="Logo">
+                        <div class="mt-5">
                             <h1>About Us</h1>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         <div class="container marketing">
 
             <!-- Three columns of text below the carousel -->
@@ -53,20 +50,20 @@
                     <h2 class="featurette-heading">Yana Van den Broeke. <span class="text-muted">CEO.</span></h2>
                     <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
                 </div>
-                <div class="col-md-4 mt-3 col-sm-10 offset-sm-1">
-                    <img src="../static/img/Yana.png" th:src="@{img/Yana.png}" alt="img">
+                <div class="col-md-4 mt-3 mx-auto col-sm-10 offset-sm-1">
+                    <img class="img-fluid" src="../static/img/Yana.png" th:src="@{img/Yana.png}" alt="img">
                 </div>
             </div>
 
             <hr class="featurette-divider">
 
             <div class="row featurette reveal">
-                <div class="col-md-6 col-sm-10 offset-sm-1 order-md-2">
+                <div class="col-md-6 col-sm-10 offset-sm-1 order-md-2 mx-auto">
                     <h2 class="featurette-heading">Evi Adriaenssens. <span class="text-muted">CPO.</span></h2>
                     <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
                 </div>
                 <div class="col-md-4 offset-md-1 order-md-1 col-sm-10 offset-sm-1 mx-auto  mt-3">
-                    <img src="../static/img/Evi.png" th:src="@{img/Evi.png}" alt="img">
+                    <img class="img-fluid" src="../static/img/Evi.png" th:src="@{img/Evi.png}" alt="img">
                 </div>
             </div>
 
@@ -77,26 +74,27 @@
                     <h2 class="featurette-heading">Emiel verbeckt. <span class="text-muted">CFO.</span></h2>
                     <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
                 </div>
-                <div class="col-md-4 mt-3 col-sm-10 offset-sm-1">
-                    <img src="../static/img/Emiel.png" th:src="@{img/Emiel.png}" alt="img">
+                <div class="col-md-4 mt-3 col-sm-10 offset-sm-1 mx-auto">
+                    <img class="img-fluid" src="../static/img/Emiel.png" th:src="@{img/Emiel.png}" alt="img">
                 </div>
             </div>
 
             <hr class="featurette-divider">
 
             <div class="row featurette reveal">
-                <div class="col-md-6 col-sm-10 offset-sm-1 order-md-2">
+                <div class="col-md-6 col-sm-10 offset-sm-1 order-md-2 mx-auto">
                     <h2 class="featurette-heading">Basil Crollet. <span class="text-muted">CMO.</span></h2>
                     <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
                 </div>
                 <div class="col-md-4 offset-md-1 order-md-1 col-sm-10 offset-sm-1 mx-auto mt-3">
-                    <img src="../static/img/Basil.png" th:src="@{img/Basil.png}" alt="img">
+                    <img class="img-fluid" src="../static/img/Basil.png" th:src="@{img/Basil.png}" alt="img">
                 </div>
             </div>
 
         </div>
     </div>
 </div>
+<div th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/animation.js}"></script>
 </body>

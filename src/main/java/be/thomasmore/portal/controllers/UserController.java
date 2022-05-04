@@ -26,11 +26,12 @@ import java.security.Principal;
 public class UserController {
 
     @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private AuthenticationManager authenticationManager;
+
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/register")

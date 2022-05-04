@@ -12,6 +12,7 @@ public class User {
     private String username;
     private String password;
     private String role;
+    private Boolean designerApplication;
 
     public User() {
     }
@@ -46,5 +47,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public Boolean getDesignerApplication() {
+        return designerApplication;
+    }
+
+    public void setDesignerApplication(Boolean designerApplication) {
+        this.designerApplication = designerApplication;
     }
 }

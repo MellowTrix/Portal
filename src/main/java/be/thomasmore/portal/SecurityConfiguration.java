@@ -24,12 +24,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/admin/**").authenticated()
-                .anyRequest().permitAll()
-                .and().formLogin();
+                .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .anyRequest().permitAll();
+        http.formLogin().loginPage("/login").usernameParameter("username").defaultSuccessUrl("/home", true);
         http.csrf().ignoringAntMatchers("/h2-console/**")
                 .and().headers().frameOptions().sameOrigin();
-        http.logout().logoutSuccessUrl("/home");
+        http.logout().logoutUrl("/logout").logoutSuccessUrl("/home");
     }
 
     @Autowired

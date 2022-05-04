@@ -26,11 +26,12 @@ import java.security.Principal;
 public class UserController {
 
     @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    @Autowired
-    private AuthenticationManager authenticationManager;
+
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/register")
@@ -51,11 +52,13 @@ public class UserController {
         if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername()).isPresent()) {
             return "redirect:/user/register";
         }
+        String pass = user.getPassword();
         user.setUsername(user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
+        user.setDesignerApplication(user.getDesignerApplication());
         userRepository.save(user);
-        autologin(user.getUsername(), user.getPassword());
+        autologin(user.getUsername(), pass);
         return "redirect:/home";
     }
 
@@ -63,9 +66,13 @@ public class UserController {
     private void autologin(String userName, String password) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userName, password);
 
-        Authentication auth = authenticationManager.authenticate(token);
-        logger.info("authentication: " + auth.isAuthenticated());
-        SecurityContext sc = SecurityContextHolder.getContext();
-        sc.setAuthentication(auth);
+        try {
+            Authentication auth = authenticationManager.authenticate(token);
+
+            SecurityContext sc = SecurityContextHolder.getContext();
+            sc.setAuthentication(auth);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

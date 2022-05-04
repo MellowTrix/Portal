@@ -20,4 +20,14 @@ public class HomeController {
     public String aboutUs(Model model) {
         return "aboutUs";
     }
+
+    @GetMapping({"/login"})
+    public String login(Model model) {
+        return "login";
+    }
+
+    @GetMapping({"/logout"})
+    public String logout(Model model) {
+        return "logout";
+    }
 }

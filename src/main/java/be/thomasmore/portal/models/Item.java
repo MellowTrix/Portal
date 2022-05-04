@@ -1,11 +1,11 @@
 package be.thomasmore.portal.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 public class Item {
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_generator")
+@SequenceGenerator(name = "item_generator", sequenceName = "item_seq", allocationSize = 1)
 @Id
 private int id;
 private String name;

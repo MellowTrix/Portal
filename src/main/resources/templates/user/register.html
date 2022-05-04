@@ -30,7 +30,7 @@
                             <p id="passwordErrorText">Passwords do not match!</p>
                         </div>
                         <div class="form-check mb-4">
-                            <input type="checkbox" class="form-check-input" id="designerCheck">
+                            <input th:field="*{designerApplication}" type="checkbox" class="form-check-input" id="designerCheck">
                             <label class="form-check-label" for="designerCheck">I would like to apply as a designer!</label>
                         </div>
                         <div class="form-group d-flex justify-content-center mb-3">
@@ -50,12 +50,8 @@
         let error = document.getElementById("passwordErrorText");
         if (password !== confirmPassword) {
             error.style.display = "block";
-            console.log("no match");
-            console.log(password + " - " + confirmPassword + " - no match");
         } else {
             error.style.display = "none";
-            console.log("match");
-            console.log(password + " - " + confirmPassword + " - match");
         }
     }
 </script>

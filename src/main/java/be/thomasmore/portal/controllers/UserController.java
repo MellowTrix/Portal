@@ -54,6 +54,7 @@ public class UserController {
         user.setUsername(user.getUsername());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
+        user.setDesignerApplication(user.getDesignerApplication());
         userRepository.save(user);
         autologin(user.getUsername(), user.getPassword());
         return "redirect:/home";

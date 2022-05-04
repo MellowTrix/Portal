@@ -16,9 +16,15 @@ public class ItemController {
     private ItemRepository itemRepository;
 
     @GetMapping({"/webshop"})
-    public String itemList(Model model) {
-        List<Item> items = itemRepository.findAll();
+    public String carFilters(Model model, @RequestParam(required = false) String search, @RequestParam(required = false) Double minPrice, @RequestParam(required = false) Double maxPrice, @RequestParam(required = false) List<String> color){
+        List<Item> items;
+        items = itemRepository.findFilter(search, minPrice, maxPrice);
         model.addAttribute("items", items);
+        model.addAttribute("search", search);
+        model.addAttribute("min", minPrice);
+        model.addAttribute("max", maxPrice);
+//        model.addAttribute("color", color);
+
         return "webshop";
     }
 
@@ -33,14 +39,5 @@ public class ItemController {
 
         return "item";
     }
-
-//    @GetMapping({"/webshop/filter"})
-//    public String carFilters(Model model, @RequestParam(required = false) Double minPrice, @RequestParam(required = false) Double maxPrice, @RequestParam(required = false) List<String> fuel){
-//        List<Item> items;
-//        items = ItemRepository.findFilter(minPrice, maxPrice, fuel);
-//        model.addAttribute("cars", items);
-//
-//        return "webshop";
-//    }
 
 }

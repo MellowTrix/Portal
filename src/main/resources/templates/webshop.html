@@ -19,38 +19,55 @@
     <div class="row">
         <h2 style="color: black; text-align: center; margin-bottom: 20px; margin-top: 20px;">Webshop</h2>
     </div>
+
     <div class="row">
         <div class="col-md-2">
-            <form>
-                <fieldset class="form-group border p-3 mt-4">
-                    <legend class="w-auto px-2">Color</legend>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="white" value="white">
-                        <label class="form-check-label" for="white">white</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="black" value="black">
-                        <label class="form-check-label" for="black">black</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="red" value="red">
-                        <label class="form-check-label" for="red">red</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="blue" value="blue">
-                        <label class="form-check-label" for="blue">blue</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="green" value="green">
-                        <label class="form-check-label" for="green">green</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="yellow" value="yellow">
-                        <label class="form-check-label" for="yellow">yellow</label>
-                    </div>
+            <div class="row">
+                <form>
+                    <fieldset class="form-group border p-3 mt-4">
+                        <legend class="w-auto px-2">Search</legend>
+                        <input type="text" class="form-control" name="search" th:value="${search}">
+                    </fieldset>
 
-                </fieldset>
-            </form>
+                    <fieldset class="form-group border p-3 mt-4">
+                        <legend class="w-auto px-2">Price Range</legend>
+                        <input type="range" min="1" max="200" th:value="${min}" class="slider" id="minRange" name="minPrice">
+                        <label>Min: <span id="minPrice"></span></label>
+                        <input type="range" min="1" max="200" th:value="${max}" class="maxslider" id="maxRange" name="maxPrice">
+                        <label>Max: <span id="maxPrice"></span></label>
+                    </fieldset>
+
+                    <fieldset class="form-group border p-3 mt-4">
+                        <legend class="w-auto px-2">Color</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="white" value="white">
+                            <label class="form-check-label" for="white">white</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="black" value="black">
+                            <label class="form-check-label" for="black">black</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="red" value="red">
+                            <label class="form-check-label" for="red">red</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="blue" value="blue">
+                            <label class="form-check-label" for="blue">blue</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="green" value="green">
+                            <label class="form-check-label" for="green">green</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="yellow" value="yellow">
+                            <label class="form-check-label" for="yellow">yellow</label>
+                        </div>
+                    </fieldset>
+                        <input type="submit" class="buttonFilter" value="Apply Filters">
+
+                </form>
+            </div>
 
 
         </div>
@@ -110,5 +127,22 @@
 <div th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/animation.js}"></script>
+<script>
+    var slider = document.getElementById("minRange");
+    var output = document.getElementById("minPrice");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+
+    let maxslider = document.getElementById("maxRange");
+    let maxoutput = document.getElementById("maxPrice");
+    maxoutput.innerHTML = maxslider.value;
+
+    maxslider.oninput = function () {
+        maxoutput.innerHTML = this.value;
+    }
+</script>
 </body>
 </html>

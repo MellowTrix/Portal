@@ -13,14 +13,15 @@ p {
     font-size: 50px;
 }
 
+#homeBgGradient {
+    background: linear-gradient(180deg, rgba(73,94,159,1) 0%, rgba(243,133,218,1) 100%);
+}
 
 #homeBgImg {
-    /*background gradient nog fixen*/
     background-image: url("../img/homeImg.png");
     background-position: center;
     background-repeat: no-repeat;
     height: 90vh;
-
 }
 
 #AboutUsBgImg {

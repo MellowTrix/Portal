@@ -50,7 +50,8 @@ public class UserController {
             return "redirect:/home";
         }
         if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername()).isPresent()) {
-            return "redirect:/user/register";
+            model.addAttribute("nameError", "The chosen username is unavailable");
+            return "user/register";
         }
         String pass = user.getPassword();
         user.setUsername(user.getUsername());
@@ -62,7 +63,6 @@ public class UserController {
         return "redirect:/home";
     }
 
-    //TODO Fix autologin
     private void autologin(String userName, String password) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userName, password);
 

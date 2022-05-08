@@ -139,6 +139,12 @@ nav {
     font-weight: 500;
 }
 
+#userErrorText {
+    font-size: 15px;
+    color: red;
+    font-weight: 500;
+}
+
 #passwordErrorText {
     font-size: 15px;
     color: red;

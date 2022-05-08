@@ -39,9 +39,6 @@ public class UserController {
         if (principal != null) {
             return "redirect:/home";
         }
-        if (model.getAttribute("nameError") == null) {
-            model.addAttribute("nameError", "");
-        }
         User user = new User();
         model.addAttribute("user", user);
         return "user/register";
@@ -53,8 +50,8 @@ public class UserController {
             return "redirect:/home";
         }
         if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername()).isPresent()) {
-            model.addAttribute("nameError", "Please fill in a valid username");
-            return "redirect:/user/register";
+            model.addAttribute("nameError", "The chosen username is unavailable");
+            return "user/register";
         }
         String pass = user.getPassword();
         user.setUsername(user.getUsername());

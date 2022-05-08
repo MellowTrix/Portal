@@ -60,7 +60,7 @@
             submit.setAttribute("disabled", "disabled");
         }
     }
-    function checkUsername() {
+    const checkUsername = () => {
         let userName = document.getElementById("username").value;
         if (userName === '') {
             submit.setAttribute("disabled", "disabled");
@@ -71,7 +71,7 @@
         }
     }
 
-    function checkPassword() {
+    const checkPassword = () => {
         let password = document.getElementById("password").value;
         let confirmPassword = document.getElementById("confirmPassword").value;
         let error = document.getElementById("passwordErrorText");

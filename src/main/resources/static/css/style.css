@@ -178,6 +178,19 @@ nav {
     font-size: 25px;
 }
 
+.loginButtonDisabled {
+    transition-duration: 0.6s;
+    background-color: #6e6e6e;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+}
+
 
 
 

@@ -5,6 +5,7 @@ import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.ItemRepository;
 import be.thomasmore.portal.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.actuate.trace.http.HttpTrace;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +41,7 @@ public class HubController {
             inventoryValue += i.getPrice();
         }
 
+        model.addAttribute("loginName", username);
         model.addAttribute("user", user);
         model.addAttribute("ownedItems", ownedItemList);
         model.addAttribute("ownedItemsCount", ownedItemList.size());

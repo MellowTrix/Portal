@@ -13,13 +13,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.naming.AuthenticationException;
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/user")
@@ -61,6 +59,25 @@ public class UserController {
         userRepository.save(user);
         autologin(user.getUsername(), pass);
         return "redirect:/home";
+    }
+
+    @PostMapping("/updateProfile/{loginName}")
+    public String updateProfile(Model model, Principal principal, @PathVariable(required = true) String loginName, @RequestParam(required = false) String username) {
+        if (principal == null) {
+            return "redirect:/home";
+        }
+        if (!username.isEmpty()) {
+            if (userRepository.findByUsername(username).isPresent()) {
+                model.addAttribute("nameError", "The chosen username is unavailable");
+                return "redirect:/hub";
+            }
+            Optional<User> userFromDb = userRepository.findByUsername(loginName);
+            User user = userFromDb.get();
+            user.setUsername(username);
+            userRepository.save(user);
+            autologin(user.getUsername(), "password");
+        }
+        return "redirect:/hub";
     }
 
     private void autologin(String userName, String password) {

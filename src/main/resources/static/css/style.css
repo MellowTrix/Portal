@@ -319,6 +319,10 @@ footer a{
     font-size: 25px;
 }
 
+.inventoryStatsText {
+    font-size: 35px;
+}
+
 
 
 
@@ -362,7 +366,7 @@ footer a{
         font-size: 30px;
     }
 
-    #getStartedButton {
+    .getStartedButton {
         font-size: 25px;
         padding: 15px;
     }

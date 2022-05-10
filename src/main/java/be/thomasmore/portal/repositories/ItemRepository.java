@@ -1,6 +1,7 @@
 package be.thomasmore.portal.repositories;
 
 import be.thomasmore.portal.models.Item;
+import be.thomasmore.portal.models.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,5 +19,8 @@ public interface ItemRepository extends CrudRepository<Item, Integer> {
     List<Item> findFilter (@Param("search") String search, @Param("min") Double min, @Param("max") Double max);
 
     List<Item> findAll();
+
+    @Query("select i from Item i where :owner = i.owner")
+    List<Item> findAllByOwner (@Param("owner") User owner);
 
 }

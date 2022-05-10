@@ -114,6 +114,16 @@ p {
     font-size: 85px;
 }
 
+.collapse h2{
+    color: black;
+    font-size: 4rem;
+}
+
+.collapse p{
+    color: black;
+    font-size: 2rem;
+}
+
 .bounce {
     animation-name: bounce;
     animation-timing-function: ease-in-out;
@@ -196,6 +206,14 @@ footer a{
     text-decoration: none;
     color: black;
     font-size: 20px;
+}
+
+.content {
+    min-height: calc(100vh - 260px);
+}
+
+footer {
+    height: 260px;
 }
 
 .reveal{

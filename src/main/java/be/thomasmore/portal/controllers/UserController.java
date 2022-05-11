@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.naming.AuthenticationException;
 import java.security.Principal;
+import java.util.Locale;
 import java.util.Optional;
 
 @Controller
@@ -47,12 +48,23 @@ public class UserController {
         if (principal != null) {
             return "redirect:/home";
         }
-        if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername()).isPresent()) {
+        if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername().toLowerCase(Locale.ROOT)).isPresent()) {
+            logger.info("=================================");
+            logger.info("username error");
+            logger.info("=================================");
             model.addAttribute("nameError", "The chosen username is unavailable");
+            return "user/register";
+        }
+        if (user.getEmail().equals("") || userRepository.findByEmail(user.getEmail().toLowerCase(Locale.ROOT)).isPresent()) {
+            logger.info("=================================");
+            logger.info("email error");
+            logger.info("=================================");
+            model.addAttribute("emailError", "The chosen email is unavailable");
             return "user/register";
         }
         String pass = user.getPassword();
         user.setUsername(user.getUsername());
+        user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
         user.setDesignerApplication(user.getDesignerApplication());

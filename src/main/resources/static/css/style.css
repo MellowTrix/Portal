@@ -267,7 +267,7 @@ footer a{
     font-weight: 500;
 }
 
-#passwordErrorText {
+#passwordErrorText, .emailErrorText {
     font-size: 15px;
     color: red;
     font-weight: 500;

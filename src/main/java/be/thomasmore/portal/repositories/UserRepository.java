@@ -12,6 +12,9 @@ import java.util.Optional;
 public interface UserRepository extends CrudRepository<User, Integer> {
 
 
-    @Query("select u from User u where :username like u.username")
+    @Query("select u from User u where :username like LOWER(u.username)")
     Optional<User> findByUsername (@Param("username") String username);
+
+    @Query("select u from User u where :email like LOWER(u.email)")
+    Optional<User> findByEmail (@Param("email") String email);
 }

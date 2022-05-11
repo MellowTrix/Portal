@@ -1,0 +1,95 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
+    <title>Portal - Admin Dashboard</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-10 offset-1">
+            <div class="row">
+                <div class="col-12 dashboardAnalytics">
+                    <p class="text-center analyticsText">Analytics</p>
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4 mt-auto mb-auto">
+                                    <i class="fa-solid fa-users usersIcon"></i>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mt-auto mb-auto">
+                                        <p class="userCountText mb-0">User count</p>
+                                        <p class="userCountText mb-0">536</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4 mt-auto mb-auto">
+                                    <i class="fa-solid fa-shirt usersIcon"></i>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mt-auto mb-auto">
+                                        <p class="userCountText mb-0">Item count</p>
+                                        <p class="userCountText mb-0">1326</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4 mt-auto mb-auto">
+                                    <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mt-auto mb-auto">
+                                        <p class="userCountText mb-0">Total value</p>
+                                        <p class="userCountText mb-0">€ 27.365,00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <table class="table table-hover my-5">
+                        <thead class="">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Owned item count</th>
+                            <th scope="col">Inventory Value</th>
+                            <th scope="col">Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="" th:each="user : ${users}">
+                            <th class="p-0" scope="row" th:text="${user.username}"></th>
+                            <td class="p-0" th:text="${user.email}"></td>
+                            <td class="p-0"></td>
+                            <td class="p-0"></td>
+                            <td class="p-0" th:text="${user.role}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer">Footer</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

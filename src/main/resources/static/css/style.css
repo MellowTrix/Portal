@@ -364,6 +364,25 @@ footer {
     font-size: 50px;
 }
 
+.dashboardAnalytics {
+    border-radius: 25px;
+    background-color: #FF4591;
+    padding: 1rem;
+}
+
+.dashboardAnalytics .analyticsText {
+    border-bottom: 1px solid white;
+}
+
+.usersIcon {
+    font-size: 7vh;
+    color: white;
+    margin: 2% 7%;
+}
+
+.userCountText {
+    font-size: 35px;
+}
 
 
 

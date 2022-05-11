@@ -24,7 +24,8 @@
                                 <h1>Portal</h1>
                                 <p class="m-0 mb-3">We keep your clothes<br>safe until the metaverse arrives!</p>
                                 <p class="mt-3 mb-3" sec:authorize="isAuthenticated()" th:text="|Welcome back, ${loginName}!|"></p>
-                                <a id="getStartedButton" class="button" th:href="@{(${loginName} == '' ? '/login' : '/logout')}">Get started</a>
+                                <a class="button getStartedButton" sec:authorize="isAnonymous()" th:href="@{/login}">Get started</a>
+                                <a class="button getStartedButton" sec:authorize="isAuthenticated()" th:href="@{/hub}">To the hub!</a>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-4 shirtDiv">

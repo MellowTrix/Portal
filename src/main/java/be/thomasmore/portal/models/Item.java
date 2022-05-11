@@ -4,16 +4,17 @@ import javax.persistence.*;
 
 @Entity
 public class Item {
-@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_generator")
-@SequenceGenerator(name = "item_generator", sequenceName = "item_seq", allocationSize = 1)
-@Id
-private int id;
-private String name;
-//private User creator;
-//private User owner;
-private boolean forSale;
-private double price;
-private String link;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_generator")
+    @SequenceGenerator(name = "item_generator", sequenceName = "item_seq", allocationSize = 1)
+    @Id
+    private int id;
+    private String name;
+    //private User creator;
+    @ManyToOne
+    private User owner;
+    private boolean forSale;
+    private double price;
+    private String link;
 
     public Item() {
     }
@@ -42,13 +43,15 @@ private String link;
 //        this.creator = creator;
 //    }
 //
-//    public User getOwner() {
-//        return owner;
-//    }
-//
-//    public void setOwner(User owner) {
-//        this.owner = owner;
-//    }
+
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
     public boolean isForSale() {
         return forSale;

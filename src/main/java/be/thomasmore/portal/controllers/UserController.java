@@ -13,13 +13,13 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.naming.AuthenticationException;
 import java.security.Principal;
+import java.util.Locale;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/user")
@@ -49,18 +49,53 @@ public class UserController {
         if (principal != null) {
             return "redirect:/home";
         }
-        if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername()).isPresent()) {
+        if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername().toLowerCase(Locale.ROOT)).isPresent()) {
             model.addAttribute("nameError", "The chosen username is unavailable");
+            return "user/register";
+        }
+        if (user.getEmail().equals("") || userRepository.findByEmail(user.getEmail().toLowerCase(Locale.ROOT)).isPresent()) {
+            model.addAttribute("emailError", "The chosen email is unavailable");
             return "user/register";
         }
         String pass = user.getPassword();
         user.setUsername(user.getUsername());
+        user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
         user.setDesignerApplication(user.getDesignerApplication());
         userRepository.save(user);
         autologin(user.getUsername(), pass);
         return "redirect:/home";
+    }
+
+    @PostMapping("/updateProfile/{loginName}")
+    public String updateProfile(Model model, Principal principal, @PathVariable(required = true) String loginName, @RequestParam(required = false) String username,
+                                @RequestParam(required = false) String email) {
+        if (principal == null) {
+            return "redirect:/home";
+        }
+        Optional<User> userFromDb = userRepository.findByUsername(loginName);
+        if (userFromDb.isEmpty()) {
+            return "redirect:/hub";
+        }
+        User user = userFromDb.get();
+        if (!username.isEmpty()) {
+            if (userRepository.findByUsername(username).isPresent() && !username.equals(loginName)) {
+                return "redirect:/hub/nameError";
+            }
+            user.setUsername(username);
+            userRepository.save(user);
+            autologin(user.getUsername(), "password");
+        }
+        if (!email.isEmpty()) {
+            if (userRepository.findByEmail(email).isPresent()) {
+                model.addAttribute("emailError", "The chosen email is unavailable");
+                return "redirect:/hub/emailError";
+            }
+            user.setEmail(email);
+            userRepository.save(user);
+        }
+        return "redirect:/hub";
     }
 
     private void autologin(String userName, String password) {

@@ -1,0 +1,124 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
+    <title>Portal - Hub</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col-10 offset-1">
+            <div class="row">
+                <div class="col-3">
+                    <h1 class="text-center hubTitles">Profile</h1>
+                    <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
+                        <div>
+                            <p class="inventoryStatsText">Username: </p>
+                            <p class="inventoryStatsText" th:text="${user.username}" style="border-bottom: 1px solid white;"></p>
+                        </div>
+                        <div>
+                            <p class="inventoryStatsText">Email: </p>
+                            <p class="inventoryStatsText" th:text="${user.email}" style="border-bottom: 1px solid white;"></p>
+                        </div>
+                        <div>
+                            <p class="inventoryStatsText">Amount of owned items: </p>
+                            <p class="inventoryStatsText" th:text="${ownedItemsCount}" style="border-bottom: 1px solid white;"></p>
+                        </div>
+                        <div>
+                            <p class="inventoryStatsText">Total inventory value: </p>
+                            <p class="inventoryStatsText" th:text="'€ ' + ${inventoryValue}" style="border-bottom: 1px solid white;"></p>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                Edit profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 offset-1">
+                    <h1 class="text-center hubTitles">Inventory</h1>
+                    <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
+                            <div class="col-md-3" th:each="item : ${ownedItems}">
+                                <a th:href="@{#}" style="text-decoration: none; color: black;">
+                                    <div class="card mt-4">
+                                        <div class="card-body">
+                                            <iframe style="margin-top: 10%" th:src="${item.link}" width='100%'
+                                                    height='100%'></iframe>
+                                            <h4 class="card-title" th:text="${item.name}">Title</h4>
+                                            <h6 class="text-muted card-subtitle mb-2"
+                                                th:text="${#numbers.formatCurrency(item.price)}">
+                                                Subtitle</h6>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form th:action="@{|/user/updateProfile/${loginName}|}" th:object="${user}" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Edit profile</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <label for="username">Username</label>
+                        <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Username">
+                        <p class="emailErrorText" th:text="${nameError}" style="display: block"></p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input th:field="*{email}" type="text" class="form-control" id="email" placeholder="Email">
+                        <p class="emailErrorText" th:text="${emailError}" style="display: block"></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/animation.js}"></script>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
+
+<!-- TODO: FIX MODAL POPUP ON PAGE LOAD WHEN NAME OR EMAIL CHANGE GIVES ERROR
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+
+    let nameError = /*[[${nameError}]]*/ 'nameError';
+    let emailError = /*[[${emailError}]]*/ 'emailError';
+    console.log(nameError);
+    console.log(emailError);
+
+    /*]]>*/
+    if (nameError || emailError) {
+        console.log("modal should pop up");
+        $('#myModal').modal('show');
+    }
+</script>-->
+</body>
+</html>

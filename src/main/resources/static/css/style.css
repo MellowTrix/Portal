@@ -289,7 +289,7 @@ footer {
     font-weight: 500;
 }
 
-#passwordErrorText {
+#passwordErrorText, .emailErrorText {
     font-size: 15px;
     color: red;
     font-weight: 500;
@@ -354,6 +354,16 @@ footer {
     font-size: 25px;
 }
 
+.inventoryStatsText {
+    color: black;
+    font-size: 30px;
+}
+
+.hubTitles {
+    color: black;
+    font-size: 50px;
+}
+
 
 
 
@@ -397,7 +407,7 @@ footer {
         font-size: 30px;
     }
 
-    #getStartedButton {
+    .getStartedButton {
         font-size: 25px;
         padding: 15px;
     }

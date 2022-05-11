@@ -124,6 +124,10 @@ p {
     font-size: 2rem;
 }
 
+.studioCollapse {
+    margin-top: 3%;
+}
+
 .bounce {
     animation-name: bounce;
     animation-timing-function: ease-in-out;

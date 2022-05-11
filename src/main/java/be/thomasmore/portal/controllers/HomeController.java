@@ -35,4 +35,8 @@ public class HomeController {
     public String logout(Model model) {
         return "logout";
     }
+
+    @GetMapping({"/contact"})
+    public String contact(Model model) { return "contact";}
+
 }

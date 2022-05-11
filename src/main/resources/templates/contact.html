@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>l:
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
+    <title>Portal - AboutUs</title>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header">Header</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col text-center" style="background-color: #2c3034">
+                    <img class="mt-5 mx-auto img-fluid"  th:src="@{/img/logoColor.png}" alt="Logo">
+                    <div class="mt-5">
+                        <h1>Contact Us</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="bounce col-lg-4 offset-lg-4 justify-content-center">
+                <h4>Scroll down</h4>
+                <i class="fa-solid fa-angles-down" style="font-size: 7vh"></i>
+            </div>
+
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <h1 class="text-black"><i class="fas fa-home mr-3"></i> Adress</h1>
+                    <h2>New York, NY 10012, US</h2>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <h1 class="text-black"><i class="fas fa-envelope mr-3"></i> E-mail</h1>
+                    <h2>info@gmail.com</h2>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <h1 class="text-black"><i class="fas fa-phone mr-3"></i> Telephone</h1>
+                    <h2>+01 23 45 67 89</h2>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+            <hr class="featurette-divider">
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer">Footer</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/animation.js}"></script>
+</body>
+</html>

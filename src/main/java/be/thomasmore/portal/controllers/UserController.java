@@ -14,6 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.naming.AuthenticationException;
 import java.security.Principal;
@@ -49,16 +50,10 @@ public class UserController {
             return "redirect:/home";
         }
         if (user.getUsername().equals("") || userRepository.findByUsername(user.getUsername().toLowerCase(Locale.ROOT)).isPresent()) {
-            logger.info("=================================");
-            logger.info("username error");
-            logger.info("=================================");
             model.addAttribute("nameError", "The chosen username is unavailable");
             return "user/register";
         }
         if (user.getEmail().equals("") || userRepository.findByEmail(user.getEmail().toLowerCase(Locale.ROOT)).isPresent()) {
-            logger.info("=================================");
-            logger.info("email error");
-            logger.info("=================================");
             model.addAttribute("emailError", "The chosen email is unavailable");
             return "user/register";
         }
@@ -74,20 +69,31 @@ public class UserController {
     }
 
     @PostMapping("/updateProfile/{loginName}")
-    public String updateProfile(Model model, Principal principal, @PathVariable(required = true) String loginName, @RequestParam(required = false) String username) {
+    public String updateProfile(Model model, Principal principal, @PathVariable(required = true) String loginName, @RequestParam(required = false) String username,
+                                @RequestParam(required = false) String email) {
         if (principal == null) {
             return "redirect:/home";
         }
+        Optional<User> userFromDb = userRepository.findByUsername(loginName);
+        if (userFromDb.isEmpty()) {
+            return "redirect:/hub";
+        }
+        User user = userFromDb.get();
         if (!username.isEmpty()) {
-            if (userRepository.findByUsername(username).isPresent()) {
-                model.addAttribute("nameError", "The chosen username is unavailable");
-                return "redirect:/hub";
+            if (userRepository.findByUsername(username).isPresent() && !username.equals(loginName)) {
+                return "redirect:/hub/nameError";
             }
-            Optional<User> userFromDb = userRepository.findByUsername(loginName);
-            User user = userFromDb.get();
             user.setUsername(username);
             userRepository.save(user);
             autologin(user.getUsername(), "password");
+        }
+        if (!email.isEmpty()) {
+            if (userRepository.findByEmail(email).isPresent()) {
+                model.addAttribute("emailError", "The chosen email is unavailable");
+                return "redirect:/hub/emailError";
+            }
+            user.setEmail(email);
+            userRepository.save(user);
         }
         return "redirect:/hub";
     }

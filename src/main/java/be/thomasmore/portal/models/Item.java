@@ -13,6 +13,7 @@ private String name;
 //private User owner;
 private boolean forSale;
 private double price;
+private String color;
 private String link;
 
     public Item() {
@@ -64,6 +65,14 @@ private String link;
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getLink() {

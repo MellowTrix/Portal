@@ -14,6 +14,7 @@ public class Item {
     private User owner;
     private boolean forSale;
     private double price;
+    private String color;
     private String link;
 
     public Item() {
@@ -67,6 +68,14 @@ public class Item {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getLink() {

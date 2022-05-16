@@ -11,6 +11,7 @@ public class ContactMessage {
     private String name;
     private String email;
     private String subject;
+    @Column(length = 2500)
     private String message;
 
     public ContactMessage() {

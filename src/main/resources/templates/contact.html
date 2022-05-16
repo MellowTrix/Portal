@@ -36,11 +36,11 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input th:field="*{name}" type="text" class="contactInput" id="name" name="name" placeholder="Your name">
+                                        <input th:field="*{name}" type="text" class="contactInput" id="name" name="name" placeholder="Your name" onkeyup="checkName()">
                                         <label for="name"></label>
                                     </div>
                                     <div class="col-6">
-                                        <input th:field="*{email}" type="text" class="contactInput" id="email" name="email" placeholder="Your email">
+                                        <input th:field="*{email}" type="text" class="contactInput" id="email" name="email" placeholder="Your email" onkeyup="checkEmail()">
                                         <label for="email"></label>
                                     </div>
                                     <div class="col-12">
@@ -79,5 +79,62 @@
 <div th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/animation.js}"></script>
+<script>
+    const submit = document.getElementById("submit");
+
+    const enableSubmitCheck = () => {
+        checkUsername();
+        checkEmail();
+        checkPassword();
+        if (checkUsername() && checkEmail() && checkPassword()) {
+            submit.removeAttribute("disabled");
+            submit.classList.remove("loginButtonDisabled");
+            submit.classList.add("loginButton");
+        } else {
+            submit.classList.remove("loginButton");
+            submit.classList.add("loginButtonDisabled");
+            submit.setAttribute("disabled", "disabled");
+        }
+    }
+    const checkName = () => {
+        let userName = document.getElementById("name").value;
+        if (userName === '') {
+            submit.setAttribute("disabled", "disabled");
+            return false
+        } else {
+            submit.removeAttribute("disabled");
+            return true
+        }
+    }
+
+    const checkEmail = () => {
+        let email = document.getElementById("email").value;
+        let error = document.getElementById("emailValidationText");
+        if (email === '' || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            error.style.display = "block";
+            submit.setAttribute("disabled", "disabled");
+            return false
+        } else {
+            error.style.display = "none";
+            submit.removeAttribute("disabled");
+            return true
+        }
+    }
+
+    const checkPassword = () => {
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        let error = document.getElementById("passwordErrorText");
+        if (password !== confirmPassword || password === '') {
+            error.style.display = "block";
+            submit.setAttribute("disabled", "disabled");
+            return false
+        } else {
+            error.style.display = "none";
+            submit.removeAttribute("disabled");
+            return true
+        }
+    }
+</script>
 </body>
 </html>

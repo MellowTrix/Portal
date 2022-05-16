@@ -53,10 +53,10 @@
 
                             <fieldset class="form-group border p-3 mt-4">
                                 <legend class="w-auto px-2">Price Range</legend>
-                                <input type="range" min="0" th:value="${min}" class="slider" id="minRange" name="minPrice">
-                                <label>Min: <span id="minPrice"></span></label>
-                                <input type="range" th:max="${highestPrice}" th:value="${max}" class="maxslider" id="maxRange" name="maxPrice">
-                                <label>Max: <span id="maxPrice"></span></label>
+                                <input type="range" min="0" th:max="${max}" th:value="${min}" class="slider" id="minRange" name="minPrice">
+                                <label class="form-check-label">Min: <span id="minPrice"></span></label>
+                                <input type="range" th:max="${highestPrice}" th:value="${max}" class="slider" id="maxRange" name="maxPrice">
+                                <label class="form-check-label">Max: <span id="maxPrice"></span></label>
                             </fieldset>
 
                             <fieldset class="form-group border p-3 mt-4">

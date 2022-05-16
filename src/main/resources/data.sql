@@ -7,7 +7,7 @@ VALUES (nextval('user_sequence'), 'Sofie', '$2a$10$B34UYAqFJQDvSvVnYO7TF.0DaFoHS
 
 ---------------------------------------------------------------------
 
-insert into Item (id, name, for_sale, price, color, link, owner_id) values (nextval('item_seq'), 'Portal T-Shirt', true, 20, 'Black', 'https://my.spline.design/tshirtbodymaledarkcopy-81a74bc5f70ad55c1c341e14b98ee3aa/', 2);
+insert into Item (id, name, for_sale, price, color, link, owner_id) values (nextval('item_seq'), 'Portal T-Shirt', true, 999.99, 'Black', 'https://my.spline.design/tshirtbodymaledarkcopy-81a74bc5f70ad55c1c341e14b98ee3aa/', 2);
 insert into Item (id, name, for_sale, price, color, link, owner_id) values (nextval('item_seq'), 'Black Hoodie', true, 60, 'Black', 'https://my.spline.design/hoodiedarkcopy-171ef111a9158ac493f588dcf10aaf8b/', 2);
 insert into Item (id, name, for_sale, price, color, link, owner_id) values (nextval('item_seq'), 'Yellow Hoodie', true, 90, 'Yellow', 'https://my.spline.design/hoodiedarkcopycopy-1e155e9a515cdf4a5497e98088b95691/', 2);
 insert into Item (id, name, for_sale, price, color, link, owner_id) values (nextval('item_seq'), 'Green Hoodie', true, 10, 'Green', 'https://my.spline.design/hoodiedarkcopycopy-c46af14d6d6f2d7d5dc077c21cb6b31e/', 2);

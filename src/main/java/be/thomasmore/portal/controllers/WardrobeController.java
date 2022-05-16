@@ -49,6 +49,10 @@ public class WardrobeController {
         for (Item i : ownedItemList) {
             inventoryValue += i.getPrice();
         }
+        if (minPrice== null && maxPrice == null) {
+            minPrice = 0.0;
+            maxPrice = Math.round(getHighestPrice()) + 0.0;
+        }
 
         model.addAttribute("loginName", username);
         model.addAttribute("user", user);
@@ -58,7 +62,7 @@ public class WardrobeController {
         model.addAttribute("search", search);
         model.addAttribute("min", minPrice);
         model.addAttribute("max", maxPrice);
-        model.addAttribute("highestPrice", getHighestPrice());
+        model.addAttribute("highestPrice", Math.round(getHighestPrice()) + 0.0);
         model.addAttribute("color", color);
         return "wardrobe";
     }

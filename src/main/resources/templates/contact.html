@@ -26,7 +26,7 @@
         <div class="col-10 offset-1">
             <div class="row" style="border: 1px solid lightgray; margin-top: 3%">
                 <div class="col-12">
-                    <form>
+                    <form th:action="@{|/contact|}" th:object="${contactmessage}" method="post">
                         <div class="row">
                             <div class="col-8 offset-2">
                                 <p class="text-center text-dark" style="font-size: 35px">Do you have any questions? Feel free to fill in the form below or contact our team directly.</p>
@@ -36,19 +36,19 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="contactInput" id="name" name="name" placeholder="Your name">
+                                        <input th:field="*{name}" type="text" class="contactInput" id="name" name="name" placeholder="Your name" onkeyup="enableSubmitCheck()">
                                         <label for="name"></label>
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="contactInput" id="email" name="email" placeholder="Your email">
+                                        <input th:field="*{email}" type="text" class="contactInput" id="email" name="email" placeholder="Your email" onkeyup="enableSubmitCheck()">
                                         <label for="email"></label>
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="contactInput mt-4" id="subject" name="subject" placeholder="Subject">
+                                        <input th:field="*{subject}" type="text" class="contactInput mt-4" id="subject" name="subject" placeholder="Subject" onkeyup="enableSubmitCheck()">
                                         <label for="subject"></label>
-
-                                        <textarea type="text" class="contactInput mt-4" id="message" name="message" placeholder="Your message" rows="2"></textarea>
-                                        <label for="message"></label>
+                                        <textarea th:field="*{message}" type="text" class="contactInput mt-4" id="message" name="message" placeholder="Your message" rows="3" onkeyup="enableSubmitCheck()"></textarea>
+                                        <label for="message" style="display: none"></label>
+                                        <p id="characterCount" class="characterCountText text-end"></p>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,8 @@
                                 </div>
                             </div>
                         </div>
-                        <input class="contactSubmit" value="submit" type="submit">
+                        <p id="errorText" class="emailErrorText">Some fields are not filled in correctly!</p>
+                        <input class="contactSubmitDisabled" id="submit" value="submit" type="submit" disabled>
                     </form>
                 </div>
             </div>
@@ -79,5 +80,51 @@
 <div th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/animation.js}"></script>
+<script>
+    const submit = document.getElementById("submit");
+    const error = document.getElementById("errorText");
+
+    const enableSubmitCheck = () => {
+        checkName();
+        checkEmail();
+        checkSubject();
+        checkMessage();
+        if (checkName() && checkEmail() && checkSubject() && checkMessage()) {
+            submit.removeAttribute("disabled");
+            submit.classList.remove("contactSubmitDisabled");
+            submit.classList.add("contactSubmit");
+            error.style.display = "none";
+        } else {
+            submit.classList.remove("contactSubmit");
+            submit.classList.add("contactSubmitDisabled");
+            submit.setAttribute("disabled", "disabled");
+            error.style.display = "block";
+        }
+    }
+    const checkName = () => {
+        let name = document.getElementById("name").value;
+        return (name !== '');
+    }
+
+    const checkEmail = () => {
+        let email = document.getElementById("email").value;
+        return !(email === '' || !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email));
+    }
+
+    const checkSubject = () => {
+        let subject = document.getElementById("subject").value;
+        return (subject !== '');
+    }
+
+    const checkMessage = () => {
+        let message = document.getElementById("message").value;
+        const characterCount =  document.getElementById("characterCount");
+        document.getElementById("characterCount").innerHTML = `Characters left: ${2500 - message.length}`;
+        (2500 - message.length < 0 ? characterCount.style.color = "red" : characterCount.style.color = "#6e6e6e");
+
+        console.log(message.length);
+        return (message !== '' && message.length <= 2500);
+    }
+</script>
 </body>
 </html>

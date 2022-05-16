@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/admin")
@@ -30,4 +32,15 @@ public class AdminController {
         return "admin/dashboard";
     }
 
+    @GetMapping("/contactdetails/{id}")
+    public String contactdetails(Model model, @PathVariable Integer id) {
+        Optional<ContactMessage> messageFromDb = contactMessageRepository.findById(id);
+        if (messageFromDb.isPresent()) {
+            ContactMessage message = messageFromDb.get();
+            model.addAttribute("message", message);
+        } else {
+            return "redirect:/admin/dashboard";
+        }
+        return "admin/contactdetails";
+    }
 }

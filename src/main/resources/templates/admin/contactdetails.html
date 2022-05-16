@@ -13,16 +13,33 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header">Header</div>
-<div class="container-fluid">
+<div class="container-fluid content">
     <div class="row mt-5">
         <div class="col-10 offset-1">
             <div class="row">
-
+                <div class="col-3">
+                    <p class="smallerParaBlack" th:text="|Name: ${message.name}|"></p>
+                </div>
+                <div class="col-9">
+                    <p class="smallerParaBlack" th:text="|Email: ${message.email}|"></p>
+                </div>
+                <div class="col-12">
+                    <p class="smallerParaBlack" th:text="|Subject: ${message.subject}|"></p>
+                </div>
+                <div class="col-12">
+                    <p class="smallerParaBlack" th:text="|Message: ${message.message}|"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">Footer</div>
+<div class="footer" th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

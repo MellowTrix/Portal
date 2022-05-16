@@ -36,7 +36,4 @@ public class HomeController {
         return "logout";
     }
 
-    @GetMapping({"/contact"})
-    public String contact(Model model) { return "contact";}
-
 }

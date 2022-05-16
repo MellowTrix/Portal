@@ -26,7 +26,7 @@
         <div class="col-10 offset-1">
             <div class="row" style="border: 1px solid lightgray; margin-top: 3%">
                 <div class="col-12">
-                    <form>
+                    <form th:action="@{|/contact|}" th:object="${contactmessage}" method="post">
                         <div class="row">
                             <div class="col-8 offset-2">
                                 <p class="text-center text-dark" style="font-size: 35px">Do you have any questions? Feel free to fill in the form below or contact our team directly.</p>
@@ -36,18 +36,18 @@
                             <div class="col-8">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="contactInput" id="name" name="name" placeholder="Your name">
+                                        <input th:field="*{name}" type="text" class="contactInput" id="name" name="name" placeholder="Your name">
                                         <label for="name"></label>
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="contactInput" id="email" name="email" placeholder="Your email">
+                                        <input th:field="*{email}" type="text" class="contactInput" id="email" name="email" placeholder="Your email">
                                         <label for="email"></label>
                                     </div>
                                     <div class="col-12">
-                                        <input type="text" class="contactInput mt-4" id="subject" name="subject" placeholder="Subject">
+                                        <input th:field="*{subject}" type="text" class="contactInput mt-4" id="subject" name="subject" placeholder="Subject">
                                         <label for="subject"></label>
 
-                                        <textarea type="text" class="contactInput mt-4" id="message" name="message" placeholder="Your message" rows="2"></textarea>
+                                        <textarea th:field="*{message}" type="text" class="contactInput mt-4" id="message" name="message" placeholder="Your message" rows="2"></textarea>
                                         <label for="message"></label>
                                     </div>
                                 </div>

@@ -32,3 +32,8 @@ insert into Item (id, name, for_sale, price, color, link) values (nextval('item_
 insert into Item (id, name, for_sale, price, color, link) values (nextval('item_seq'), 'Yellow T-Shirt', true, 1, 'Yellow', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopy-c9daef5c83ccca8250c18e5407275eb7/');
 insert into Item (id, name, for_sale, price, color, link) values (nextval('item_seq'), 'Green T-Shirt', true, 1, 'Green', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopycopy-0252fcd5e92ea09f67b1070dc533eaa2/');
 insert into Item (id, name, for_sale, price, color, link) values (nextval('item_seq'), 'White T-Shirt', true, 1, 'White', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopycopycopy-e37856f0ea297a87ecb5f9ce53233ff5/');
+
+INSERT INTO CONTACT_MESSAGE (ID, NAME, EMAIL, SUBJECT, MESSAGE)
+VALUES (nextval('contactmessage_seq'), 'testname', 'testmail', 'testsubject', 'oogabooga');
+INSERT INTO CONTACT_MESSAGE (ID, NAME, EMAIL, SUBJECT, MESSAGE)
+VALUES (nextval('contactmessage_seq'), 'testname2', 'testmail2', 'testsubject2', 'oogabooga2');

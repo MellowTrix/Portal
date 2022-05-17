@@ -14,6 +14,9 @@ public class User {
     private String email;
     private String role;
     private Boolean designerApplication;
+    private Boolean subscribed;
+
+    private Integer monthsSubscribed;
 
     public User() {
     }
@@ -65,4 +68,22 @@ public class User {
     public void setDesignerApplication(Boolean designerApplication) {
         this.designerApplication = designerApplication;
     }
+
+    public Boolean getSubscribed() {
+        return subscribed;
+    }
+
+    public void setSubscribed(Boolean subscriberApplication) {
+        this.subscribed = subscriberApplication;
+    }
+
+    public Integer getMonthsSubscribed() {
+        return monthsSubscribed;
+    }
+
+    public void setMonthsSubscribed(Integer monthsSubscribed) {
+        this.monthsSubscribed = monthsSubscribed;
+    }
+
+
 }

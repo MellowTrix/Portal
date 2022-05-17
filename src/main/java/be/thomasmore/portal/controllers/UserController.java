@@ -14,9 +14,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.naming.AuthenticationException;
 import java.security.Principal;
 import java.util.Locale;
 import java.util.Optional;
@@ -109,5 +107,23 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @GetMapping("/subscribe")
+    public String subscribe(Model model, Principal principal) {
+        if (principal != null) {
+            return "redirect:/home";
+        }
+        return "user/subscribe";
+    }
+
+    @PostMapping("/subscribe")
+    public String subscribe(Model model, @ModelAttribute("user") User user, Principal principal) {
+        if (principal != null) {
+            return "redirect:/home";
+        }
+        Boolean sub = user.getSubscribed();
+        user.setSubscribed(sub);
+        return "user/subscribe";
     }
 }

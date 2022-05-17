@@ -36,12 +36,12 @@
                         <p class="smallerParaBlack" th:text="|Message: ${message.message}|"></p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row mt-5">
                     <div class="col">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="replyMessage"></textarea>
+                        <label for="exampleFormControlTextarea1">Type reply here</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="replyMessage"></textarea>
+                        <input id="submit" class="loginButton mt-3 float-end" type="submit" value="Send">
                     </div>
-                        <input id="submit" class="loginButtonDisabled" type="submit" value="Send">
                 </div>
             </form>
         </div>

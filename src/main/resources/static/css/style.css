@@ -458,8 +458,28 @@ footer {
     margin-bottom: 0.5%;
 }
 
+.itemInfo{
+    margin-top: 50px;
+    background-color: #CEEEF4;
+    border-radius: 20px;
+    max-width: 400px;
+    padding: 30px;
+    margin: auto;
+}
+
+.infoLine{
+    margin: 25px 0;
+}
+
+.infoLine input{
+    border-color: #FF4591;
+}
+
+
 .itemInfo label{
     color: black;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 

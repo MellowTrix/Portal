@@ -43,6 +43,7 @@ public class DesignerController {
         logger.info(String.valueOf(user.getId()));
         final String loginName = (principal != null) ? principal.getName() : "";
         logger.info("ItemNew");
+        model.addAttribute("role",user.getRole());
         model.addAttribute("login", loginName);
         model.addAttribute("item", new Item());
         return "studio";

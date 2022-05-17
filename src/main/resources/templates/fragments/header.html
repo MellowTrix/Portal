@@ -25,9 +25,11 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/hub}">HUB</a>
                     </li>
+                    <div th:if="'DESIGNER' == ${role}">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/studio}">STUDIO</a>
                     </li>
+                    </div>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/aboutUs}">ABOUT</a>
                     </li>

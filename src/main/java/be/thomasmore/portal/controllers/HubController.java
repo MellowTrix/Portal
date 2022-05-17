@@ -64,6 +64,7 @@ public class HubController {
         model.addAttribute("ownedItems", ownedItemList);
         model.addAttribute("ownedItemsCount", ownedItemList.size());
         model.addAttribute("inventoryValue", inventoryValue);
+        model.addAttribute("role", user.getRole());
         return "hub";
     }
 }

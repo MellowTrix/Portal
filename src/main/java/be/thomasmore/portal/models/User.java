@@ -1,7 +1,11 @@
 package be.thomasmore.portal.models;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 public class User {
@@ -13,10 +17,11 @@ public class User {
     private String password;
     private String email;
     private String role;
-    private Boolean designerApplication;
     private Boolean subscribed;
-
-    private Integer monthsSubscribed;
+    private int monthsSubscribed;
+    private Boolean freeTrialAvailable;
+    @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
+    private Date subscriptionEndDate;
 
     public User() {
     }
@@ -61,14 +66,6 @@ public class User {
         this.role = role;
     }
 
-    public Boolean getDesignerApplication() {
-        return designerApplication;
-    }
-
-    public void setDesignerApplication(Boolean designerApplication) {
-        this.designerApplication = designerApplication;
-    }
-
     public Boolean getSubscribed() {
         return subscribed;
     }
@@ -85,5 +82,23 @@ public class User {
         this.monthsSubscribed = monthsSubscribed;
     }
 
+    public void setMonthsSubscribed(int monthsSubscribed) {
+        this.monthsSubscribed = monthsSubscribed;
+    }
 
+    public Boolean getFreeTrialAvailable() {
+        return freeTrialAvailable;
+    }
+
+    public void setFreeTrialAvailable(Boolean freeTrialAvailable) {
+        this.freeTrialAvailable = freeTrialAvailable;
+    }
+
+    public Date getSubscriptionEndDate() {
+        return subscriptionEndDate;
+    }
+
+    public void setSubscriptionEndDate(Date subscriptionEndDate) {
+        this.subscriptionEndDate = subscriptionEndDate;
+    }
 }

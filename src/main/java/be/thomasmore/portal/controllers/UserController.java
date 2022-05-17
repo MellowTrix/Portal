@@ -60,7 +60,6 @@ public class UserController {
         user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
-        user.setDesignerApplication(user.getDesignerApplication());
         userRepository.save(user);
         autologin(user.getUsername(), pass);
         return "redirect:/home";

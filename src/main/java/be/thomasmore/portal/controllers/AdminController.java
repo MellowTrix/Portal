@@ -50,12 +50,11 @@ public class AdminController {
 
     @PostMapping("/replyEmail")
     public String replyEmail(@ModelAttribute("message") ContactMessage message, @RequestParam(required = false) String replyMessage) {
-        logger.info("=============================");
-        logger.info(message.getEmail());
-        logger.info("=============================");
-        logger.info(message.getSubject());
-        logger.info("=============================");
+        if (contactMessageRepository.findById(message.getId()).isEmpty()) {
+            return "redirect:/admin/dashboard";
+        }
         emailService.sendSimpleMessage(message.getEmail(), "RE: " + message.getSubject(), replyMessage);
+        contactMessageRepository.delete(contactMessageRepository.findById(message.getId()).get());
         return "redirect:/home";
     }
 }

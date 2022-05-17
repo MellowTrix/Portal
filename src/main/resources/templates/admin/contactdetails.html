@@ -21,6 +21,8 @@
                     <div class="col-3">
                         <input th:field="*{name}" class="displayNone">
                         <p class="smallerParaBlack" th:text="|Name: ${message.name}|"></p>
+                        <input th:field="*{id}" class="displayNone">
+                        <p class="smallerParaBlack" th:text="|Id: ${message.id}|"></p>
                     </div>
                     <div class="col-9">
                         <input th:field="*{email}" class="displayNone">

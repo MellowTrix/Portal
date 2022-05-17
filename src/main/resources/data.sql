@@ -34,6 +34,6 @@ insert into Item (id, name, for_sale, price, color, link) values (nextval('item_
 insert into Item (id, name, for_sale, price, color, link) values (nextval('item_seq'), 'White T-Shirt', true, 1, 'White', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopycopycopy-e37856f0ea297a87ecb5f9ce53233ff5/');
 
 INSERT INTO CONTACT_MESSAGE (ID, NAME, EMAIL, SUBJECT, MESSAGE)
-VALUES (nextval('contactmessage_seq'), 'Robbe', 'robbe.uytdenhouwen@gmail.com', 'testsubject', 'oogabooga');
+VALUES (nextval('contactmessage_seq'), 'Robbe', 'robbe.uytdenhouwen@gmail.com', 'Password change', 'Hi, i was wondering if it would be possible to change my password.');
 INSERT INTO CONTACT_MESSAGE (ID, NAME, EMAIL, SUBJECT, MESSAGE)
-VALUES (nextval('contactmessage_seq'), 'testname2', 'testmail2', 'testsubject2', 'oogabooga2');
+VALUES (nextval('contactmessage_seq'), 'Robbe', 'robbe.uytdenhouwen@gmail.com', 'Question subscription', 'Hi, could you tell me what the benefits are of subscribing to Portal?');

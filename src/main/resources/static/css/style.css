@@ -463,6 +463,10 @@ footer {
     font-size: 30px;
 }
 
+.displayNone {
+    display: none;
+}
+
 
 
 /* RESPONSIVE CSS

@@ -16,26 +16,32 @@
 <div class="container-fluid content">
     <div class="row mt-5">
         <div class="col-10 offset-1">
-            <div class="row">
-                <div class="col-3">
-                    <p class="smallerParaBlack" th:text="|Name: ${message.name}|"></p>
+            <form th:action="@{|/admin/replyEmail|}" th:object="${message}" method="post">
+                <div class="row">
+                    <div class="col-3">
+                        <input th:field="*{name}" class="displayNone">
+                        <p class="smallerParaBlack" th:text="|Name: ${message.name}|"></p>
+                    </div>
+                    <div class="col-9">
+                        <input th:field="*{email}" class="displayNone">
+                        <p class="smallerParaBlack" th:text="|Email: ${message.email}|"></p>
+                    </div>
+                    <div class="col-12">
+                        <input th:field="*{subject}" class="displayNone">
+                        <p class="smallerParaBlack" th:text="|Subject: ${message.subject}|"></p>
+                    </div>
+                    <div class="col-12">
+                        <p class="smallerParaBlack" th:text="|Message: ${message.message}|"></p>
+                    </div>
                 </div>
-                <div class="col-9">
-                    <p class="smallerParaBlack" th:text="|Email: ${message.email}|"></p>
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="replyMessage"></textarea>
+                    </div>
+                        <input id="submit" class="loginButtonDisabled" type="submit" value="Send">
                 </div>
-                <div class="col-12">
-                    <p class="smallerParaBlack" th:text="|Subject: ${message.subject}|"></p>
-                </div>
-                <div class="col-12">
-                    <p class="smallerParaBlack" th:text="|Message: ${message.message}|"></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label for="exampleFormControlTextarea1">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

@@ -4,14 +4,14 @@ import be.thomasmore.portal.models.ContactMessage;
 import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.ContactMessageRepository;
 import be.thomasmore.portal.repositories.UserRepository;
+import be.thomasmore.portal.mail.EmailService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -21,7 +21,11 @@ public class AdminController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    ContactMessageRepository contactMessageRepository;
+    private ContactMessageRepository contactMessageRepository;
+    @Autowired
+    public EmailService emailService;
+
+    private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
@@ -42,5 +46,16 @@ public class AdminController {
             return "redirect:/admin/dashboard";
         }
         return "admin/contactdetails";
+    }
+
+    @PostMapping("/replyEmail")
+    public String replyEmail(@ModelAttribute("message") ContactMessage message, @RequestParam(required = false) String replyMessage) {
+        logger.info("=============================");
+        logger.info(message.getEmail());
+        logger.info("=============================");
+        logger.info(message.getSubject());
+        logger.info("=============================");
+        emailService.sendSimpleMessage(message.getEmail(), "RE: " + message.getSubject(), replyMessage);
+        return "redirect:/home";
     }
 }

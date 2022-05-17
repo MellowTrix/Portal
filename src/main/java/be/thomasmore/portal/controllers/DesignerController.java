@@ -43,6 +43,7 @@ public class DesignerController {
         String username = principal.getName();
         Optional<User> userFromDb = userRepository.findByUsername(username);
         User user = userFromDb.get();
+        logger.info(String.valueOf(user.getId()));
         model.addAttribute("userID", user.getId());
         final String loginName = (principal != null) ? principal.getName() : "";
         logger.info("ItemNew");

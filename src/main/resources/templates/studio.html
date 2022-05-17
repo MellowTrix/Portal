@@ -65,36 +65,37 @@
                 </div>
             </div>
         </div>
+            <div class="col-lg-6 offset-lg-3 justify-content-center text-dark">
         <form class="text-white" th:action="@{|/studio|}" method="post" th:object="${item}">
 
-            <div class="venueinfo">
+            <div class="itemInfo">
                 <div class="infoLine mb-2">
-                    <label for="itemName" class="infoLineName">Item Name: </label>
+                    <label for="itemName" class="infoLineName">Item Name: </label><br>
                     <input id="itemName" th:field="*{name}" class="infoLineValue">
                 </div>
                 <br><br>
                 <div class="infoLine mb-2">
-                    <label for="owner" class="infoLineName">Owner: </label>
-                    <input id="owner" th:field="*{owner}" th:value="${userID}" disabled class="infoLineValue">
+                    <label for="owner" class="infoLineName">Owner: </label><br>
+                    <input id="owner" th:field="*{owner}" class="infoLineValue">
                 </div>
                 <br><br>
                 <div class="infoLine mb-2">
-                    <label for="forSale" class="infoLineName">For Sale(yes or no) </label>
+                    <label for="forSale" class="infoLineName">For Sale(false or true) </label><br>
                     <input id="forSale" th:field="*{forSale}" class="infoLineValue">
                 </div>
                 <br><br>
                 <div class="infoLine mb-2">
-                    <label for="price" class="infoLineName">Price: </label>
+                    <label for="price" class="infoLineName">Price: </label><br>
                     <input id="price" th:field="*{price}" class="infoLineValue">
                 </div>
                 <br><br>
                 <div class="infoLine mb-2">
-                    <label for="color" class="infoLineName">Color: </label>
+                    <label for="color" class="infoLineName">Color: </label><br>
                     <input id="color" th:field="*{color}" class="infoLineValue">
                 </div>
                 <br><br>
                 <div class="infoLine mb-2">
-                    <label for="link" class="infoLineName">Link: </label>
+                    <label for="link" class="infoLineName">Link: </label><br>
                     <input id="link" th:field="*{link}" class="infoLineValue">
                 </div>
                 <div class="infoLine">
@@ -102,6 +103,7 @@
                 </div>
             </div>
         </form>
+            </div>
     </div>
 </div>
 <div class="bottom-0" th:replace="fragments/footer :: footer">Footer</div>

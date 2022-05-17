@@ -28,7 +28,7 @@ public class DesignerController {
 
     final Logger logger = LoggerFactory.getLogger(DesignerController.class);
 
-    @GetMapping({"/studio"})
+    @GetMapping("/studio")
     public String studio(Model model, @PathVariable(required = false) String error, Principal principal) {
         if (principal == null) {
             return "redirect:/home";
@@ -44,12 +44,6 @@ public class DesignerController {
         Optional<User> userFromDb = userRepository.findByUsername(username);
         User user = userFromDb.get();
         model.addAttribute("userID", user.getId());
-
-        return "studio";
-    }
-
-    @GetMapping("/studio")
-    public String ItemNew(Model model, Principal principal) {
         final String loginName = (principal != null) ? principal.getName() : "";
         logger.info("ItemNew");
         model.addAttribute("login", loginName);

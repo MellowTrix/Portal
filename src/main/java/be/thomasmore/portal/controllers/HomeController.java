@@ -16,10 +16,6 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping({"/studio"})
-    public String hub(Model model) {
-        return "studio";
-    }
 
     @GetMapping({"/aboutUs"})
     public String aboutUs(Model model) {

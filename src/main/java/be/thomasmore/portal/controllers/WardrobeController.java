@@ -31,7 +31,7 @@ public class WardrobeController {
     @GetMapping({"/wardrobe", "/wardrobe/{error}"})
     public String home(Model model, @PathVariable(required = false) String error,  @RequestParam(required = false) String search, @RequestParam(required = false) Double minPrice, @RequestParam(required = false) Double maxPrice, @RequestParam(required = false) List<String> color,Principal principal) {
         if (principal == null) {
-            return "redirect:/home";
+            return "redirect:/login";
         }
         if (error != null) {
             if (error.equals("nameError")) {

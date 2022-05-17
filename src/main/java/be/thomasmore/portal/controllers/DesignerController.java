@@ -29,22 +29,18 @@ public class DesignerController {
     final Logger logger = LoggerFactory.getLogger(DesignerController.class);
 
     @GetMapping("/studio")
-    public String studio(Model model, @PathVariable(required = false) String error, Principal principal) {
-        if (principal == null) {
-            return "redirect:/home";
-        }
-        if (error != null) {
-            if (error.equals("nameError")) {
-                model.addAttribute("nameError", "Chosen username is unavailable");
-            } else if (error.equals("emailError")) {
-                model.addAttribute("emailError", "Chosen email is unavailable");
-            }
-        }
+    public String studio(Model model, Principal principal) {
         String username = principal.getName();
         Optional<User> userFromDb = userRepository.findByUsername(username);
         User user = userFromDb.get();
+        if (principal == null) {
+            return "redirect:/home";
+        }
+        if (user.getRole().equals("USER")){
+            return "redirect:/home";
+        }
+
         logger.info(String.valueOf(user.getId()));
-        model.addAttribute("userID", user.getId());
         final String loginName = (principal != null) ? principal.getName() : "";
         logger.info("ItemNew");
         model.addAttribute("login", loginName);
@@ -54,9 +50,15 @@ public class DesignerController {
 
     @PostMapping("/studio")
     public String ItemNewPost(Model model,
-                             @ModelAttribute("item") Item item) {
+                              @ModelAttribute("item") Item item, Principal principal) {
+        if (userRepository.findByUsername(principal.getName()).isEmpty()) {
+            return "redirect:/home";
+        }
+        User user = userRepository.findByUsername(principal.getName()).get();
         logger.info("mapNewPost -- new name=" + item.getName());
-        Item newItem = itemRepository.save(item);
+        item.setOwner(user);
+        itemRepository.save(item);
+
         return "redirect:/hub/";
     }
 }

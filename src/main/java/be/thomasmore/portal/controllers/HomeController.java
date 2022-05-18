@@ -23,9 +23,6 @@ public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping({"/", "/home"})

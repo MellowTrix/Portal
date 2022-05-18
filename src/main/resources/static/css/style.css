@@ -500,7 +500,8 @@ footer a{
     margin: 25px 0;
 }
 
-.infoLine input{
+.infoLine input,select{
+    min-width: 250px;
     border-color: #FF4591;
 }
 

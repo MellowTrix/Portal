@@ -25,7 +25,7 @@
                                 <p class="m-0 mb-3">We keep your clothes<br>safe until the metaverse arrives!</p>
                                 <p class="mt-3 mb-3" sec:authorize="isAuthenticated()" th:text="|Welcome back, ${loginName}!|"></p>
                                 <a class="button getStartedButton" sec:authorize="isAnonymous()" th:href="@{/login}">Get started</a>
-                                <a class="button getStartedButton" sec:authorize="isAuthenticated()" th:href="@{/hub}">To the hub!</a>
+                                <a class="button getStartedButton" sec:authorize="isAuthenticated()" th:href="@{/wardrobe}">To the hub!</a>
                                 <a class="button getStartedButton" sec:authorize="hasAnyAuthority('ADMIN')" th:href="@{/admin/dashboard}">Admin dashboard</a>
                             </div>
                         </div>

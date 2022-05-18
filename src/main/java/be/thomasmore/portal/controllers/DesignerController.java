@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
+import java.time.LocalDate;
+import java.util.Optional;
 
 
 @Controller
@@ -31,6 +33,13 @@ public class DesignerController {
         if (principal == null) {
             return "redirect:/home";
         }
+        Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
+        if (userFromDb.isPresent()){
+            User user = userFromDb.get();
+            if (user.getRole().equals("USER")) {
+                return "redirect:/user/subscribe";
+            }
+        }
         final String loginName = (principal != null) ? principal.getName() : "";
         logger.info("ItemNew");
         model.addAttribute("login", loginName);
@@ -46,9 +55,10 @@ public class DesignerController {
         }
         User user = userRepository.findByUsername(principal.getName()).get();
         logger.info("mapNewPost -- new name=" + item.getName());
+        item.setCreationDate(LocalDate.now());
         item.setOwner(user);
         itemRepository.save(item);
 
-        return "redirect:/hub/";
+        return "redirect:/wardrobe/";
     }
 }

@@ -13,6 +13,17 @@ p {
     font-size: 50px;
 }
 
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
 
 #homeBgImg {
     background-image: url("../img/homeImg.png");
@@ -476,7 +487,39 @@ footer {
 .pricing-header {
     max-width: 700px;
 }
+.card-deck {
+    display: flex;
+    flex-direction: column;
+}
 
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    word-wrap: break-word;
+    background-color: white;
+    background-clip: border-box;
+    margin: 1rem;
+}
+
+.card-header {
+    margin-bottom: 0;
+    background-color: white;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
+.card-title {
+    margin-bottom: 1rem;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

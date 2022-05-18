@@ -16,57 +16,76 @@
 <div class="container">
     <div class="subscribe-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="text-center text-dark">Become a Subscriber</h1>
-        <h2 class="text-center text dark">choose a subscription plan</h2>
-        <div class="card-deck mb-3 text-center">
+        <p class="text-center text-dark">choose a subscription plan</p>
+        <div class="container">
+            <div class="row">
 
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">1 Month</h4>
-                </div>
-                <div class="card-body">
-                     <h1 class="card-title">
-                         €10
-                         <small class="text-muted">/ mo</small>
-                     </h1>
+                <div class="card col-sm mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Monthly</h4>
+                    </div>
+                    <div class="card-body">
+                         <h1 class="card-title text-dark">
+                             €9
+                         </h1>
+
+                        <ul class="text-center ">
+                            <li><h2>A month of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                        </ul>
+                    </div>
                     <div class="mt-3 mb-4">
                         <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/month}">Learn More</a>
                         <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
                     </div>
                 </div>
-            </div>
 
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">1 Year</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title">
-                        "€99"
-                        <small class="text-muted">/ yr</small>
-                    </h1>
-                    <div class="mt-3 mb-4">
-                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/month}">Learn More</a>
-                        <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                <div class="card col-sm mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Yearly</h4>
                     </div>
-                </div>
-            </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-dark">
+                            €99
+                        </h1>
 
-            <div class="card mb-4 box-shadow">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">3 Years</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title">
-                        "€275"
-                        <small class="text-muted">/ 3yrs</small>
-                    </h1>
-                    <div class="mt-3 mb-4">
-                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/month}">Learn More</a>
-                        <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                        <ul class="text-center ">
+                            <li><h2>One year of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>+ 1GB free</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                        </ul>
                     </div>
+                        <div class="mt-3 mb-4">
+                            <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/year}">Learn More</a>
+                            <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                        </div>
+                </div>
+
+                <div class="card col-sm mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">3 Years</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-dark">
+                            €249
+                        </h1>
+
+                        <ul class="text-center ">
+                            <li><h2>Three years of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>+ 2GB free</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                            <li><h2>+24/7 Phone Support</h2></li>
+                        </ul>
+                    </div>
+                        <div class="mt-3 mb-4">
+                            <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/3years}">Learn More</a>
+                            <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                        </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

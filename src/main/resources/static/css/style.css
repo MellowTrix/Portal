@@ -72,6 +72,10 @@ p {
     font-size: 25px;
 
 }
+
+.settingsButton:hover{
+    cursor:pointer;
+}
 .buttonFilter {
     border: none;
     margin-top: 10px ;
@@ -403,6 +407,16 @@ footer {
     border-radius: 25px;
     background-color: #FF4591;
     padding: 1rem;
+}
+
+.profileDashboard{
+    border-radius: 25px;
+    background-color:  #eeeeee;
+    padding: 1rem;
+}
+
+.profileDashboard p{
+    color: black;
 }
 
 .dashboardAnalytics .analyticsText {

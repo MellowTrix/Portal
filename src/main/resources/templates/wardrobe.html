@@ -1,0 +1,266 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
+    <title>Portal - Wardrobe</title>
+
+
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+
+<div class="container">
+    <div class="row mt-5 ">
+        <div class="col-12 profileDashboard">
+            <div class="row ">
+                <div class="align-content-end col-1">
+                    <a class="settingsButton float-start" style="color: #FF4591" data-bs-toggle="modal"
+                       data-bs-target="#exampleModalCenter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                             class="bi bi-gear" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="col-11 col-md-3">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-users usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Username</p>
+                                <p class="userCountText mb-0" th:text="${user.username}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-shirt usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Email</p>
+                                <p class="userCountText mb-0" th:text="${user.email}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Items</p>
+                                <p class="userCountText mb-0" th:text="${ownedItemsCount}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h1 class="text-center hubTitles mt-3">Wardrobe</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-3  mt-5 mt-md-0">
+                <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
+                    <form>
+                        <fieldset class="form-group border p-3 mt-4 bg-white" style="border-radius: 25px;">
+                            <legend class="w-auto px-2">Search</legend>
+                            <input type="text" class="form-control" name="search" th:value="${search}">
+                        </fieldset>
+
+<!--                        <fieldset class="form-group border p-3 mt-4 bg-white" style="border-radius: 25px;">-->
+<!--                            <legend class="w-auto px-2">Price Range</legend>-->
+<!--                            <input type="range" min="0" th:max="${max}" th:value="${min}" class="slider"-->
+<!--                                   id="minRange" name="minPrice">-->
+<!--                            <label class="form-check-label">Min: <span id="minPrice"></span></label>-->
+<!--                            <input type="range" th:max="${highestPrice}" th:value="${max}" class="slider"-->
+<!--                                   id="maxRange" name="maxPrice">-->
+<!--                            <label class="form-check-label">Max: <span id="maxPrice"></span></label>-->
+<!--                        </fieldset>-->
+
+                        <fieldset class="form-group border p-3 mt-4 bg-white" style="border-radius: 25px;">
+                            <legend class="w-auto px-2">Color</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="white" name="color"
+                                       value="white">
+                                <!--todo th:checked="(${color} == 'white' ? true : false)"-->
+                                <label class="form-check-label" for="white">white</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="black" name="color"
+                                       value="black">
+                                <label class="form-check-label" for="black">black</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="red" name="color"
+                                       value="red">
+                                <label class="form-check-label" for="red">red</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="blue" name="color"
+                                       value="blue">
+                                <label class="form-check-label" for="blue">blue</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="green" name="color"
+                                       value="green">
+                                <label class="form-check-label" for="green">green</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="yellow" name="color"
+                                       value="yellow">
+                                <label class="form-check-label" for="yellow">yellow</label>
+                            </div>
+                        </fieldset>
+                        <input type="submit" class="buttonFilter" value="Apply Filters">
+
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-8 offset-md-1  mt-5 mt-md-0">
+                <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
+                    <div class="col-md-3" th:each="item : ${ownedItems}">
+                        <a th:href="@{|/item/${item.id}|}" style="text-decoration: none; color: black;">
+                            <div class="card mt-4"  style="border-radius: 25px;">
+                                <div class="card-body">
+                                    <iframe style="margin-top: 10%" th:src="${item.link}" frameborder='0'
+                                            width='100%'
+                                            height='100%'></iframe>
+                                    <h4 class="card-title" th:text="${item.name}">Title</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#">Previous</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">4</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">5</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form th:action="@{|/user/updateProfile/${loginName}|}" th:object="${user}" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Edit profile</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-3">
+                            <label for="username">Username</label>
+                            <input th:field="*{username}" type="text" class="form-control" id="username"
+                                   placeholder="Username">
+                            <p class="emailErrorText" th:text="${nameError}" style="display: block"></p>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input th:field="*{email}" type="text" class="form-control" id="email" placeholder="Email">
+                            <p class="emailErrorText" th:text="${emailError}" style="display: block"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div th:replace="fragments/footer :: footer">Footer</div>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/animation.js}"></script>
+    <script>
+        let slider = document.getElementById("minRange");
+        let output = document.getElementById("minPrice");
+        let maxslider = document.getElementById("maxRange");
+        let maxoutput = document.getElementById("maxPrice");
+
+        output.innerHTML = slider.value;
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            maxslider.min = this.value;
+        }
+
+        maxoutput.innerHTML = maxslider.value;
+        maxslider.oninput = function () {
+            maxoutput.innerHTML = this.value;
+            slider.max = this.value;
+        }
+
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+
+    <!-- TODO: FIX MODAL POPUP ON PAGE LOAD WHEN NAME OR EMAIL CHANGE GIVES ERROR
+    <script type="text/javascript" th:inline="javascript">
+        /*<![CDATA[*/
+
+        let nameError = /*[[${nameError}]]*/ 'nameError';
+        let emailError = /*[[${emailError}]]*/ 'emailError';
+        console.log(nameError);
+        console.log(emailError);
+
+        /*]]>*/
+        if (nameError || emailError) {
+            console.log("modal should pop up");
+            $('#myModal').modal('show');
+        }
+    </script>-->
+</body>
+</html>

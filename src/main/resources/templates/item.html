@@ -15,26 +15,44 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header">Header</div>
-<div class="container">
+
+<div class="container content">
 
     <div class="row">
-        <div class="col-md-6">
-            <iframe style="margin-top: 10%" th:src="${item.link}" rameborder='0' width='100%'
-                    height='100%'></iframe>
+        <h1 class="text-center hubTitles mt-3" th:text="${item.name}"></h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-5" style="border-radius: 25px; background-color: #eeeeee;">
+            <iframe th:src="${item.link}"
+                    width='100%'
+                    height='100%'>
+            </iframe>
         </div>
-        <div class="col-md-6">
-            <h3 th:text="${item.name}"></h3>
-<!--            <h6 th:text="${item.creator}"></h6>-->
-<!--            <h6 th:text="${item.owner}"></h6>-->
-            <h6 th:text="${item.color}"></h6>
+        <div class="col-md-6 offset-1">
+            <div class="col-12 profileDashboard">
+                <div class="row">
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0" th:text="|Owner : ${item.owner.getUsername()}|"></p>
+                    </div>
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0" th:text="|Clothing piece : ${'placeholder'}|"></p>
+                    </div>
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0" th:text="|Color : ${item.color}|"></p>
+                    </div>
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0" th:text="|Creation date : ${'placeholder'}|"></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 th:text="${#numbers.formatCurrency(item.price)}"></h3>
+    <div class="row mt-5">
+        <div class="col-md-2 offset-md-4">
+            <a class="buttonFilter" style="color: white">share item</a>
         </div>
-        <div class="col-md-6">
-            <a class="buttonSmall" href="#">Buy</a>
+        <div class="col-md-2">
+            <a class="buttonFilter" style="color: white">delete item</a>
         </div>
     </div>
 

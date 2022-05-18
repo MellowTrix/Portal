@@ -216,10 +216,6 @@ footer a{
     min-height: calc(100vh - 260px);
 }
 
-footer {
-    height: 260px;
-}
-
 .reveal{
     position: relative;
     transform: translateY(150px);

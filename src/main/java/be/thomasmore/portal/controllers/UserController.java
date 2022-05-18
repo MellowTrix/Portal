@@ -76,26 +76,26 @@ public class UserController {
         }
         Optional<User> userFromDb = userRepository.findByUsername(loginName);
         if (userFromDb.isEmpty()) {
-            return "redirect:/hub";
+            return "redirect:/wardrobe";
         }
         User user = userFromDb.get();
         if (!username.isEmpty()) {
             if (userRepository.findByUsername(username).isPresent() && !username.equals(loginName)) {
-                return "redirect:/hub/nameError";
+                return "redirect:/wardrobe/nameError";
             }
             user.setUsername(username);
             userRepository.save(user);
             autologin(user.getUsername(), "password");
         }
         if (!email.isEmpty()) {
-            if (userRepository.findByEmail(email).isPresent()) {
+            if (userRepository.findByEmail(email).isPresent() && !user.getEmail().equals(email)) {
                 model.addAttribute("emailError", "The chosen email is unavailable");
-                return "redirect:/hub/emailError";
+                return "redirect:/wardrobe/emailError";
             }
             user.setEmail(email);
             userRepository.save(user);
         }
-        return "redirect:/hub";
+        return "redirect:/wardrobe";
     }
 
     private void autologin(String userName, String password) {

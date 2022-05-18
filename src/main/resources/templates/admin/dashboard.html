@@ -68,8 +68,8 @@
                         <tr>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Owned item count</th>
-                            <th scope="col">Inventory Value</th>
+                            <th scope="col">Subscriptions bought (Months)</th>
+                            <th scope="col">Subscription end date</th>
                             <th scope="col">Role</th>
                         </tr>
                         </thead>
@@ -77,12 +77,13 @@
                         <tr class="" th:each="user : ${users}">
                             <th class="p-0" scope="row" th:text="${user.username}"></th>
                             <td class="p-0" th:text="${user.email}"></td>
-                            <td class="p-0"></td>
-                            <td class="p-0"></td>
+                            <td class="p-0" th:text="${user.monthsSubscribed}"></td>
+                            <td class="p-0" th:text="${user.subscriptionEndDate}"></td>
                             <td class="p-0" th:text="${user.role}"></td>
                         </tr>
                         </tbody>
                     </table>
+                    <a class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add subscription days</a>
                 </div>
                 <div class="col-12">
                     <div class="row" th:each="contactMessage : ${contactMessages}" style="border-bottom: 1px solid gray; border-top: 1px solid gray">
@@ -100,6 +101,37 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <form th:action="@{/admin/addSub}" method="post">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Add subscription days</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-3">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group mb-3">
+                            <label for="days">Amount of days</label>
+                            <input type="text" class="form-control" id="days" placeholder="Days" name="daysCount">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

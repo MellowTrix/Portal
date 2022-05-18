@@ -32,11 +32,14 @@ public class HomeController {
         Optional<User> userFromDb = userRepository.findByUsername(loginName);
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
-            if (Period.between(LocalDate.now(), user.getSubscriptionEndDate()).getDays() < 0) {
-                user.setRole("USER");
-                user.setSubscriptionEndDate(null);
-                userRepository.save(user);
+            if (user.getSubscriptionEndDate() != null) {
+                if (Period.between(LocalDate.now(), user.getSubscriptionEndDate()).getDays() < 0) {
+                    user.setRole("USER");
+                    user.setSubscriptionEndDate(null);
+                    userRepository.save(user);
+                }
             }
+            model.addAttribute("user", user);
         }
         model.addAttribute("loginName", loginName);
         return "home";

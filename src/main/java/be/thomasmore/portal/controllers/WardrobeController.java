@@ -29,7 +29,7 @@ public class WardrobeController {
     private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @GetMapping({"/wardrobe", "/wardrobe/{error}"})
-    public String home(Model model, @PathVariable(required = false) String error,  @RequestParam(required = false) String search, @RequestParam(required = false) Double minPrice, @RequestParam(required = false) Double maxPrice, @RequestParam(required = false) List<String> color,Principal principal) {
+    public String home(Model model, @PathVariable(required = false) String error, @RequestParam(required = false) String search, @RequestParam(required = false) List<String> color, Principal principal) {
         if (principal == null) {
             return "redirect:/login";
         }
@@ -43,31 +43,19 @@ public class WardrobeController {
         String username = principal.getName();
         Optional<User> userFromDb = userRepository.findByUsername(username);
         User user = userFromDb.get();
-        List<Item> ownedItemList =  itemRepository.findFilterForUser(user, search, minPrice, maxPrice, color);
+        List<Item> ownedItemList = itemRepository.findFilterForUser(user, search, color);
 
-        double inventoryValue = 0;
-        for (Item i : ownedItemList) {
-            inventoryValue += i.getPrice();
-        }
-        if (minPrice== null && maxPrice == null) {
-            minPrice = 0.0;
-            maxPrice = Math.round(getHighestPrice()) + 0.0;
-        }
 
         model.addAttribute("loginName", username);
         model.addAttribute("user", user);
         model.addAttribute("ownedItems", ownedItemList);
         model.addAttribute("ownedItemsCount", ownedItemList.size());
-        model.addAttribute("inventoryValue", inventoryValue);
         model.addAttribute("search", search);
-        model.addAttribute("min", minPrice);
-        model.addAttribute("max", maxPrice);
-        model.addAttribute("highestPrice", Math.round(getHighestPrice()) + 0.0);
         model.addAttribute("color", color);
         return "wardrobe";
     }
 
-    @GetMapping({"/item","/item/{id}"})
+    @GetMapping({"/item", "/item/{id}"})
     public String itemDetails(Model model, @PathVariable(required = false) Integer id) {
         if (id == null) return "item";
 
@@ -78,12 +66,5 @@ public class WardrobeController {
 
         return "item";
     }
-
-    public double getHighestPrice() {
-        Comparator<Item> itemPrice = Comparator.comparing(Item::getPrice);
-        List<Item> higestItemPrice = itemRepository.findAll();
-        higestItemPrice.sort(itemPrice);
-        return higestItemPrice.get(higestItemPrice.size()-1).getPrice();
-
-    }
 }
+

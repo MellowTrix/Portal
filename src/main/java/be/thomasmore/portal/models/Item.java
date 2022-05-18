@@ -1,6 +1,7 @@
 package be.thomasmore.portal.models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 public class Item {
@@ -12,6 +13,8 @@ public class Item {
     @ManyToOne
     private User owner;
     private String color;
+    private String itemType;
+    private LocalDate creationDate;
     private String link;
 
     public Item() {
@@ -47,6 +50,22 @@ public class Item {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(String itemType) {
+        this.itemType = itemType;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
     public String getLink() {

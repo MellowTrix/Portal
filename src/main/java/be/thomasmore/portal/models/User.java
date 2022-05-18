@@ -19,7 +19,6 @@ public class User {
     private String role;
     private int monthsSubscribed;
     private Boolean freeTrialAvailable;
-    @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
     private LocalDate subscriptionEndDate;
 
     public User() {

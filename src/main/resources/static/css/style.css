@@ -512,7 +512,7 @@ footer a{
 }
 
 
-.card-deck .card {
+.card-deck-sub .card-sub {
     min-width: 220px;
 }
 
@@ -530,12 +530,12 @@ footer a{
 .pricing-header {
     max-width: 700px;
 }
-.card-deck {
+.card-deck-sub {
     display: flex;
     flex-direction: column;
 }
 
-.card {
+.card-sub {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -546,21 +546,21 @@ footer a{
     margin: 1rem;
 }
 
-.card-header {
+.card-header-sub {
     margin-bottom: 0;
     background-color: white;
 }
 
-.card-body {
+.card-body-sub {
     flex: 1 1 auto;
     padding: 1rem;
 }
 
-.card-title {
+.card-title-sub {
     margin-bottom: 1rem;
 }
 
-.card-text:last-child {
+.card-text-sub:last-child {
     margin-bottom: 0;
 }
 

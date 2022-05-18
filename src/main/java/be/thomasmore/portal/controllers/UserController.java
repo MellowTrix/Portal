@@ -59,6 +59,7 @@ public class UserController {
         }
         String pass = user.getPassword();
         user.setUsername(user.getUsername());
+        user.setDisplayname(user.getUsername());
         user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
@@ -69,7 +70,7 @@ public class UserController {
     }
 
     @PostMapping("/updateProfile/{loginName}")
-    public String updateProfile(Model model, Principal principal, @PathVariable(required = true) String loginName, @RequestParam(required = false) String username,
+    public String updateProfile(Model model, Principal principal, @PathVariable(required = true) String loginName, @RequestParam(required = false) String displayname,
                                 @RequestParam(required = false) String email) {
         if (principal == null) {
             return "redirect:/home";
@@ -79,13 +80,13 @@ public class UserController {
             return "redirect:/hub";
         }
         User user = userFromDb.get();
-        if (!username.isEmpty()) {
-            if (userRepository.findByUsername(username).isPresent() && !username.equals(loginName)) {
+        if (!displayname.isEmpty()) {
+            logger.info(displayname);
+            if (userRepository.findBydisplayname(displayname).isPresent()) {
                 return "redirect:/hub/nameError";
             }
-            user.setUsername(username);
+            user.setDisplayname(displayname);
             userRepository.save(user);
-            autologin(user.getUsername(), "password");
         }
         if (!email.isEmpty()) {
             if (userRepository.findByEmail(email).isPresent()) {

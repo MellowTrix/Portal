@@ -40,8 +40,8 @@
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Username</p>
-                                <p class="userCountText mb-0" th:text="${user.username}"></p>
+                                <p class="userCountText mb-0">Displayname</p>
+                                <p class="userCountText mb-0" th:text="${user.displayname}"></p>
                             </div>
                         </div>
                     </div>
@@ -199,8 +199,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group mb-3">
-                            <label for="username">Username</label>
-                            <input th:field="*{username}" type="text" class="form-control" id="username"
+                            <label for="displayname">Displayname</label>
+                            <input th:field="*{displayname}" type="text" class="form-control" id="displayname"
                                    placeholder="Username">
                             <p class="emailErrorText" th:text="${nameError}" style="display: block"></p>
                         </div>

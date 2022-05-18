@@ -14,10 +14,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.naming.AuthenticationException;
 import java.security.Principal;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -62,7 +63,6 @@ public class UserController {
         user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("USER");
-        user.setDesignerApplication(user.getDesignerApplication());
         userRepository.save(user);
         autologin(user.getUsername(), pass);
         return "redirect:/home";
@@ -110,4 +110,52 @@ public class UserController {
             e.printStackTrace();
         }
     }
+
+    @GetMapping("/subscribe")
+    public String subscribe(Model model, Principal principal) {
+        return "user/subscribe";
+    }
+
+    @GetMapping("/subscribe/{monthCount}")
+    public String addSubscription(Model model, @PathVariable Integer monthCount, Principal principal) {
+        Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
+        if (userFromDb.isEmpty()) {
+            return "redirect:/login";
+        }
+        User user = userFromDb.get();
+        if (monthCount == 1 ) {
+            user.setSubscriptionEndDate(calculateSub(monthCount, user.getSubscriptionEndDate()));
+            user.setMonthsSubscribed(user.getMonthsSubscribed() + monthCount);
+        } else if (monthCount == 12) {
+            user.setSubscriptionEndDate(calculateSub(monthCount, user.getSubscriptionEndDate()));
+            user.setMonthsSubscribed(user.getMonthsSubscribed() + monthCount);
+        } else if (monthCount == 36) {
+            user.setSubscriptionEndDate(calculateSub(monthCount, user.getSubscriptionEndDate()));
+            user.setMonthsSubscribed(user.getMonthsSubscribed() + monthCount);
+        } else {
+            return "redirect:/user/subscribe";
+        }
+        user.setRole("DESIGNER");
+        userRepository.save(user);
+        return "redirect:/home";
+    }
+
+    public LocalDate calculateSub(int months, LocalDate subEndDate) {
+        if (subEndDate == null) {
+            subEndDate = LocalDate.now().plusMonths(months);
+        } else if (Period.between(subEndDate, LocalDate.now()).getDays() <= 0) {
+            subEndDate = subEndDate.plusMonths(months);
+        }
+        return subEndDate;
+    }
+
+//    @PostMapping("/subscribe")
+//    public String subscribe(Model model, @ModelAttribute("user") User user, Principal principal) {
+//        if (principal != null) {
+//            return "redirect:/home";
+//        }
+//        /*Boolean sub = user.getSubscribed();
+//        user.setSubscribed(sub);*/
+//        return "user/subscribe";
+//    }*/
 }

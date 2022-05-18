@@ -1,0 +1,117 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap" rel="stylesheet">
+    <title>Portal - Login</title>
+</head>
+<body>
+
+<div th:replace="fragments/header :: header">Header</div>
+
+<div class="container">
+    <div class="subscribe-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="text-center text-dark">Become a Subscriber</h1>
+        <p class="text-center text-dark">choose a subscription plan</p>
+        <div class="container">
+            <div class="row">
+
+                <div class="card col-sm mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Monthly</h4>
+                    </div>
+                    <div class="card-body">
+                         <h1 class="card-title text-dark">
+                             €9
+                         </h1>
+
+                        <ul class="text-center ">
+                            <li><h2>A month of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                        </ul>
+                    </div>
+                    <div class="mt-3 mb-4">
+                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/1}">Learn More</a>
+                        <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                    </div>
+                </div>
+
+                <div class="card col-sm mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Yearly</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-dark">
+                            €99
+                        </h1>
+
+                        <ul class="text-center ">
+                            <li><h2>One year of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>+ 1GB free</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                        </ul>
+                    </div>
+                        <div class="mt-3 mb-4">
+                            <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/12}">Learn More</a>
+                            <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                        </div>
+                </div>
+
+                <div class="card col-sm mb-4 box-shadow">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">3 Years</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-dark">
+                            €249
+                        </h1>
+
+                        <ul class="text-center ">
+                            <li><h2>Three years of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>+ 2GB free</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                            <li><h2>+24/7 Phone Support</h2></li>
+                        </ul>
+                    </div>
+                        <div class="mt-3 mb-4">
+                            <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/36}">Learn More</a>
+                            <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    const checkUsername = () => {
+        let userName = document.getElementById("username").value;
+        if (userName === '') {
+            submit.setAttribute("disabled", "disabled");
+            return false
+        } else {
+            submit.removeAttribute("disabled");
+            return true
+        }
+    }
+
+    const checkPassword = () => {
+        let password = document.getElementById("password").value;
+        if (password === '') {
+            submit.setAttribute("disabled", "disabled");
+            return false
+        } else {
+            submit.removeAttribute("disabled");
+            return true
+        }
+    }
+</script>
+</body>
+</html>

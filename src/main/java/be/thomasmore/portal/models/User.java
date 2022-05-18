@@ -17,7 +17,6 @@ public class User {
     private String password;
     private String email;
     private String role;
-    private Boolean subscribed;
     private int monthsSubscribed;
     private Boolean freeTrialAvailable;
     @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
@@ -64,14 +63,6 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public Boolean getSubscribed() {
-        return subscribed;
-    }
-
-    public void setSubscribed(Boolean subscriberApplication) {
-        this.subscribed = subscriberApplication;
     }
 
     public Integer getMonthsSubscribed() {

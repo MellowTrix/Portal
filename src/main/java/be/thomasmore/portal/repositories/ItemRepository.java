@@ -14,7 +14,7 @@ public interface ItemRepository extends CrudRepository<Item, Integer> {
     @Query("select v from Item v where " +
             "(:owner = v.owner) and " +
             "(:search is null or :search = '' or lower(v.name) like lower(concat('%', :search, '%'))) and " +
-            "(:color is null or lower(v.color) in (lower(:color)))")
+            "(coalesce(:color) is null or lower(v.color) in (:color))")
     List<Item> findFilterForUser (@Param("owner") User owner, @Param("search") String search, @Param("color") List<String> color);
 
     List<Item> findAll();

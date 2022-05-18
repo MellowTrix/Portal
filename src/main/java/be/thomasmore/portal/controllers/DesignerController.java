@@ -11,12 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Optional;
+
 
 @Controller
 public class DesignerController {
@@ -30,20 +28,11 @@ public class DesignerController {
 
     @GetMapping("/studio")
     public String studio(Model model, Principal principal) {
-        String username = principal.getName();
-        Optional<User> userFromDb = userRepository.findByUsername(username);
-        User user = userFromDb.get();
         if (principal == null) {
             return "redirect:/home";
         }
-        if (user.getRole().equals("USER")){
-            return "redirect:/home";
-        }
-
-        logger.info(String.valueOf(user.getId()));
         final String loginName = (principal != null) ? principal.getName() : "";
         logger.info("ItemNew");
-        model.addAttribute("role",user.getRole());
         model.addAttribute("login", loginName);
         model.addAttribute("item", new Item());
         return "studio";

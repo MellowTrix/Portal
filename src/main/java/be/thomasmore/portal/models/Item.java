@@ -9,11 +9,8 @@ public class Item {
     @Id
     private int id;
     private String name;
-    //private User creator;
     @ManyToOne
     private User owner;
-    private boolean forSale;
-    private double price;
     private String color;
     private String link;
 
@@ -36,38 +33,12 @@ public class Item {
         this.name = name;
     }
 
-//    public User getCreator() {
-//        return creator;
-//    }
-//
-//    public void setCreator(User creator) {
-//        this.creator = creator;
-//    }
-//
-
-
     public User getOwner() {
         return owner;
     }
 
     public void setOwner(User owner) {
         this.owner = owner;
-    }
-
-    public boolean isForSale() {
-        return forSale;
-    }
-
-    public void setForSale(boolean forSale) {
-        this.forSale = forSale;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 
     public String getColor() {

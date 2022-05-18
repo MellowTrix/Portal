@@ -25,9 +25,11 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/#}">HUB</a>
                     </li>
+                    <div sec:authorize="hasAnyAuthority('DESIGNER','ADMIN')">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/studio}">STUDIO</a>
                     </li>
+                    </div>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/aboutUs}">ABOUT</a>
                     </li>

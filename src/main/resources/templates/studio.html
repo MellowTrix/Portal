@@ -20,39 +20,45 @@
         <div class="col-12">
             <div class="row">
                 <div class="col text-center" style="background-color: #2c3034">
-                        <h1 style="font-size: 10rem">Studio</h1>
+                    <h1 style="font-size: 10rem">Studio</h1>
                 </div>
             </div>
             <div class="col-6 offset-3 text-center mt-3 mb-3">
-            <p>
-                <button class="btn buttonSmall" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#area1" aria-expanded="false" aria-controls="area1">Information
-                </button>
-                <button class="btn buttonSmall" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#area2" aria-expanded="false" aria-controls="area2">Start Studio
-                </button>
-            </p>
+                <p>
+                    <button class="btn buttonSmall" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#area1" aria-expanded="false" aria-controls="area1">Information
+                    </button>
+                    <button class="btn buttonSmall" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#area2" aria-expanded="false" aria-controls="area2">Start Studio
+                    </button>
+                </p>
             </div>
             <div class="col">
                 <div class="collapse multi-collapse studioCollapse" id="area1">
                     <div class="card card-body text-center">
                         <h2>Introduction</h2>
                         <p>
-                        Welcome to the portal Studio where you can create own design for virtual clothing.<br>
-                        We use a tool called spline for creating our clothes, and you can use this tool as well on our website.<br>
+                            Welcome to the portal Studio where you can create own design for virtual clothing.<br>
+                            We use a tool called spline for creating our clothes, and you can use this tool as well on
+                            our website.<br>
                         </p>
                         <h2>What is spline</h2>
                         <p>
-                            Spline is a tool for creating 3D designs and gives the option to use preset of clothes in their free open library.<br>
-                            You can customize these clothes with images or patterns you want, so let your creative go wild!
+                            Spline is a tool for creating 3D designs and gives the option to use preset of clothes in
+                            their free open library.<br>
+                            You can customize these clothes with images or patterns you want, so let your creative go
+                            wild!
                         </p>
                         <h2>How to use it</h2>
                         <p>
                             When u open the tool you will need to register to spline to use it first<br>
                             It's the easiest to pick one of their pre-made clothing peaces to continue your design<br>
-                            After you got your 3D design open you can change the image on the material section to anything you like.<br>
-                            Once you are satisfied you can export under type <span style="font-size: 2.5rem; color: black">Web content or public url</span><br>
-                            You will see it generates a URL and a Iframe you will need to copy the URL and enter it into the section to upload your design<br>
+                            After you got your 3D design open you can change the image on the material section to
+                            anything you like.<br>
+                            Once you are satisfied you can export under type <span
+                                style="font-size: 2.5rem; color: black">Web content or public url</span><br>
+                            You will see it generates a URL and a Iframe you will need to copy the URL and enter it into
+                            the section to upload your design<br>
                         </p>
                     </div>
                 </div>
@@ -60,10 +66,42 @@
             <div class="col">
                 <div class="collapse multi-collapse studioCollapse" id="area2">
                     <div class="card card-body align-items-center">
-                       <iframe src="https://app.spline.design/signin" width=100% height=900px></iframe>
+                        <iframe src="https://app.spline.design/signin" width=100% height=900px></iframe>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-4 offset-lg-4 mt-4">
+
+            <form style="text-align: center" th:action="@{|/studio|}" method="post" th:object="${item}">
+
+                <div class="itemInfo">
+                    <h2> Upload New Item</h2>
+                    <div class="infoLine">
+                        <label for="itemName" class="infoLineName">Item Name: </label><br>
+                        <input id="itemName" th:field="*{name}" required class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <label for="forSale" class="infoLineName">For Sale(false or true) </label><br>
+                        <input id="forSale" th:field="*{forSale}" class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <label for="price" class="infoLineName">Price: </label><br>
+                        <input id="price" th:field="*{price}" class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <label for="color" class="infoLineName">Color: </label><br>
+                        <input id="color" th:field="*{color}" class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <label for="link" class="infoLineName">Link: </label><br>
+                        <input id="link" th:field="*{link}" required class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <input type="submit" value="Create Item" class="buttonSmall mb-2 ">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

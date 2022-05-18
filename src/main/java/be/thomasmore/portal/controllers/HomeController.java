@@ -1,13 +1,19 @@
 package be.thomasmore.portal.controllers;
 
+import be.thomasmore.portal.models.User;
+import be.thomasmore.portal.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class HomeController {
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping({"/", "/home"})
     public String home(Model model, Principal principal) {
@@ -16,13 +22,9 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping({"/studio"})
-    public String hub(Model model) {
-        return "studio";
-    }
 
     @GetMapping({"/aboutUs"})
-    public String aboutUs(Model model) {
+    public String aboutUs(Model model, Principal principal) {
         return "aboutUs";
     }
 

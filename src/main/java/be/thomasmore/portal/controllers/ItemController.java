@@ -38,13 +38,6 @@ public class ItemController {
         model.addAttribute("max", maxPrice);
         model.addAttribute("highestPrice", getHighestPrice());
         model.addAttribute("color", color);
-        final String loginName = (principal != null) ? principal.getName() : "";
-        Optional<User> userFromDb = userRepository.findByUsername(loginName);
-        if (userFromDb.isPresent()){
-            User user = userFromDb.get();
-            model.addAttribute("role",user.getRole());
-        }
-
         return "webshop";
     }
 

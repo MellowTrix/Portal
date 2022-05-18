@@ -25,7 +25,7 @@
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/hub}">HUB</a>
                     </li>
-                    <div th:if="'DESIGNER' == ${role}">
+                    <div sec:authorize="hasAnyAuthority('DESIGNER','ADMIN')">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/studio}">STUDIO</a>
                     </li>

@@ -19,23 +19,12 @@ public class HomeController {
     public String home(Model model, Principal principal) {
         final String loginName = (principal != null) ? principal.getName() : "";
         model.addAttribute("loginName", loginName);
-        Optional<User> userFromDb = userRepository.findByUsername(loginName);
-        if (userFromDb.isPresent()){
-            User user = userFromDb.get();
-            model.addAttribute("role",user.getRole());
-        }
         return "home";
     }
 
 
     @GetMapping({"/aboutUs"})
     public String aboutUs(Model model, Principal principal) {
-        final String loginName = (principal != null) ? principal.getName() : "";
-        Optional<User> userFromDb = userRepository.findByUsername(loginName);
-        if (userFromDb.isPresent()){
-            User user = userFromDb.get();
-            model.addAttribute("role",user.getRole());
-        }
         return "aboutUs";
     }
 

@@ -110,9 +110,6 @@ public class UserController {
 
     @GetMapping("/subscribe")
     public String subscribe(Model model, Principal principal) {
-        if (principal != null) {
-            return "redirect:/home";
-        }
         return "user/subscribe";
     }
 

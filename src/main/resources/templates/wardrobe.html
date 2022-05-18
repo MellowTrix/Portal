@@ -20,11 +20,11 @@
 <div th:replace="fragments/header :: header">Header</div>
 
 <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-5 ">
         <div class="col-12 profileDashboard">
-            <div class="row">
+            <div class="row ">
                 <div class="align-content-end col-1">
-                    <a class="settingsButton float-end" style="color: #FF4591" data-bs-toggle="modal"
+                    <a class="settingsButton float-start" style="color: #FF4591" data-bs-toggle="modal"
                        data-bs-target="#exampleModalCenter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                              class="bi bi-gear" viewBox="0 0 16 16">
@@ -33,7 +33,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-4">
+                <div class="col-11 col-md-3">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-users usersIcon"></i>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-11 offset-1 col-md-4 offset-md-0">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-shirt usersIcon"></i>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
+                <div class="col-11 offset-1 col-md-4 offset-md-0">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-money-bill-wave usersIcon"></i>
@@ -74,11 +74,13 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <h1 class="text-center hubTitles mt-3">Wardrobe</h1>
         </div>
+
         <div class="row">
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-md-3  mt-5 mt-md-0">
                 <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
                     <form>
                         <fieldset class="form-group border p-3 mt-4 bg-white" style="border-radius: 25px;">
@@ -136,7 +138,8 @@
                 </div>
 
             </div>
-            <div class="col-12 col-md-8 offset-md-1">
+
+            <div class="col-12 col-md-8 offset-md-1  mt-5 mt-md-0">
                 <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
                     <div class="col-md-3" th:each="item : ${ownedItems}">
                         <a th:href="@{|/item/${item.id}|}" style="text-decoration: none; color: black;">

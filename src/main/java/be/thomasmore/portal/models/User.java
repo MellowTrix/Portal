@@ -20,7 +20,7 @@ public class User {
     private int monthsSubscribed;
     private Boolean freeTrialAvailable;
     @DateTimeFormat(pattern = "yyyy-MM-dd-HH.mm.ss")
-    private Date subscriptionEndDate;
+    private LocalDate subscriptionEndDate;
 
     public User() {
     }
@@ -65,12 +65,8 @@ public class User {
         this.role = role;
     }
 
-    public Integer getMonthsSubscribed() {
+    public int getMonthsSubscribed() {
         return monthsSubscribed;
-    }
-
-    public void setMonthsSubscribed(Integer monthsSubscribed) {
-        this.monthsSubscribed = monthsSubscribed;
     }
 
     public void setMonthsSubscribed(int monthsSubscribed) {
@@ -85,11 +81,11 @@ public class User {
         this.freeTrialAvailable = freeTrialAvailable;
     }
 
-    public Date getSubscriptionEndDate() {
+    public LocalDate getSubscriptionEndDate() {
         return subscriptionEndDate;
     }
 
-    public void setSubscriptionEndDate(Date subscriptionEndDate) {
+    public void setSubscriptionEndDate(LocalDate subscriptionEndDate) {
         this.subscriptionEndDate = subscriptionEndDate;
     }
 }

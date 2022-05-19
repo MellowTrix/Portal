@@ -14,6 +14,7 @@ public class User {
     @Id
     private Integer id;
     private String username;
+    private String displayname;
     private String password;
     private String email;
     private String role;
@@ -38,6 +39,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getDisplayname() {
+        return displayname;
+    }
+
+    public void setDisplayname(String displayname) {
+        this.displayname = displayname;
     }
 
     public String getPassword() {

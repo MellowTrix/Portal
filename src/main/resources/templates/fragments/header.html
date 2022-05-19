@@ -1,5 +1,6 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +13,8 @@
     <nav class="navbar navbar-expand-xl" style="background-color: #CEEEF4">
         <div class="container-fluid">
             <a class="navbar-brand" th:href="@{/home}">
-                <img class="img-fluid" src="../../static/img/logoColor.png" th:src="@{/img/logoColor.png}" width="225" height="60" alt="Logo">
+                <img class="img-fluid" src="../../static/img/logoColor.png" th:src="@{/img/logoColor.png}" width="225"
+                     height="60" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -20,21 +22,21 @@
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/wardrobe}">WARDROBE</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" th:href="@{/#}">HUB</a>
-                    </li>
-                    <div sec:authorize="isAuthenticated()">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/studio}">STUDIO</a>
-                    </li>
-                    </div>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/user/subscribe}">SUBSCRIBE</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/aboutUs}">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/wardrobe}">WARDROBE</a>
+                    </li>
+                    <div sec:authorize="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/studio}">STUDIO</a>
+                        </li>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/user/subscribe}">SUBSCRIBE</a>
                     </li>
                 </ul>
                 <div class="d-flex">

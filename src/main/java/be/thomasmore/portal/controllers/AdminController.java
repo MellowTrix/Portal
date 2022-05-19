@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Optional;
 
 @Controller
@@ -56,5 +58,27 @@ public class AdminController {
         emailService.sendSimpleMessage(message.getEmail(), "RE: " + message.getSubject(), replyMessage);
         contactMessageRepository.delete(contactMessageRepository.findById(message.getId()).get());
         return "redirect:/home";
+    }
+
+    @PostMapping("/addSub")
+    public String addSubscription(@RequestParam String username, @RequestParam Integer daysCount) {
+        Optional<User> userFromDb = userRepository.findByUsername(username);
+        if (userFromDb.isEmpty()) {
+            return "redirect:/admin/dashboard";
+        }
+        User user = userFromDb.get();
+        user.setSubscriptionEndDate(calculateSub(daysCount, user.getSubscriptionEndDate()));
+        user.setRole("DESIGNER");
+        userRepository.save(user);
+        return "redirect:/admin/dashboard";
+    }
+
+    public LocalDate calculateSub(int days, LocalDate subEndDate) {
+        if (subEndDate == null || Period.between(subEndDate, LocalDate.now()).getDays() > 0) {
+            subEndDate = LocalDate.now().plusDays(days);
+        } else if (Period.between(subEndDate, LocalDate.now()).getDays() <= 0) {
+            subEndDate = subEndDate.plusDays(days);
+        }
+        return subEndDate;
     }
 }

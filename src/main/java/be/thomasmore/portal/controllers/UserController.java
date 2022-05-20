@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(Model model, @ModelAttribute("user") User user, Principal principal) {
+    public String register(Model model, @ModelAttribute("user") User user, Principal principal, @RequestParam(required = false) Boolean trialCheck) {
         if (principal != null) {
             return "redirect:/home";
         }
@@ -58,13 +58,21 @@ public class UserController {
             model.addAttribute("emailError", "The chosen email is unavailable");
             return "user/register";
         }
+
+        if (trialCheck == null){
+            user.setRole("USER");
+            user.setFreeTrialAvailable(true);
+        } else {
+            user.setFreeTrialAvailable(false);
+            user.setSubscriptionEndDate(LocalDate.now().plusDays(7));
+            user.setRole("DESIGNER");
+        }
+        logger.info(String.valueOf(trialCheck));
         String pass = user.getPassword();
         user.setUsername(user.getUsername());
         user.setDisplayname(user.getUsername());
         user.setEmail(user.getEmail());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole("USER");
-        user.setFreeTrialAvailable(true);
         userRepository.save(user);
         autologin(user.getUsername(), pass);
         return "redirect:/home";

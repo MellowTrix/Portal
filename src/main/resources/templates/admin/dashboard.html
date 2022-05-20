@@ -28,8 +28,21 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="mt-auto mb-auto">
-                                        <p class="userCountText mb-0">User count</p>
-                                        <p class="userCountText mb-0">536</p>
+                                        <p class="userCountText mb-0">Total users</p>
+                                        <p class="userCountText mb-0" th:text="${userCount}"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-4 mt-auto mb-auto">
+                                    <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                                </div>
+                                <div class="col-8">
+                                    <div class="mt-auto mb-auto">
+                                        <p class="userCountText mb-0">Total subscribers</p>
+                                        <p class="userCountText mb-0" th:text="${subscriberCount}"></p>
                                     </div>
                                 </div>
                             </div>
@@ -42,20 +55,7 @@
                                 <div class="col-8">
                                     <div class="mt-auto mb-auto">
                                         <p class="userCountText mb-0">Item count</p>
-                                        <p class="userCountText mb-0">1326</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="col-4 mt-auto mb-auto">
-                                    <i class="fa-solid fa-money-bill-wave usersIcon"></i>
-                                </div>
-                                <div class="col-8">
-                                    <div class="mt-auto mb-auto">
-                                        <p class="userCountText mb-0">Total value</p>
-                                        <p class="userCountText mb-0">€ 27.365,00</p>
+                                        <p class="userCountText mb-0" th:text="${itemCount}"></p>
                                     </div>
                                 </div>
                             </div>

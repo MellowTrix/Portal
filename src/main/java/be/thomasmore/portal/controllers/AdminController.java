@@ -1,8 +1,10 @@
 package be.thomasmore.portal.controllers;
 
 import be.thomasmore.portal.models.ContactMessage;
+import be.thomasmore.portal.models.Item;
 import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.ContactMessageRepository;
+import be.thomasmore.portal.repositories.ItemRepository;
 import be.thomasmore.portal.repositories.UserRepository;
 import be.thomasmore.portal.mail.EmailService;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -25,6 +28,8 @@ public class AdminController {
     @Autowired
     private ContactMessageRepository contactMessageRepository;
     @Autowired
+    private ItemRepository itemRepository;
+    @Autowired
     public EmailService emailService;
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -33,8 +38,20 @@ public class AdminController {
     public String dashboard(Model model) {
         Iterable<User> users = userRepository.findAll();
         Iterable<ContactMessage> contactMessages = contactMessageRepository.findAll();
+        List<Item> items = itemRepository.findAll();
+        int userCount = 0;
+        int subscriberCount = 0;
+        for (User user : users) {
+            userCount++;
+            if (user.getRole().equals("DESIGNER")) {
+                subscriberCount++;
+            }
+        }
         model.addAttribute("users", users);
         model.addAttribute("contactMessages", contactMessages);
+        model.addAttribute("userCount", userCount);
+        model.addAttribute("subscriberCount", subscriberCount);
+        model.addAttribute("itemCount", items.size());
         return "admin/dashboard";
     }
 

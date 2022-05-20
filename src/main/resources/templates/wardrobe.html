@@ -24,7 +24,7 @@
         <div class="col-12 profileDashboard">
             <div class="row ">
                 <div class="align-content-end col-1">
-                    <a class="settingsButton float-start" style="color: #FF4591" data-bs-toggle="modal"
+                    <a class="settingsButton float-start" id="settingsButton" style="color: #FF4591" data-bs-toggle="modal"
                        data-bs-target="#exampleModalCenter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                              class="bi bi-gear" viewBox="0 0 16 16">
@@ -246,7 +246,7 @@
         })
     </script>
 
-    <!-- TODO: FIX MODAL POPUP ON PAGE LOAD WHEN NAME OR EMAIL CHANGE GIVES ERROR
+
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
 
@@ -254,12 +254,13 @@
         let emailError = /*[[${emailError}]]*/ 'emailError';
         console.log(nameError);
         console.log(emailError);
+        const settingsButtonEl = document.getElementById("settingsButton");
 
         /*]]>*/
         if (nameError || emailError) {
-            console.log("modal should pop up");
+            settingsButtonEl.click();
             $('#myModal').modal('show');
         }
-    </script>-->
+    </script>
 </body>
 </html>

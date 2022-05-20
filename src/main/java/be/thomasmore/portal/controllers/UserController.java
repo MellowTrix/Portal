@@ -82,7 +82,7 @@ public class UserController {
         }
         User user = userFromDb.get();
         if (!displayname.isEmpty()) {
-            if (userRepository.findBydisplayname(displayname).isPresent()) {
+            if (userRepository.findBydisplayname(displayname).isPresent() && !user.getDisplayname().equals(displayname)) {
                 return "redirect:/wardrobe/nameError";
             }
             user.setDisplayname(displayname);

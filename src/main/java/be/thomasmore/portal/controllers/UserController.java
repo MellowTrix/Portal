@@ -5,6 +5,7 @@ import be.thomasmore.portal.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.SpringCglibInfo;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -122,6 +123,15 @@ public class UserController {
 
     @GetMapping("/subscribe")
     public String subscribe(Model model, Principal principal) {
+        boolean trialAvailable = false;
+        if (principal != null) {
+            Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
+            if (userFromDb.isPresent()) {
+                User user = userFromDb.get();
+                trialAvailable = user.getFreeTrialAvailable();
+            }
+        }
+        model.addAttribute("trialAvailable", trialAvailable);
         return "user/subscribe";
     }
 
@@ -149,6 +159,26 @@ public class UserController {
         return "redirect:/home";
     }
 
+    @GetMapping("/subscribe/trial")
+    public String startTrial(Model model, Principal principal) {
+        if (principal == null) {
+            return "redirect:/login";
+        }
+        Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
+        if (userFromDb.isEmpty()) {
+            return "redirect:/login";
+        }
+        User user = userFromDb.get();
+        if (!user.getFreeTrialAvailable()) {
+            return "redirect:/user/subscribe";
+        }
+        user.setFreeTrialAvailable(false);
+        user.setRole("DESIGNER");
+        user.setSubscriptionEndDate(LocalDate.now().plusDays(7));
+        userRepository.save(user);
+        return "redirect:/home";
+    }
+
     public LocalDate calculateSub(int months, LocalDate subEndDate) {
         if (subEndDate == null) {
             subEndDate = LocalDate.now().plusMonths(months);
@@ -157,14 +187,4 @@ public class UserController {
         }
         return subEndDate;
     }
-
-//    @PostMapping("/subscribe")
-//    public String subscribe(Model model, @ModelAttribute("user") User user, Principal principal) {
-//        if (principal != null) {
-//            return "redirect:/home";
-//        }
-//        /*Boolean sub = user.getSubscribed();
-//        user.setSubscribed(sub);*/
-//        return "user/subscribe";
-//    }*/
 }

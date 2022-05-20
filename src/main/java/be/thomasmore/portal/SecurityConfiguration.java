@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
+import java.util.Locale;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -38,9 +39,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .usersByUsernameQuery(
-                        "select username,password,true from user where username = ?")
+                        "select username,password,true from user where lower(username) = lower(?)")
                 .authoritiesByUsernameQuery(
-                        "select username, role from user where username = ?");
+                        "select username, role from user where lower(username) = lower(?)");
     }
 
     @Bean

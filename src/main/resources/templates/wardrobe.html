@@ -72,6 +72,45 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-11 col-md-3 offset-md-1">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-star usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Subscription</p>
+                                <p class="userCountText mb-0" th:text="${user.role.equals('USER') ? 'Inactive' : 'Active'}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Monthly subscriptions bought</p>
+                                <p class="userCountText mb-0" th:text="${user.monthsSubscribed}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-md-4 offset-md-0" th:if="${user.subscriptionEndDate}">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-regular fa-calendar usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Subscription end date</p>
+                                <p class="userCountText mb-0" th:text="${user.subscriptionEndDate}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

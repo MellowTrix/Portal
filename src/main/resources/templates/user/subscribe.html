@@ -57,7 +57,14 @@
                         </ul>
                     </div>
                     <div class="mt-3 mb-4">
-                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/1}">Learn More</a>
+                        <form action="https://test.bitpay.com/checkout" method="post" target="bitpay" data-bitpay-button>
+                            <input type="hidden" name="action" value="checkout" />
+                            <input type="hidden" name="price" value="1" />
+                            <input type="hidden" name="currency" value="USD" />
+                            <input type="hidden" name="data" value="eU8EyRk6YCEDhavRImddX4tziUoJoKenPU0WiOT7E/CiYqx2OdH5TiBs3Ef/43pT6cvWtC2bRJXZD3engX5oDLWspy/vZn0uK20Yq5HwxiXYXIGTo4120YUNLIgsfWXbrKzlMM6SmpZGqc15i7ACU0+otNWWkqRJOJzIBvYSTxUm3DJAlB+EacW610TNsL29" />
+                            <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 168px" alt="BitPay, the easy way to pay with bitcoins.">
+                        </form>
+                        <a class="buttonSmall" id="subOneMonth" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/1}">Learn More</a>
                         <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
                     </div>
                 </div>
@@ -112,29 +119,27 @@
 </div>
 <div class="bottom-0" th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script src="https://bitpay.com/bitpay.min.js"></script>
 <script>
-
-    const checkUsername = () => {
-        let userName = document.getElementById("username").value;
-        if (userName === '') {
-            submit.setAttribute("disabled", "disabled");
-            return false
-        } else {
-            submit.removeAttribute("disabled");
-            return true
+    let is_paid = false
+    const subButtonEl = document.getElementById("subOneMonth");
+    window.addEventListener("message", function (event) {
+        payment_status = event.data.status;
+        if (payment_status == "paid") {
+            is_paid = true
+            console.log("invoice do be paid");
+            subButtonEl.click();
+            //take action PAID
+            return;
         }
-    }
-
-    const checkPassword = () => {
-        let password = document.getElementById("password").value;
-        if (password === '') {
-            submit.setAttribute("disabled", "disabled");
-            return false
-        } else {
-            submit.removeAttribute("disabled");
-            return true
-        }
-    }
+    }, false);
+    //show the order info
+    bitpay.onModalWillLeave(function () {
+        if (is_paid == false) {
+            console.log("invoice do not be paid");
+            //take action, NOT PAID
+        } //endif
+    });
 </script>
 </body>
 </html>

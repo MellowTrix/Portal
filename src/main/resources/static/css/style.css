@@ -491,7 +491,6 @@ footer a{
     margin-top: 50px;
     background-color: #CEEEF4;
     border-radius: 20px;
-    max-width: 400px;
     padding: 30px;
     margin: auto;
 }
@@ -563,26 +562,6 @@ footer a{
 
 .card-text-sub:last-child {
     margin-bottom: 0;
-}
-
-.post{
-    border-radius: 25px;
-    transition: ease-in-out 2s;
-}
-
-.card-header{
-    border-radius: 25px;
-}
-
-
-.post p{
-    color: black;
-    font-size: 1rem;
-}
-
-.post h5{
-    color: black;
-    font-size: 1rem;
 }
 
 

@@ -22,22 +22,29 @@
             <form style="text-align: center" th:action="@{|/hub|}" method="post" th:object="${socialPost}">
 
                 <div class="itemInfo">
-                    <h2> Create New Post</h2>
-                    <div class="infoLine">
-                        <label for="postSubject" class="infoLineName">Post Subject: </label><br>
-                        <input id="postSubject" th:field="*{subject}" required class="infoLineValue">
+                    <h1 style="color: #071BF3"> Create New Post</h1>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="infoLine">
+                                <label for="postSubject" class="infoLineName">Post Subject: </label><br>
+                                <input id="postSubject" th:field="*{subject}" required class="infoLineValue">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="infoLine">
+                                <label for="item">Choose a Item:</label><br>
+                                <select id="item" name="item">
+                                    <option th:each="item : ${ownedItems}" th:value=" ${item.id}" th:field="*{item}"
+                                            th:text="${item.name}"></option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="infoLine">
                         <label for="postMessage" class="infoLineName">Post Message: </label><br>
-                        <input id="postMessage" th:field="*{message}" class="infoLineValue">
+                        <textarea  id="postMessage" rows="6" cols="40" th:field="*{message}"  class="infoLineValue"></textarea>
                     </div>
-                    <div class="infoLine">
-                        <label for="item">Choose a Item:</label>
-                        <select id="item" name="item">
-                            <option th:each="item : ${ownedItems}" th:value=" ${item.id}" th:field="*{item}"
-                                    th:text="${item.name}"></option>
-                        </select>
-                    </div>
+
                     <div class="infoLine">
                         <input type="submit" value="Create Post" class="buttonSmall mb-2 ">
                     </div>
@@ -46,30 +53,26 @@
         </div>
         <div class="col-lg-6 offset-lg-3 mt-4" th:each="post : ${posts}">
             <div class="card mt-4 post text-center" style="border-radius: 25px;">
-                <div class="card-header" style="border-radius: 25px">
-                    <h3 th:text="${post.subject}">Subject</h3>
+                <div class="card-header" style="border-radius: 25px; background-color: #CEEEF4">
+                    <h3 style="color: black; font-size: 3rem; font-weight: 700" th:text="${post.subject}">Subject</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-4">
-                            <div class="card"  style="border-radius: 25px;">
+                        <div class="col-12 col-lg-6">
+                            <div class="card" style="border-radius: 25px;">
                                 <div class="card-body">
-                                    <iframe style="margin-top: 10%" th:src="${post.item.getLink()}" frameborder='0'
+                                    <iframe th:src="${post.item.getLink()}" frameborder='0'
                                             width='100%'
                                             height='100%'></iframe>
-                                    <h4 class="card-title" th:text="${post.item.getName()}" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-bottom: 6px">Title</h4>
+                                    <h4 class="card-title" th:text="${post.item.getName()}"
+                                        style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-bottom: 6px">
+                                        Title</h4>
+                                    <p style="color: black; font-size: 1rem">Posted By <span th:text="${post.owner.getDisplayname()}"></span> On <span th:text="${post.creationDate}"></span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
-                            <p class="card-text" style="color: black" th:text="${post.message}">message.</p>
-                        </div>
-                        <div class="col-4">
-                            <h5>Post By:</h5>
-                            <p th:text="${post.owner.getDisplayname()}">Owner</p>
-                            <hr>
-                            <h5>Posted On:</h5>
-                            <p th:text="${post.creationDate}">Date</p>
+                        <div class="col-12 col-lg-6">
+                            <p class="card-text" style="color: black; font-size: 1.8rem" th:text="${post.message}">message.</p>
                         </div>
                     </div>
                 </div>

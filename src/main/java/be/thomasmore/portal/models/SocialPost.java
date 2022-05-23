@@ -11,18 +11,12 @@ public class SocialPost {
     private int id;
     @ManyToOne
     private User owner;
+    @ManyToOne
+    private Item item;
     private String subject;
     @Column(length = 1500)
     private String message;
     private LocalDate creationDate;
-
-    public LocalDate getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(LocalDate creationDate) {
-        this.creationDate = creationDate;
-    }
 
     public SocialPost() {
     }
@@ -57,5 +51,21 @@ public class SocialPost {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 }

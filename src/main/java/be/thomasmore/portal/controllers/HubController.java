@@ -35,10 +35,15 @@ public class HubController {
     @GetMapping("/hub")
     public String hub(Model model, Principal principal) {
         final String loginName = (principal != null) ? principal.getName() : "";
+        Optional<User> userFromDb = userRepository.findByUsername(loginName);
+        if (userFromDb.isPresent()){
+            User user = userFromDb.get();
+            model.addAttribute("ownedItems", itemRepository.findAllByOwner(user));
+        }
         logger.info("ItemNew");
-        model.addAttribute("login", loginName);
         model.addAttribute("posts", socialHubRepository.findAll());
         model.addAttribute("socialPost", new SocialPost());
+        model.addAttribute("login", loginName);
         return "hub";
     }
 

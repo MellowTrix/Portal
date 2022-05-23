@@ -567,7 +567,6 @@ footer a{
 
 .post{
     border-radius: 25px;
-    max-height: 20vh;
     transition: ease-in-out 2s;
 }
 
@@ -575,18 +574,15 @@ footer a{
     border-radius: 25px;
 }
 
-.post:hover{
-    max-height: 80vh;
-    transition: ease-in-out 2s;
-}
 
 .post p{
     color: black;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .post h5{
     color: black;
+    font-size: 1rem;
 }
 
 

@@ -20,6 +20,26 @@
         <p class="text-center text-dark">choose a subscription plan</p>
         <div class="container">
             <div class="row">
+                <div th:if="${trialAvailable}" class="card-sub col-sm mb-4 box-shadow">
+                    <div class="card-header-sub">
+                        <h4 class="my-0 font-weight-normal">7 Day trial</h4>
+                    </div>
+                    <div class="card-body-sub">
+                        <h1 class="card-title-sub text-dark">
+                            €0
+                        </h1>
+
+                        <ul class="text-center ">
+                            <li><h2>7 days of full access</h2></li>
+                            <li><h2>3GB of Wardrobe storage</h2></li>
+                            <li><h2>Complete Help Center</h2></li>
+                        </ul>
+                    </div>
+                    <div class="mt-3 mb-4">
+                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/trial}">Learn More</a>
+                        <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
+                    </div>
+                </div>
 
                 <div class="card-sub col-sm mb-4 box-shadow">
                     <div class="card-header-sub">

@@ -24,7 +24,7 @@
         <div class="col-12 profileDashboard">
             <div class="row ">
                 <div class="align-content-end col-1">
-                    <a class="settingsButton float-start" style="color: #FF4591" data-bs-toggle="modal"
+                    <a class="settingsButton float-start" id="settingsButton" style="color: #FF4591" data-bs-toggle="modal"
                        data-bs-target="#exampleModalCenter">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                              class="bi bi-gear" viewBox="0 0 16 16">
@@ -68,6 +68,45 @@
                             <div class="mt-auto mb-auto">
                                 <p class="userCountText mb-0">Items</p>
                                 <p class="userCountText mb-0" th:text="${ownedItemsCount}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 col-md-3 offset-md-1">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-star usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Subscription</p>
+                                <p class="userCountText mb-0" th:text="${user.role.equals('USER') ? 'Inactive' : 'Active'}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Monthly subscriptions bought</p>
+                                <p class="userCountText mb-0" th:text="${user.monthsSubscribed}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-md-4 offset-md-0" th:if="${user.subscriptionEndDate}">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-regular fa-calendar usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0">Subscription end date</p>
+                                <p class="userCountText mb-0" th:text="${user.subscriptionEndDate}"></p>
                             </div>
                         </div>
                     </div>
@@ -246,7 +285,7 @@
         })
     </script>
 
-    <!-- TODO: FIX MODAL POPUP ON PAGE LOAD WHEN NAME OR EMAIL CHANGE GIVES ERROR
+
     <script type="text/javascript" th:inline="javascript">
         /*<![CDATA[*/
 
@@ -254,12 +293,13 @@
         let emailError = /*[[${emailError}]]*/ 'emailError';
         console.log(nameError);
         console.log(emailError);
+        const settingsButtonEl = document.getElementById("settingsButton");
 
         /*]]>*/
         if (nameError || emailError) {
-            console.log("modal should pop up");
+            settingsButtonEl.click();
             $('#myModal').modal('show');
         }
-    </script>-->
+    </script>
 </body>
 </html>

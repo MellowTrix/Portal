@@ -27,3 +27,6 @@ INSERT INTO CONTACT_MESSAGE (ID, NAME, EMAIL, SUBJECT, MESSAGE)
 VALUES (nextval('contactmessage_seq'), 'Robbe', 'robbe.uytdenhouwen@gmail.com', 'Password change', 'Hi, i was wondering if it would be possible to change my password.');
 INSERT INTO CONTACT_MESSAGE (ID, NAME, EMAIL, SUBJECT, MESSAGE)
 VALUES (nextval('contactmessage_seq'), 'Robbe', 'robbe.uytdenhouwen@gmail.com', 'Question subscription', 'Hi, could you tell me what the benefits are of subscribing to Portal?');
+
+INSERT INTO SOCIAL_POST (ID, OWNER_ID, ITEM_ID, SUBJECT, MESSAGE, CREATION_DATE)
+VALUES (nextval('contactmessage_seq'), 1, 2, 'TestSubject', 'This message is a test scenario for this item', '2022-05-23');

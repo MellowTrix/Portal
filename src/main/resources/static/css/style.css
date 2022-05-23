@@ -228,7 +228,7 @@ footer a{
 }
 
 .content {
-    min-height: calc(100vh - 260px);
+    min-height: calc(100vh - 400px);
 }
 
 .reveal{
@@ -564,6 +564,10 @@ footer a{
     margin-bottom: 0;
 }
 
+.textResize{
+    font-size: 10rem;
+}
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -627,6 +631,18 @@ footer a{
 @media only screen and (max-width: 767px) {
     .shirtDiv {
         display: none;
+    }
+
+    .textResize{
+        font-size: 4rem;
+    }
+
+    .collapse h2{
+        font-size: 3rem;
+    }
+
+    .collapse p{
+        font-size: 1.6rem;
     }
 }
 

@@ -17,6 +17,7 @@ public interface ItemRepository extends CrudRepository<Item, Integer> {
             "(coalesce(:color) is null or lower(v.color) in (:color))")
     List<Item> findFilterForUser (@Param("owner") User owner, @Param("search") String search, @Param("color") List<String> color);
 
+    List<Item> findAllByOwner(@Param("owner") User owner);
     List<Item> findAll();
 
 }

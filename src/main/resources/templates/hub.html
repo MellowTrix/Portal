@@ -1,0 +1,67 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
+    <title>Portal - Studio</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 mt-4">
+
+            <form style="text-align: center" th:action="@{|/hub|}" method="post" th:object="${socialPost}">
+
+                <div class="itemInfo">
+                    <h2> Create New Post</h2>
+                    <div class="infoLine">
+                        <label for="postSubject" class="infoLineName">Post Subject: </label><br>
+                        <input id="postSubject" th:field="*{subject}" required class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <label for="postMessage" class="infoLineName">Post Message: </label><br>
+                        <input id="postMessage" th:field="*{message}" class="infoLineValue">
+                    </div>
+                    <div class="infoLine">
+                        <input type="submit" value="Create Item" class="buttonSmall mb-2 ">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6 offset-lg-3 mt-4" th:each="post : ${posts}">
+            <div class="card mt-4 post text-center" style="border-radius: 25px;">
+                <div class="card-header" style="border-radius: 25px">
+                    <h3 th:text="${post.subject}">Subject</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="card-text" style="color: black" th:text="${post.message}">message.</p>
+                        </div>
+                        <div class="col-4">
+                            <h5>Post By:</h5>
+                            <p th:text="${post.owner.getDisplayname()}">Owner</p>
+                            <hr>
+                            <h5>Posted On:</h5>
+                            <p th:text="${post.creationDate}">Date</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bottom-0" th:replace="fragments/footer :: footer">Footer</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/animation.js}"></script>
+</body>
+</html>

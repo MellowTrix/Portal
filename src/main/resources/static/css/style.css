@@ -565,6 +565,31 @@ footer a{
     margin-bottom: 0;
 }
 
+.post{
+    border-radius: 25px;
+    max-height: 20vh;
+    transition: ease-in-out 2s;
+}
+
+.card-header{
+    border-radius: 25px;
+}
+
+.post:hover{
+    max-height: 80vh;
+    transition: ease-in-out 2s;
+}
+
+.post p{
+    color: black;
+    font-size: 18px;
+}
+
+.post h5{
+    color: black;
+}
+
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

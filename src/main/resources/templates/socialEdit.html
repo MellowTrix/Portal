@@ -1,0 +1,68 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,300&display=swap"
+          rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9b47d8e8a9.js" crossorigin="anonymous"></script>
+    <title>Portal - Studio</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header">Header</div>
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 mt-4">
+            <form style="text-align: center" th:action="@{|/hub|}" method="post" th:object="${editSocialPost}">
+
+                <div class="itemInfo">
+                    <h1 style="color: #071BF3"> Edit Post</h1>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <div class="infoLine">
+                                <label for="postSubject" class="infoLineName">Post Subject: </label><br>
+                                <input id="postSubject" th:field="*{subject}" required class="infoLineValue">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="infoLine">
+                                <label for="item">Choose a Item:</label><br>
+                                <select id="item" name="item">
+                                    <option th:each="item : ${ownedItems}" th:value=" ${item.id}" th:field="*{item}"
+                                            th:text="${item.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="infoLine">
+                                <label for="postMessage" class="infoLineName">Post Message: </label><br>
+                                <textarea  id="postMessage" rows="6" cols="40" th:field="*{message}"  class="infoLineValue"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="infoLine">
+                                <input type="submit" value="Save Changes" class="buttonSmall mb-2">
+                            </div>
+                            <div>
+                                <a class="postButton mb-2" th:href="@{/hub/myPosts}">Go Back</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="bottom-0" th:replace="fragments/footer :: footer">Footer</div>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{/js/animation.js}"></script>
+</body>
+</html>

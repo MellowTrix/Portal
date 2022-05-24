@@ -41,7 +41,6 @@ public class DesignerController {
             }
         }
         final String loginName = (principal != null) ? principal.getName() : "";
-        logger.info("ItemNew");
         model.addAttribute("login", loginName);
         model.addAttribute("item", new Item());
         return "studio";
@@ -54,7 +53,6 @@ public class DesignerController {
             return "redirect:/home";
         }
         User user = userRepository.findByUsername(principal.getName()).get();
-        logger.info("mapNewPost -- new name=" + item.getName());
         item.setCreationDate(LocalDate.now());
         item.setOwner(user);
         itemRepository.save(item);

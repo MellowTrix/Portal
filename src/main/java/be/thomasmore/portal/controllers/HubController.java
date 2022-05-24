@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
@@ -71,5 +72,38 @@ public class HubController {
             model.addAttribute("ownedPosts", socialHubRepository.findAllByOwner(user));
         }
         return "myPosts";
+    }
+
+
+    @ModelAttribute("editSocialPost")
+    public SocialPost findPost(@PathVariable(required = false) Integer id) {
+        logger.info("findMap " + id);
+        if (id == null) return new SocialPost();
+
+        Optional<SocialPost> optionalPost = socialHubRepository.findById(id);
+        //noinspection OptionalIsPresent
+        if (optionalPost.isPresent())
+            return optionalPost.get();
+        return null;
+    }
+
+    @GetMapping({"/hub/edit/{id}"})
+    public String SocialEdit(Model model, @PathVariable(required = false) Integer id, Principal principal) {
+        logger.info(String.format(" -- id=%d", id));
+        final String loginName = (principal != null) ? principal.getName() : "";
+        Optional<User> userFromDb = userRepository.findByUsername(loginName);
+        model.addAttribute("login", loginName);
+        if (userFromDb.isPresent()){
+            User user = userFromDb.get();
+            model.addAttribute("ownedItems", itemRepository.findAllByOwner(user));
+        }
+        return "socialEdit";
+    }
+
+    @PostMapping("/hub/edit/{id}")
+    public String SocialEditPost(Model model, @PathVariable Integer id, @ModelAttribute SocialPost EditSocialPost){
+        logger.info(String.format(" -- id=%d" , id));
+        socialHubRepository.save(EditSocialPost);
+        return "redirect:/hub/myPosts";
     }
 }

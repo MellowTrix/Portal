@@ -585,6 +585,7 @@ footer a{
 .createPostButton {
     width: 60px;
     height: 60px;
+    border-radius: 25px;
     background-color: rgba(204, 236, 243, 0.66);
 }
 

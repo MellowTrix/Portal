@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.Comparator;
@@ -65,6 +63,20 @@ public class WardrobeController {
         }
 
         return "item";
+    }
+
+//    @GetMapping({"/item/share/{id}"})
+//    public String share(Model model, @PathVariable(required = false) Integer id) {
+//        Item item = itemRepository.findById(id).get();
+//        Post post = new Post;
+//
+//        return "redirect:/hub/";
+//    }
+
+    @GetMapping({"/item/delete/{id}"})
+    public String delete(Model model, @PathVariable(required = false) Integer id) {
+        itemRepository.delete(itemRepository.findById(id).get());
+        return "redirect:/wardrobe/";
     }
 }
 

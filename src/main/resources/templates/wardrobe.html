@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                <div class="col-11 offset-1 col-md-3 offset-md-0">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-shirt usersIcon"></i>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-11 col-md-3 offset-md-1" >
+                <div class="col-11 offset-1 col-md-3" >
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-star usersIcon"></i>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-4 offset-md-0" th:if="${user.subscriptionEndDate}">
+                <div class="col-11 offset-1 col-md-3 offset-md-0" th:if="${user.subscriptionEndDate}">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-regular fa-calendar usersIcon"></i>
@@ -112,6 +112,9 @@
                     </div>
                 </div>
             </div>
+
+
+
         </div>
 
         <div class="row">
@@ -249,8 +252,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border: none;">Close</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #FF4591; border:none">Save changes</button>
                     </div>
                 </form>
             </div>

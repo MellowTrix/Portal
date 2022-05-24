@@ -568,6 +568,31 @@ footer a{
     font-size: 10rem;
 }
 
+.postButton {
+    transition-duration: 0.6s;
+    background-color: #FF4591;
+    border-radius: 100px;
+    padding: 15px 70px;
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 0.5);
+    filter: drop-shadow(0px 12px 25px #4C609B);
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.createPostButton {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(204, 236, 243, 0.66);
+}
+
+#plusIcon{
+    color: white;
+
+}
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

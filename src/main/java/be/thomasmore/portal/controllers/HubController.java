@@ -61,4 +61,15 @@ public class HubController {
 
         return "redirect:/hub/";
     }
+
+    @GetMapping("/hub/myPosts")
+    public String HubMyPosts(Model model, Principal principal){
+        final String loginName = (principal != null) ? principal.getName() : "";
+        Optional<User> userFromDb = userRepository.findByUsername(loginName);
+        if (userFromDb.isPresent()){
+            User user = userFromDb.get();
+            model.addAttribute("ownedPosts", socialHubRepository.findAllByOwner(user));
+        }
+        return "myPosts";
+    }
 }

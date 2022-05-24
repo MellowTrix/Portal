@@ -19,4 +19,7 @@ public interface SocialHubRepository extends CrudRepository<SocialPost, Integer>
     Optional<SocialPost> findByMessage (@Param("message") String message);
 
     List<SocialPost> findAll();
+
+
+    List<SocialPost> findAllByOwner(@Param("owner") User owner);
 }

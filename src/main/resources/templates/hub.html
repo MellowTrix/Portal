@@ -18,38 +18,53 @@
 <div class="container-fluid content">
     <div class="row">
         <div class="col-lg-6 offset-lg-3 mt-4" sec:authorize="isAuthenticated()">
+            <button class="btn createPostButton" type="button" data-bs-toggle="collapse" data-bs-target="#area1" aria-expanded="false" aria-controls="area1">
+                <svg id="plusIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 32C419.3 32 448 60.65 448 96V416C448 451.3 419.3 480 384 480H64C28.65 480 0 451.3 0 416V96C0 60.65 28.65 32 64 32H384zM224 368C237.3 368 248 357.3 248 344V280H312C325.3 280 336 269.3 336 256C336 242.7 325.3 232 312 232H248V168C248 154.7 237.3 144 224 144C210.7 144 200 154.7 200 168V232H136C122.7 232 112 242.7 112 256C112 269.3 122.7 280 136 280H200V344C200 357.3 210.7 368 224 368z"/></svg>
+            </button>
+            <div class="collapse multi-collapse studioCollapse" id="area1">
+                <form style="text-align: center" th:action="@{|/hub|}" method="post" th:object="${socialPost}">
 
-            <form style="text-align: center" th:action="@{|/hub|}" method="post" th:object="${socialPost}">
-
-                <div class="itemInfo">
-                    <h1 style="color: #071BF3"> Create New Post</h1>
-                    <div class="row">
-                        <div class="col-lg-6 col-12">
-                            <div class="infoLine">
-                                <label for="postSubject" class="infoLineName">Post Subject: </label><br>
-                                <input id="postSubject" th:field="*{subject}" required class="infoLineValue">
+                    <div class="itemInfo">
+                        <h1 style="color: #071BF3"> Create New Post</h1>
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <div class="infoLine">
+                                    <label for="postSubject" class="infoLineName">Post Subject: </label><br>
+                                    <input id="postSubject" th:field="*{subject}" required class="infoLineValue">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="infoLine">
+                                    <label for="item">Choose a Item:</label><br>
+                                    <select id="item" name="item">
+                                        <option th:each="item : ${ownedItems}" th:value=" ${item.id}" th:field="*{item}"
+                                                th:text="${item.name}"></option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-12">
-                            <div class="infoLine">
-                                <label for="item">Choose a Item:</label><br>
-                                <select id="item" name="item">
-                                    <option th:each="item : ${ownedItems}" th:value=" ${item.id}" th:field="*{item}"
-                                            th:text="${item.name}"></option>
-                                </select>
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <div class="infoLine">
+                                    <label for="postMessage" class="infoLineName">Post Message: </label><br>
+                                    <textarea  id="postMessage" rows="6" cols="40" th:field="*{message}"  class="infoLineValue"></textarea>
+                                </div>
                             </div>
+                            <div class="col-12 col-lg-6">
+                                <div class="infoLine">
+                                    <input type="submit" value="Create Post" class="buttonSmall mb-2">
+                                </div>
+                                <div>
+                                    <a class="postButton mb-2" th:href="@{/hub/myPosts}">My Posts</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                    <div class="infoLine">
-                        <label for="postMessage" class="infoLineName">Post Message: </label><br>
-                        <textarea  id="postMessage" rows="6" cols="40" th:field="*{message}"  class="infoLineValue"></textarea>
-                    </div>
+                </form>
+            </div>
 
-                    <div class="infoLine">
-                        <input type="submit" value="Create Post" class="buttonSmall mb-2 ">
-                    </div>
-                </div>
-            </form>
+
         </div>
         <div class="col-lg-6 offset-lg-3 mt-4" th:each="post : ${posts}">
             <div class="card mt-4 post text-center" style="border-radius: 25px;">

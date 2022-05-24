@@ -141,8 +141,7 @@ public class UserController {
     }
 
     @GetMapping("/subscribe/{monthCount}")
-    public String addSubscription(Model model, @PathVariable Integer monthCount, Principal principal)/* throws BitPayException*/ {
-        //Client bitpay = new Client("7JEt3ossa4brmbDmd8wwzq3UwuE56c5dapW9GTRVVRAB", Env.Test);
+    public String addSubscription(Model model, @PathVariable Integer monthCount, Principal principal) {
         Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
         if (userFromDb.isEmpty()) {
             return "redirect:/login";
@@ -160,19 +159,6 @@ public class UserController {
         } else {
             return "redirect:/user/subscribe";
         }
-        /*Invoice invoice = bitpay.createInvoice(new Invoice(1.00, "USD"));
-        String invoiceUrl = invoice.getUrl();
-        String status = invoice.getStatus();
-        Buyer buyer = new Buyer();
-        //buyer.setEmail(user.getEmail());
-        //buyer.setName(user.getUsername());
-        invoice.setBuyer(buyer);
-        invoice.setNotificationEmail(user.getEmail());
-        logger.info("====================");
-        logger.info(invoiceUrl);
-        logger.info(invoice.getBuyer().getEmail());
-        logger.info(invoice.getBuyer().getName());
-        logger.info("====================");*/
         user.setRole("DESIGNER");
         userRepository.save(user);
         return "redirect:/home";

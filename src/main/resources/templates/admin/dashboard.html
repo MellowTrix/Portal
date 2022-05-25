@@ -23,8 +23,8 @@
                     <div class="row">
                         <div class="col-4">
                             <div class="row">
-                                <div class="col-4 mt-auto mb-auto">
-                                    <i class="fa-solid fa-users usersIcon"></i>
+                                <div class="col-4 mt-auto mb-auto text-center">
+                                    <i class="fa-solid fa-user usersIcon"></i>
                                 </div>
                                 <div class="col-8">
                                     <div class="mt-auto mb-auto">
@@ -36,8 +36,8 @@
                         </div>
                         <div class="col-4">
                             <div class="row">
-                                <div class="col-4 mt-auto mb-auto">
-                                    <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                                <div class="col-4 mt-auto mb-auto text-center">
+                                    <i class="fa-solid fa-users usersIcon"></i>
                                 </div>
                                 <div class="col-8">
                                     <div class="mt-auto mb-auto">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-4">
                             <div class="row">
-                                <div class="col-4 mt-auto mb-auto">
+                                <div class="col-4 mt-auto mb-auto text-center">
                                     <i class="fa-solid fa-shirt usersIcon"></i>
                                 </div>
                                 <div class="col-8">
@@ -74,11 +74,15 @@
                         <div class="col-3 px-5 py-3" th:each="user : ${users}">
                             <div class="card" style="border-radius: 20px; border: 3px solid #FF4591">
                                 <div class="card-body">
-                                    <h5 class="card-title" th:text="${user.username}">Card title</h5>
-                                    <p class="p-0 smallerParaBlack" th:text="${user.email}"></p>
-                                    <p class="p-0 smallerParaBlack" th:text="${user.monthsSubscribed}"></p>
-                                    <p class="p-0 smallerParaBlack" th:text="${user.subscriptionEndDate} != null ? ${user.subscriptionEndDate} : '-'"></p>
-                                    <p class="p-0 smallerParaBlack" th:text="${user.role}"></p>
+                                    <h2 class="card-title" style="border-bottom: 1px lightgray solid; font-size: 30px" th:text="${user.username}"></h2>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Email:</p>
+                                    <p class="smallerParaBlack" th:text="${user.email}"></p>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Months subscribed:</p>
+                                    <p class="smallerParaBlack" th:text="${user.monthsSubscribed}"></p>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Sub end date:</p>
+                                    <p class="smallerParaBlack" th:text="${user.subscriptionEndDate} != null ? ${user.subscriptionEndDate} : '-'"></p>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Email:</p>
+                                    <p class="smallerParaBlack" th:text="${user.role}"></p>
                                 </div>
                             </div>
                         </div>
@@ -112,9 +116,11 @@
                         <div class="col-3 px-5 py-3" th:each="contactMessage : ${contactMessages}">
                             <div class="card" style="border-radius: 20px; border: 3px solid #FF4591">
                                 <div class="card-body">
-                                    <h5 class="card-title" th:text="${contactMessage.subject}">Card title</h5>
-                                    <p class="p-0 smallerParaBlack" th:text="${contactMessage.name}"></p>
-                                    <p class="p-0 smallerParaBlack mb-4" th:text="${contactMessage.email}"></p>
+                                    <h2 class="card-title" style="border-bottom: 1px lightgray solid; font-size: 30px" th:text="${contactMessage.name}"></h2>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Email:</p>
+                                    <p class="smallerParaBlack mb-4" th:text="${contactMessage.email}"></p>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Subject:</p>
+                                    <p class="smallerParaBlack mb-4" th:text="${contactMessage.subject}"></p>
                                     <a class="loginButton" th:href="@{|/admin/contactdetails/${contactMessage.id}|}">Reply</a>
                                 </div>
                             </div>

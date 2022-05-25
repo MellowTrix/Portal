@@ -18,7 +18,7 @@
 <div class="container-fluid content">
     <div class="row">
         <div class="col-lg-6 offset-lg-3 mt-4">
-            <form style="text-align: center" th:action="@{|/hub|}" method="post" th:object="${editSocialPost}">
+            <form style="text-align: center" th:action="@{|/hub/edit/${editSocialPost.id}|}" method="post" th:object="${editSocialPost}">
 
                 <div class="itemInfo">
                     <h1 style="color: #071BF3"> Edit Post</h1>

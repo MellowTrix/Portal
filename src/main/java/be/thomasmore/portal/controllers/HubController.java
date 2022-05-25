@@ -101,9 +101,17 @@ public class HubController {
     }
 
     @PostMapping("/hub/edit/{id}")
-    public String SocialEditPost(Model model, @PathVariable Integer id, @ModelAttribute SocialPost EditSocialPost){
+    public String SocialEditPost(Model model, @PathVariable Integer id, @ModelAttribute SocialPost editSocialPost){
         logger.info(String.format(" -- id=%d" , id));
-        socialHubRepository.save(EditSocialPost);
+        Optional<SocialPost> postFromDb = socialHubRepository.findById(id);
+        if (postFromDb.isEmpty()) {
+            return "redirect:/hub";
+        }
+        SocialPost socialPost = postFromDb.get();
+        socialPost.setSubject(editSocialPost.getSubject());
+        socialPost.setMessage(editSocialPost.getMessage());
+        socialPost.setItem(editSocialPost.getItem());
+        socialHubRepository.save(socialPost);
         return "redirect:/hub/myPosts";
     }
 }

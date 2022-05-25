@@ -62,43 +62,75 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-4 text-center mt-3">
+                    <button class="loginButton" type="button" id="changeButton" onclick="changeDisplay()">Click to display contact messages</button>
+                </div>
+            </div>
+            <div class="row" id="userRow">
                 <div class="col-12">
-                    <table class="table table-hover my-5">
-                        <thead class="">
-                        <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Subscriptions bought (Months)</th>
-                            <th scope="col">Subscription end date</th>
-                            <th scope="col">Role</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr class="" th:each="user : ${users}">
-                            <th class="p-0" scope="row" th:text="${user.username}"></th>
-                            <td class="p-0" th:text="${user.email}"></td>
-                            <td class="p-0" th:text="${user.monthsSubscribed}"></td>
-                            <td class="p-0" th:text="${user.subscriptionEndDate}"></td>
-                            <td class="p-0" th:text="${user.role}"></td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <div class="row">
+                        <div class="col-3 px-5 py-3" th:each="user : ${users}">
+                            <div class="card" style="border-radius: 20px; border: 3px solid #FF4591">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${user.username}">Card title</h5>
+                                    <p class="p-0 smallerParaBlack" th:text="${user.email}"></p>
+                                    <p class="p-0 smallerParaBlack" th:text="${user.monthsSubscribed}"></p>
+                                    <p class="p-0 smallerParaBlack" th:text="${user.subscriptionEndDate} != null ? ${user.subscriptionEndDate} : '-'"></p>
+                                    <p class="p-0 smallerParaBlack" th:text="${user.role}"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <table class="table table-hover my-5">-->
+<!--                        <thead class="">-->
+<!--                        <tr>-->
+<!--                            <th scope="col">Name</th>-->
+<!--                            <th scope="col">Email</th>-->
+<!--                            <th scope="col">Subscriptions bought (Months)</th>-->
+<!--                            <th scope="col">Subscription end date</th>-->
+<!--                            <th scope="col">Role</th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                        <tr class="" th:each="user : ${users}">-->
+<!--                            <th class="p-0" scope="row" th:text="${user.username}"></th>-->
+<!--                            <td class="p-0" th:text="${user.email}"></td>-->
+<!--                            <td class="p-0" th:text="${user.monthsSubscribed}"></td>-->
+<!--                            <td class="p-0" th:text="${user.subscriptionEndDate}"></td>-->
+<!--                            <td class="p-0" th:text="${user.role}"></td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
                     <a class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add subscription days</a>
                 </div>
+            </div>
+            <div class="row" id="messageRow" hidden>
                 <div class="col-12">
-                    <div class="row" th:each="contactMessage : ${contactMessages}" style="border-bottom: 1px solid gray; border-top: 1px solid gray">
-                        <div class="col-3">
-                            <p class="smallerParaBlack mt-auto mb-auto" th:text="${contactMessage.name}"></p>
+                    <div class="row">
+                        <div class="col-3 px-5 py-3" th:each="contactMessage : ${contactMessages}">
+                            <div class="card" style="border-radius: 20px; border: 3px solid #FF4591">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${contactMessage.subject}">Card title</h5>
+                                    <p class="p-0 smallerParaBlack" th:text="${contactMessage.name}"></p>
+                                    <p class="p-0 smallerParaBlack mb-4" th:text="${contactMessage.email}"></p>
+                                    <a class="loginButton" th:href="@{|/admin/contactdetails/${contactMessage.id}|}">Reply</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-3">
-                            <p class="smallerParaBlack" th:text="${contactMessage.email}"></p>
-                        </div>
-                        <div class="col-3">
-                            <p class="smallerParaBlack" th:text="${contactMessage.subject}"></p>
-                        </div>
-                        <div class="col-3">
-                            <a th:href="@{|/admin/contactdetails/${contactMessage.id}|}">Reply</a>
-                        </div>
+<!--                        <div class="col-3">-->
+<!--                            <p class="smallerParaBlack mt-auto mb-auto" th:text="${contactMessage.name}"></p>-->
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            <p class="smallerParaBlack" th:text="${contactMessage.email}"></p>-->
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            <p class="smallerParaBlack" th:text="${contactMessage.subject}"></p>-->
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            <a th:href="@{|/admin/contactdetails/${contactMessage.id}|}">Reply</a>-->
+<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -136,8 +168,27 @@
         </div>
     </div>
 </div>
-
 <div th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script>
+    const changeButtonEl = document.getElementById("changeButton");
+    const userRowEl = document.getElementById("userRow");
+    const messageRowEl = document.getElementById("messageRow");
+    const messagetext = document.createTextNode("Click to display contact messages");
+    const userText = document.createTextNode("Click to display users");
+    const changeDisplay = () => {
+        if (changeButtonEl.innerHTML === 'Click to display contact messages') {
+            userRowEl.setAttribute("hidden", "hidden");
+            messageRowEl.removeAttribute("hidden");
+            changeButtonEl.innerHTML = "";
+            changeButtonEl.appendChild(userText);
+        } else {
+            userRowEl.removeAttribute("hidden");
+            messageRowEl.setAttribute("hidden", "hidden");
+            changeButtonEl.innerHTML = "";
+            changeButtonEl.appendChild(messagetext);
+        }
+    }
+</script>
 </body>
 </html>

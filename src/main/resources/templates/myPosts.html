@@ -17,7 +17,10 @@
 <div th:replace="fragments/header :: header">Header</div>
 <div class="container-fluid content">
     <div class="row">
-        <div class="col-lg-6 offset-lg-3 mt-4" th:each="post : ${ownedPosts}">
+        <div class="text-center mt-5" th:if="${ownedPosts.isEmpty()}">
+            <h1 style="color: black">No Posts Found</h1>
+        </div>
+        <div class="col-lg-6 offset-lg-3 mt-4" th:unless="${ownedPosts.isEmpty()}" th:each="post : ${ownedPosts}">
             <div class="card mt-4 post text-center" style="border-radius: 25px;">
                 <div class="card-header" style="border-radius: 25px; background-color: #CEEEF4">
                     <div class="row">

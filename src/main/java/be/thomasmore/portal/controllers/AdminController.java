@@ -74,7 +74,7 @@ public class AdminController {
         }
         emailService.sendSimpleMessage(message.getEmail(), "RE: " + message.getSubject(), replyMessage);
         contactMessageRepository.delete(contactMessageRepository.findById(message.getId()).get());
-        return "redirect:/home";
+        return "redirect:/admin/dashboard";
     }
 
     @PostMapping("/addSub")

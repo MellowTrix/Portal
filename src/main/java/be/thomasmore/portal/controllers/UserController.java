@@ -2,6 +2,11 @@ package be.thomasmore.portal.controllers;
 
 import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.UserRepository;
+import com.bitpay.sdk_light.BitPayException;
+import com.bitpay.sdk_light.Client;
+import com.bitpay.sdk_light.Env;
+import com.bitpay.sdk_light.model.Invoice.Buyer;
+import com.bitpay.sdk_light.model.Invoice.Invoice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

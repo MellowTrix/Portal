@@ -88,6 +88,11 @@
             <artifactId>surefire-booter</artifactId>
             <version>3.0.0-M4</version>
         </dependency>
+        <dependency>
+            <groupId>com.bitpay</groupId>
+            <artifactId>bitpay_sdk_light</artifactId>
+            <version>1.6.2004</version>
+        </dependency>
     </dependencies>
 
     <build>

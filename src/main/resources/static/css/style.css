@@ -595,6 +595,11 @@ footer a{
 }
 
 
+.selectedSubCard {
+    border: 5px solid #f39dbf;
+    border-radius: 25px;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

@@ -37,13 +37,13 @@
                         </ul>
                     </div>
                     <div class="mt-3 mb-4">
-                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/trial}">Learn More</a>
+                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/trial}">Activate</a>
                         <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
                     </div>
                 </div>
 
-                <div class="card-sub col-sm mb-4 box-shadow">
-                    <div class="card-header-sub">
+                <div class="card-sub col-sm mb-4 box-shadow selectedSubCard p-2" id="oneMonthCard" onclick="chooseSub(1, this.id)">
+                    <div class="card-header-sub" id="oneMonthCardHeader">
                         <h4 class="my-0 font-weight-normal">Monthly</h4>
                     </div>
                     <div class="card-body-sub">
@@ -58,12 +58,12 @@
                         </ul>
                     </div>
                     <div class="mt-3 mb-4">
-                        <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/1}">Learn More</a>
+                        <a class="buttonSmall" hidden id="subOneMonth" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/1}">Learn More</a>
                         <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
                     </div>
                 </div>
 
-                <div class="card-sub col-sm mb-4 box-shadow">
+                <div class="card-sub col-sm mb-4 box-shadow p-2" id="oneYearCard" onclick="chooseSub(2, this.id)">
                     <div class="card-header-sub">
                         <h4 class="my-0 font-weight-normal">Yearly</h4>
                     </div>
@@ -80,12 +80,12 @@
                         </ul>
                     </div>
                         <div class="mt-3 mb-4">
-                            <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/12}">Learn More</a>
+                            <a class="buttonSmall" hidden id="subOneYear" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/12}">Learn More</a>
                             <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
                         </div>
                 </div>
 
-                <div class="card-sub col-sm mb-4 box-shadow">
+                <div class="card-sub col-sm mb-4 box-shadow p-2" id="threeYearCard" onclick="chooseSub(3, this.id)">
                     <div class="card-header-sub">
                         <h4 class="my-0 font-weight-normal">3 Years</h4>
                     </div>
@@ -103,38 +103,63 @@
                         </ul>
                     </div>
                         <div class="mt-3 mb-4">
-                            <a class="buttonSmall" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/36}">Learn More</a>
+                            <a class="buttonSmall" hidden id="subThreeYear" sec:authorize="isAuthenticated()" th:href="@{/user/subscribe/36}">Learn More</a>
                             <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Log in to subscribe</a>
                         </div>
                 </div>
+                <form action="https://test.bitpay.com/checkout" method="post" target="bitpay" data-bitpay-button>
+                    <input type="hidden" name="action" value="checkout" />
+                    <input id="priceInput" type="hidden" name="price" value="1" />
+                    <input type="hidden" name="currency" value="USD" />
+                    <input type="hidden" name="data" value="eU8EyRk6YCEDhavRImddX4tziUoJoKenPU0WiOT7E/CiYqx2OdH5TiBs3Ef/43pT6cvWtC2bRJXZD3engX5oDLWspy/vZn0uK20Yq5HwxiWrj5dq3Yq+qIv9sLBU9wtZxkWWa+V6JpNgAr19rKvOc9SQ30UmlbF4FXLTY4xIw8ayc+XZtRPc13pFprm/gLVUzAwoxTHBharCVn4JjkLGIAdOlRnh2dM8ep042yTF6lk=" />
+                    <input type="image" src="https://test.bitpay.com/cdn/en_US/bp-btn-pay-currencies.svg" name="submit" style="width: 250px" alt="BitPay, the easy way to pay with bitcoins.">
+                </form>
             </div>
         </div>
     </div>
 </div>
+<a class="buttonSmall" id="returnButton" hidden th:href="@{/user/subscribe}"></a>
 <div class="bottom-0" th:replace="fragments/footer :: footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+<script src="https://bitpay.com/bitpay.min.js"></script>
 <script>
-
-    const checkUsername = () => {
-        let userName = document.getElementById("username").value;
-        if (userName === '') {
-            submit.setAttribute("disabled", "disabled");
-            return false
-        } else {
-            submit.removeAttribute("disabled");
-            return true
+    let subButtonEl;
+    window.addEventListener("message", function (event) {
+        payment_status = event.data.status;
+        if (payment_status === "paid") {
+            subButtonEl.click();
         }
-    }
+    });
 
-    const checkPassword = () => {
-        let password = document.getElementById("password").value;
-        if (password === '') {
-            submit.setAttribute("disabled", "disabled");
-            return false
-        } else {
-            submit.removeAttribute("disabled");
-            return true
+    const chooseSub = (price, cardId) => {
+        let invoicePrice;
+        const oneMonthCardEl = document.getElementById("oneMonthCard");
+        const oneYearCardEl = document.getElementById("oneYearCard");
+        const threeYearCardEl = document.getElementById("threeYearCard");
+        switch (cardId) {
+            case "oneMonthCard":
+                invoicePrice = 1;
+                oneMonthCardEl.classList.add("selectedSubCard");
+                oneYearCardEl.classList.remove("selectedSubCard");
+                threeYearCardEl.classList.remove("selectedSubCard");
+                subButtonEl = document.getElementById("subOneMonth");
+                break;
+            case "oneYearCard":
+                invoicePrice = 2;
+                oneMonthCardEl.classList.remove("selectedSubCard");
+                oneYearCardEl.classList.add("selectedSubCard");
+                threeYearCardEl.classList.remove("selectedSubCard");
+                subButtonEl = document.getElementById("subOneYear");
+                break;
+            case "threeYearCard":
+                invoicePrice = 3;
+                oneMonthCardEl.classList.remove("selectedSubCard");
+                oneYearCardEl.classList.remove("selectedSubCard");
+                threeYearCardEl.classList.add("selectedSubCard");
+                subButtonEl = document.getElementById("subThreeYear");
+                break;
         }
+        document.getElementById("priceInput").setAttribute("value", invoicePrice);
     }
 </script>
 </body>

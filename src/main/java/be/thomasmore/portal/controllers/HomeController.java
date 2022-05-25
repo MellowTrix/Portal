@@ -61,4 +61,8 @@ public class HomeController {
         return "logout";
     }
 
+    @GetMapping({"/cancelledPayment"})
+    public String cancelledPayment() {
+        return "paymentcancelled";
+    }
 }

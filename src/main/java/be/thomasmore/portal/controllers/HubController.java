@@ -93,9 +93,11 @@ public class HubController {
         final String loginName = (principal != null) ? principal.getName() : "";
         Optional<User> userFromDb = userRepository.findByUsername(loginName);
         model.addAttribute("login", loginName);
-        if (userFromDb.isPresent()){
+        SocialPost sp =  socialHubRepository.findById(id).get();
+        if (userFromDb.isPresent()) {
             User user = userFromDb.get();
             model.addAttribute("ownedItems", itemRepository.findAllByOwner(user));
+            if (sp.getOwner().getId() != user.getId()) return "redirect:/error";
         }
         return "socialEdit";
     }
@@ -112,6 +114,21 @@ public class HubController {
         socialPost.setMessage(editSocialPost.getMessage());
         socialPost.setItem(editSocialPost.getItem());
         socialHubRepository.save(socialPost);
+        return "redirect:/hub/myPosts";
+    }
+
+    @GetMapping({"/hub/delete/{id}"})
+    public String removePost(@PathVariable(required = false) Integer id, Principal principal) {
+        final String loginName = (principal != null) ? principal.getName() : "";
+        Optional<User> userFromDb = userRepository.findByUsername(loginName);
+        SocialPost sp =  socialHubRepository.findById(id).get();
+        if (userFromDb.isPresent()) {
+            User user = userFromDb.get();
+            logger.info(String.format("postOwnerID",sp.getOwner().getId()));
+            logger.info(String.format("userID --",user.getId()));
+            if (sp.getOwner().getId() != user.getId()) return "redirect:/error";
+        }
+        socialHubRepository.delete(socialHubRepository.findById(id).get());
         return "redirect:/hub/myPosts";
     }
 }

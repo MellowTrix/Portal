@@ -22,7 +22,7 @@
                 <div class="card-header" style="border-radius: 25px; background-color: #CEEEF4">
                     <div class="row">
                         <div class="col-2 my-auto">
-                            <a href="#"><i class="fa-solid fa-ban fa-2xl"></i></a>
+                            <a th:href="@{|/hub/delete/${post.id}|}"><i class="fa-solid fa-ban fa-2xl"></i></a>
                         </div>
                         <div class="col-8 ">
                             <h3 style="color: black; font-size: 3rem; font-weight: 700" th:text="${post.subject}">Subject</h3>

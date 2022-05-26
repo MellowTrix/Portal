@@ -85,7 +85,9 @@ public class AdminController {
         }
         User user = userFromDb.get();
         user.setSubscriptionEndDate(calculateSub(daysCount, user.getSubscriptionEndDate()));
-        user.setRole("DESIGNER");
+        if (!user.getRole().equals("ADMIN")) {
+            user.setRole("DESIGNER");
+        }
         userRepository.save(user);
         return "redirect:/admin/dashboard";
     }

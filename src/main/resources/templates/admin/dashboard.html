@@ -81,33 +81,13 @@
                                     <p class="smallerParaBlack" th:text="${user.monthsSubscribed}"></p>
                                     <p class="m-0 smallerParaBlack" style="font-weight: 500">Sub end date:</p>
                                     <p class="smallerParaBlack" th:text="${user.subscriptionEndDate} != null ? ${user.subscriptionEndDate} : '-'"></p>
-                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Email:</p>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Role:</p>
                                     <p class="smallerParaBlack" th:text="${user.role}"></p>
+                                    <button class="loginButton" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" type="button" id="editUserButton" th:name="${user.username}" onclick="editUser(this.name)">Edit user</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-<!--                    <table class="table table-hover my-5">-->
-<!--                        <thead class="">-->
-<!--                        <tr>-->
-<!--                            <th scope="col">Name</th>-->
-<!--                            <th scope="col">Email</th>-->
-<!--                            <th scope="col">Subscriptions bought (Months)</th>-->
-<!--                            <th scope="col">Subscription end date</th>-->
-<!--                            <th scope="col">Role</th>-->
-<!--                        </tr>-->
-<!--                        </thead>-->
-<!--                        <tbody>-->
-<!--                        <tr class="" th:each="user : ${users}">-->
-<!--                            <th class="p-0" scope="row" th:text="${user.username}"></th>-->
-<!--                            <td class="p-0" th:text="${user.email}"></td>-->
-<!--                            <td class="p-0" th:text="${user.monthsSubscribed}"></td>-->
-<!--                            <td class="p-0" th:text="${user.subscriptionEndDate}"></td>-->
-<!--                            <td class="p-0" th:text="${user.role}"></td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                    </table>-->
-                    <a class="btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add subscription days</a>
                 </div>
             </div>
             <div class="row" id="messageRow" hidden>
@@ -125,18 +105,6 @@
                                 </div>
                             </div>
                         </div>
-<!--                        <div class="col-3">-->
-<!--                            <p class="smallerParaBlack mt-auto mb-auto" th:text="${contactMessage.name}"></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-3">-->
-<!--                            <p class="smallerParaBlack" th:text="${contactMessage.email}"></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-3">-->
-<!--                            <p class="smallerParaBlack" th:text="${contactMessage.subject}"></p>-->
-<!--                        </div>-->
-<!--                        <div class="col-3">-->
-<!--                            <a th:href="@{|/admin/contactdetails/${contactMessage.id}|}">Reply</a>-->
-<!--                        </div>-->
                     </div>
                 </div>
             </div>
@@ -148,20 +116,18 @@
             <div class="modal-content">
                 <form th:action="@{/admin/addSub}" method="post">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Add subscription days</h5>
+                        <h5 class="modal-title" id="editModalTitle">Edit user</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group mb-3">
-                            <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                        <div class="form-group mb-3" hidden>
+                            <label for="username"></label>
+                            <input type="text" class="form-control" id="username" placeholder="Username" value="" name="username">
                         </div>
-                    </div>
-                    <div class="modal-body">
                         <div class="form-group mb-3">
-                            <label for="days">Amount of days</label>
+                            <label for="days">Add subscription days</label>
                             <input type="text" class="form-control" id="days" placeholder="Days" name="daysCount">
                         </div>
                     </div>
@@ -182,6 +148,8 @@
     const messageRowEl = document.getElementById("messageRow");
     const messagetext = document.createTextNode("Click to display contact messages");
     const userText = document.createTextNode("Click to display users");
+    const usernameFieldModalEl = document.getElementById("username");
+    const editModalTitleEl = document.getElementById("editModalTitle");
     const changeDisplay = () => {
         if (changeButtonEl.innerHTML === 'Click to display contact messages') {
             userRowEl.setAttribute("hidden", "hidden");
@@ -194,6 +162,12 @@
             changeButtonEl.innerHTML = "";
             changeButtonEl.appendChild(messagetext);
         }
+    }
+
+    const editUser = (username) => {
+        editModalTitleEl.innerHTML = `Edit ${username}'s profile`;
+        usernameFieldModalEl.setAttribute("value", username);
+        console.log(usernameFieldModalEl.getAttribute("value"));
     }
 </script>
 </body>

@@ -77,16 +77,28 @@ public class AdminController {
         return "redirect:/admin/dashboard";
     }
 
-    @PostMapping("/addSub")
-    public String addSubscription(@RequestParam String username, @RequestParam Integer daysCount) {
+    @PostMapping("/editUser")
+    public String editUser(@RequestParam String username, @RequestParam(required = false) Integer daysCount, @RequestParam(required = false) String newUsername,
+                           @RequestParam(required = false) String newDisplayname, @RequestParam(required = false) String newEmail) {
         Optional<User> userFromDb = userRepository.findByUsername(username);
         if (userFromDb.isEmpty()) {
             return "redirect:/admin/dashboard";
         }
         User user = userFromDb.get();
-        user.setSubscriptionEndDate(calculateSub(daysCount, user.getSubscriptionEndDate()));
-        if (!user.getRole().equals("ADMIN")) {
-            user.setRole("DESIGNER");
+        if (daysCount != null) {
+            user.setSubscriptionEndDate(calculateSub(daysCount, user.getSubscriptionEndDate()));
+            if (!user.getRole().equals("ADMIN")) {
+                user.setRole("DESIGNER");
+            }
+        }
+        if (newUsername != null && !newUsername.equals("")) {
+            user.setUsername(newUsername);
+        }
+        if (newDisplayname != null && !newDisplayname.equals("")) {
+            user.setDisplayname(newDisplayname);
+        }
+        if (newEmail != null && !newEmail.equals("")) {
+            user.setEmail(newEmail);
         }
         userRepository.save(user);
         return "redirect:/admin/dashboard";

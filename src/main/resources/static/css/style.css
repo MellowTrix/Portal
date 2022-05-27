@@ -600,6 +600,10 @@ footer a{
     border-radius: 25px;
 }
 
+.subPrices {
+    font-size: 3vw;
+}
+
 .page-link {
     color: #FF4591;
     border-color: #FF4591;

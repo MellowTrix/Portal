@@ -5,9 +5,7 @@ import be.thomasmore.portal.models.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-
 import java.util.List;
-import java.util.Optional;
 
 public interface ItemRepository extends CrudRepository<Item, Integer> {
 

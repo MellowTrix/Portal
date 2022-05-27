@@ -431,8 +431,8 @@ footer a{
 }
 
 .usersIcon {
-    font-size: 6vh;
-    color: white;
+    font-size: 300%;
+    color: #FF4591;
     margin: 2% 7%;
 }
 
@@ -600,6 +600,16 @@ footer a{
     border-radius: 25px;
 }
 
+.page-link {
+    color: #FF4591;
+    border-color: #FF4591;
+}
+
+.page-link:hover {
+    color: #FF4591;
+    border-color: #FF4591;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -662,18 +672,6 @@ footer a{
 @media only screen and (max-width: 767px) {
     .shirtDiv {
         display: none;
-    }
-
-    .textResize{
-        font-size: 4rem;
-    }
-
-    .collapse h2{
-        font-size: 3rem;
-    }
-
-    .collapse p{
-        font-size: 1.6rem;
     }
 }
 

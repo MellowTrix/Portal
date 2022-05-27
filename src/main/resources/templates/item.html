@@ -49,10 +49,10 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-2 offset-md-4">
-            <a class="buttonFilter" style="color: white">share item</a>
+            <a class="buttonFilter" th:href="@{|/item/share/${item.id}|}">share item</a>
         </div>
         <div class="col-md-2">
-            <a class="buttonFilter" style="color: white">delete item</a>
+            <a class="buttonFilter" th:href="@{|/item/delete/${item.id}|}">delete item</a>
         </div>
     </div>
 

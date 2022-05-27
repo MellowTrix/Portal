@@ -599,7 +599,17 @@ footer a{
     border: 5px solid #f39dbf;
     border-radius: 25px;
 }
+.contactUsTitle {
+    font-size: 2vw;
+}
 
+.contactInfo {
+    font-size: 1.5vw;
+}
+
+.contactInfoIcon {
+    font-size: 1.7vw;
+}
 .subPrices {
     font-size: 3vw;
 }
@@ -658,6 +668,18 @@ footer a{
         font-size: 25px;
         padding: 15px;
     }
+
+    .contactUsTitle {
+        font-size: 2.5vw;
+    }
+
+    .contactInfo {
+        font-size: 1.8vw;
+    }
+
+    .contactInfoIcon {
+        font-size: 2vw;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -676,6 +698,18 @@ footer a{
 @media only screen and (max-width: 767px) {
     .shirtDiv {
         display: none;
+    }
+
+    .contactUsTitle {
+        font-size: 2.8vw;
+    }
+
+    .contactInfo {
+        font-size: 2.1vw;
+    }
+
+    .contactInfoIcon {
+        font-size: 2.3vw;
     }
 }
 

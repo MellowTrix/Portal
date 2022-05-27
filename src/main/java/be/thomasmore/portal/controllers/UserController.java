@@ -153,9 +153,8 @@ public class UserController {
         } else if (monthCount == 12) {
             user.setSubscriptionEndDate(calculateSub(monthCount, user.getSubscriptionEndDate()));
             user.setMonthsSubscribed(user.getMonthsSubscribed() + monthCount);
-        } else if (monthCount == 36) {
-            user.setSubscriptionEndDate(calculateSub(monthCount, user.getSubscriptionEndDate()));
-            user.setMonthsSubscribed(user.getMonthsSubscribed() + monthCount);
+        } else if (monthCount == 0) {
+            return "redirect:/home";
         } else {
             return "redirect:/user/subscribe";
         }

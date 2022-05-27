@@ -429,7 +429,17 @@ footer {
     margin-bottom: 0.5%;
 }
 
+.contactUsTitle {
+    font-size: 2vw;
+}
 
+.contactInfo {
+    font-size: 1.5vw;
+}
+
+.contactInfoIcon {
+    font-size: 1.7vw;
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -475,6 +485,18 @@ footer {
         font-size: 25px;
         padding: 15px;
     }
+
+    .contactUsTitle {
+        font-size: 2.5vw;
+    }
+
+    .contactInfo {
+        font-size: 1.8vw;
+    }
+
+    .contactInfoIcon {
+        font-size: 2vw;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -493,6 +515,18 @@ footer {
 @media only screen and (max-width: 767px) {
     .shirtDiv {
         display: none;
+    }
+
+    .contactUsTitle {
+        font-size: 2.8vw;
+    }
+
+    .contactInfo {
+        font-size: 2.1vw;
+    }
+
+    .contactInfoIcon {
+        font-size: 2.3vw;
     }
 }
 

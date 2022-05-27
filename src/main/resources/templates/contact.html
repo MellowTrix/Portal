@@ -28,18 +28,18 @@
                 <div class="col-12">
                     <form th:action="@{|/contact|}" th:object="${contactmessage}" method="post">
                         <div class="row">
-                            <div class="col-8 offset-2">
-                                <p class="text-center text-dark" style="font-size: 35px">Do you have any questions? Feel free to fill in the form below or contact our team directly.</p>
+                            <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-12">
+                                <p class="text-center text-dark contactUsTitle">Do you have any questions?<br>Feel free to fill in the form below or contact our team directly.</p>
                             </div>
                         </div>
                         <div class="row mt-5">
-                            <div class="col-8">
+                            <div class="col-xl-8 col-lg-12">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-md-6 col-12">
                                         <input th:field="*{name}" type="text" class="contactInput" id="name" name="name" placeholder="Your name" onkeyup="enableSubmitCheck()">
                                         <label for="name"></label>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-6 col-12">
                                         <input th:field="*{email}" type="text" class="contactInput" id="email" name="email" placeholder="Your email" onkeyup="enableSubmitCheck()">
                                         <label for="email"></label>
                                     </div>
@@ -52,19 +52,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 offset-1">
+                            <div class="col-xl-3 offset-xl-1 col-lg-12">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <i class="fas fa-home mx-auto" style="font-size: 3vh"></i>
-                                        <p class="text-dark" style="font-size: 25px">New York, NY 10012, US</p>
+                                    <div class="col-xl-12 col-4">
+                                        <i class="fas fa-home mx-auto contactInfoIcon"></i>
+                                        <p class="text-dark contactInfo">New York, NY 10012, US</p>
                                     </div>
-                                    <div class="col-12">
-                                        <i class="fas fa-envelope mx-auto" style="font-size: 3vh"></i>
-                                        <p class="text-dark" style="font-size: 25px">info@gmail.com</p>
+                                    <div class="col-xl-12 col-4">
+                                        <i class="fas fa-envelope mx-auto contactInfoIcon"></i>
+                                        <p class="text-dark contactInfo">info@gmail.com</p>
                                     </div>
-                                    <div class="col-12">
-                                        <i class="fas fa-phone mx-auto" style="font-size: 3vh"></i>
-                                        <p class="text-dark" style="font-size: 25px">+01 23 45 67 89</p>
+                                    <div class="col-xl-12 col-4">
+                                        <i class="fas fa-phone mx-auto contactInfoIcon"></i>
+                                        <p class="text-dark contactInfo">+01 23 45 67 89</p>
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
         </div>
     </div>
 </div>
-<div th:replace="fragments/footer :: footer">Footer</div>
+<div th:replace="fragments/footer :: footer" class="footer">Footer</div>
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/animation.js}"></script>
 <script>

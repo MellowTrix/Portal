@@ -35,7 +35,7 @@
                             </div>
                             <div class="col-lg-6 col-12">
                                 <div class="infoLine">
-                                    <label for="item">Choose a Item:</label><br>
+                                    <label for="item">Choose an Item:</label><br>
                                     <select id="item" name="item">
                                         <option th:each="item : ${ownedItems}" th:value=" ${item.id}" th:field="*{item}"
                                                 th:text="${item.name}"></option>

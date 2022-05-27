@@ -2,15 +2,10 @@ package be.thomasmore.portal.controllers;
 
 import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.UserRepository;
-import com.bitpay.sdk_light.BitPayException;
-import com.bitpay.sdk_light.Client;
-import com.bitpay.sdk_light.Env;
-import com.bitpay.sdk_light.model.Invoice.Buyer;
-import com.bitpay.sdk_light.model.Invoice.Invoice;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.SpringCglibInfo;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,7 +17,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Locale;

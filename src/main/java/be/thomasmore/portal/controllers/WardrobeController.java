@@ -32,10 +32,8 @@ public class WardrobeController {
     private UserRepository userRepository;
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
-
-//    @GetMapping({"/wardrobe", "/wardrobe/{error}"})
-@RequestMapping(value = "/wardrobe", method = RequestMethod.GET)
-public String home(Model model, @PathVariable(required = false) String error, @RequestParam("page") Optional<Integer> page, @RequestParam(required = false) String search, @RequestParam(required = false) List<String> color, Principal principal) {
+    @GetMapping({"/wardrobe", "/wardrobe/{error}"})
+    public String home(Model model, @PathVariable(required = false) String error, @RequestParam("page") Optional<Integer> page, @RequestParam(required = false) String search, @RequestParam(required = false) List<String> color, Principal principal) {
         if (principal == null) {
             return "redirect:/login";
         }

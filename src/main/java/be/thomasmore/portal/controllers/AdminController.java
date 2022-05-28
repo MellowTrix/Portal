@@ -92,12 +92,21 @@ public class AdminController {
             }
         }
         if (newUsername != null && !newUsername.equals("")) {
+            if (userRepository.findByUsername(newUsername).isPresent()) {
+                return "redirect:/admin/dashboard";
+            }
             user.setUsername(newUsername);
         }
         if (newDisplayname != null && !newDisplayname.equals("")) {
+            if (userRepository.findBydisplayname(newDisplayname).isPresent()) {
+                return "redirect:/admin/dashboard";
+            }
             user.setDisplayname(newDisplayname);
         }
         if (newEmail != null && !newEmail.equals("")) {
+            if (userRepository.findByEmail(newEmail).isPresent()) {
+                return "redirect:/admin/dashboard";
+            }
             user.setEmail(newEmail);
         }
         userRepository.save(user);

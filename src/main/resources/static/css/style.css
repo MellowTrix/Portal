@@ -173,9 +173,9 @@ ul {
 
 .nav-item a{
     font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+    font-weight: 500;
     color: black;
-    font-size: 2.3vw;
+    font-size: 1.8vw;
 }
 
 @media only screen and (max-width: 500px) {
@@ -686,6 +686,13 @@ footer a{
     .contactInfoIcon {
         font-size: 2vw;
     }
+
+    .nav-item a{
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        color: black;
+        font-size: 2.2vw;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -769,6 +776,27 @@ footer a{
         font-size: 18px;
 
     }
+
+    .navbar-brand{
+        margin: 0 1rem;
+        min-width: 75px;
+        max-width: 200px;
+    }
+
+    .textResize{
+        font-size: 4rem;
+    }
+
+    .collapse h2{
+        color: black;
+        font-size: 1.5rem;
+    }
+
+    .collapse p{
+        color: black;
+        font-size: 1rem;
+    }
+
 }
 
 

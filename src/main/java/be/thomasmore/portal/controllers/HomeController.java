@@ -56,6 +56,11 @@ public class HomeController {
         return "login";
     }
 
+    @GetMapping({"/loginError"})
+    public String loginError(Model model) {
+        return "loginError";
+    }
+
     @GetMapping({"/logout"})
     public String logout(Model model) {
         return "logout";

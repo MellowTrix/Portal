@@ -137,16 +137,17 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="days">Change email</label>
-                            <input type="text" class="form-control" id="changeEmail" placeholder="Email" name="newEmail">
+                            <input type="text" class="form-control" id="changeEmail" placeholder="Email" name="newEmail" onkeyup="checkEmail()">
+                            <p class="emailErrorText" id="emailValidationText">Email is not valid!</p>
                         </div>
                         <div class="form-group mb-3">
                             <label for="days">Add subscription days</label>
-                            <input type="text" class="form-control" id="days" placeholder="Days" name="daysCount">
+                            <input type="number" class="form-control" id="days" placeholder="Days" name="daysCount">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" id="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </form>
             </div>
@@ -181,6 +182,19 @@
         editModalTitleEl.innerHTML = `Edit ${username}'s profile`;
         usernameFieldModalEl.setAttribute("value", username);
         console.log(usernameFieldModalEl.getAttribute("value"));
+    }
+
+    const checkEmail = () => {
+        let email = document.getElementById("changeEmail").value;
+        const error = document.getElementById("emailValidationText");
+        const submit = document.getElementById("submit");
+        if (email !== '' && !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            error.style.display = "block";
+            submit.setAttribute("disabled", "disabled");
+        } else {
+            error.style.display = "none";
+            submit.removeAttribute("disabled");
+        }
     }
 </script>
 </body>

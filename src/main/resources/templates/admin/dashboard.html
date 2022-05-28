@@ -76,6 +76,8 @@
                             <div class="card" style="border-radius: 20px; border: 3px solid #FF4591">
                                 <div class="card-body">
                                     <h2 class="card-title" style="border-bottom: 1px lightgray solid; font-size: 30px" th:text="${user.username}"></h2>
+                                    <p class="m-0 smallerParaBlack" style="font-weight: 500">Display name:</p>
+                                    <p class="smallerParaBlack" th:text="${user.displayname}"></p>
                                     <p class="m-0 smallerParaBlack" style="font-weight: 500">Email:</p>
                                     <p class="smallerParaBlack" th:text="${user.email}"></p>
                                     <p class="m-0 smallerParaBlack" style="font-weight: 500">Months subscribed:</p>

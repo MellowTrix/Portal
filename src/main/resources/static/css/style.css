@@ -313,7 +313,14 @@ footer a{
     padding: 5%;
 }
 
-.loginBorder h1 {
+.registerBorder {
+    margin-top: 20%;
+    border: 1px solid #FF4591;
+    border-radius: 25px;
+    padding: 5%;
+}
+
+.loginBorder h1, .registerBorder h1 {
     font-size: 50px;
 }
 

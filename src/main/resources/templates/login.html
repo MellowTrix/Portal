@@ -12,12 +12,12 @@
 <body>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-xl-6 col-lg-8 col-10 offset-xl-3 offset-lg-2 offset-1">
       <div class="row loginBorder">
-        <div class="col">
+        <div class="col-8 offset-2 col-md-6 offset-md-0">
           <a th:href="@{/home}"><img class="img-fluid mt-5" th:src="@{/img/logo_color.png}"></a>
         </div>
-        <div class="col">
+        <div class="col-12 col-md-6">
           <h1 class="text-center text-dark">Login</h1>
           <form th:action="@{/login}" method="post">
             <div class="form-group mb-3">
@@ -32,6 +32,9 @@
           </form>
           <p class="loginSubtext">Not a member yet? <a class="registerLink" th:href="@{/user/register}">Register</a></p>
         </div>
+      </div>
+      <div class="row text-center">
+        <a class="registerLink loginSubtext" th:href="@{/home}">Take me back!</a>
       </div>
     </div>
   </div>

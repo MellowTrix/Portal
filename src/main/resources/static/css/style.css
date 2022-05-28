@@ -550,7 +550,6 @@ footer a{
     word-wrap: break-word;
     background-color: white;
     background-clip: border-box;
-    margin: 1rem;
 }
 
 .card-header-sub {
@@ -750,6 +749,25 @@ footer a{
         font-weight: 500;
         font-size: 15px;
         margin-bottom: 0.5%;
+    }
+
+    .subPrices {
+        font-size: 2rem;
+    }
+
+
+    #sub .buttonSmall {
+        transition-duration: 0.6s;
+        background-color: #FF4591;
+        border-radius: 100px;
+        width: 60%;
+        filter: drop-shadow(0px 12px 25px #4C609B);
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+
     }
 }
 

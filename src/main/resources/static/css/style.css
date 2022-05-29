@@ -600,6 +600,16 @@ footer a{
     border-radius: 25px;
 }
 
+.analyticsInfoText {
+    font-size: 2vw;
+}
+
+.analyticsIcon {
+    font-size: 3.2vw;
+    color: white;
+    margin: 2% 7%;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -644,6 +654,16 @@ footer a{
         font-size: 25px;
         padding: 15px;
     }
+
+    .analyticsInfoText {
+        font-size: 2vw;
+    }
+
+    .analyticsIcon {
+        font-size: 3.2vw;
+        color: white;
+        margin: 2% 7%;
+    }
 }
 
 @media only screen and (max-width: 991px) {
@@ -656,6 +676,16 @@ footer a{
 
     .homeInfo p {
         font-size: 25px;
+    }
+
+    .analyticsInfoText {
+        font-size: 2.7vw;
+    }
+
+    .analyticsIcon {
+        font-size: 3.7vw;
+        color: white;
+        margin: 2% 7%;
     }
 }
 
@@ -674,6 +704,16 @@ footer a{
 
     .collapse p{
         font-size: 1.6rem;
+    }
+
+    .analyticsInfoText {
+        font-size: 3.2vw;
+    }
+
+    .analyticsIcon {
+        font-size: 4.1vw;
+        color: white;
+        margin: 2% 7%;
     }
 }
 

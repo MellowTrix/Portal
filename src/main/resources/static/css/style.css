@@ -438,7 +438,7 @@ footer a{
 }
 
 .userCountText {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .contactInput {
@@ -609,6 +609,12 @@ footer a{
 .page-link:hover {
     color: #FF4591;
     border-color: #FF4591;
+}
+
+.overflow3dots {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 /* RESPONSIVE CSS

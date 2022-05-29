@@ -35,81 +35,93 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-11 col-md-3">
+                <div class="col-11 col-lg-3">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-user usersIcon"></i>
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Displayname</p>
-                                <p class="userCountText mb-0" th:text="${user.displayname}"></p>
+                                <p class="userCountText mb-0 overflow3dots">Displayname</p>
+                                <p class="userCountText mb-0 overflow3dots" th:text="${user.displayname}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                <div class="col-11 offset-1 col-lg-4 offset-lg-0">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-envelope usersIcon"></i>
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Email</p>
-                                <p class="userCountText mb-0" th:text="${user.email}"></p>
+                                <p class="userCountText mb-0 overflow3dots">Email</p>
+                                <p class="userCountText mb-0 overflow3dots" th:text="${user.email}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-3 offset-md-0">
+                <div class="col-11 offset-1 col-lg-3 offset-lg-0">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-shirt usersIcon"></i>
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Items</p>
-                                <p class="userCountText mb-0" th:text="${ownedItemsCount}"></p>
+                                <p class="userCountText mb-0 overflow3dots">Items</p>
+                                <p class="userCountText mb-0 overflow3dots" th:text="${ownedItemsCount}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-3">
+                <div class="col-11 offset-1 col-lg-3">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-solid fa-star usersIcon"></i>
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Subscription</p>
-                                <p class="userCountText mb-0"
+                                <p class="userCountText mb-0 overflow3dots">Subscription</p>
+                                <p class="userCountText mb-0 overflow3dots"
                                    th:text="${user.role.equals('USER') ? 'Inactive' : 'Active'}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-4 offset-md-0">
+                <div class="col-11 offset-1 col-lg-4 offset-lg-0">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
-                            <i class="fa-solid fa-money-bill-wave usersIcon"></i>
+                            <i class="fa-solid fa-users usersIcon"></i>
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Months Subbed</p>
-                                <p class="userCountText mb-0" th:text="${user.monthsSubscribed}"></p>
+                                <p class="userCountText mb-0 overflow3dots">Months Subbed</p>
+                                <p class="userCountText mb-0 overflow3dots" th:text="${user.monthsSubscribed}"></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-11 offset-1 col-md-3 offset-md-0" th:if="${user.subscriptionEndDate}">
+                <div class="col-11 offset-1 col-lg-3 offset-lg-0" th:if="${user.subscriptionEndDate}">
                     <div class="row">
                         <div class="col-4 mt-auto mb-auto">
                             <i class="fa-regular fa-calendar usersIcon"></i>
                         </div>
                         <div class="col-8">
                             <div class="mt-auto mb-auto">
-                                <p class="userCountText mb-0">Subbed Until</p>
-                                <p class="userCountText mb-0" th:text="${user.subscriptionEndDate}"></p>
+                                <p class="userCountText mb-0 overflow3dots">Subbed Until</p>
+                                <p class="userCountText mb-0 overflow3dots" th:text="${user.subscriptionEndDate}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-11 offset-1 col-lg-3 offset-lg-0" th:unless="${user.subscriptionEndDate}">
+                    <div class="row">
+                        <div class="col-4 mt-auto mb-auto">
+                            <i class="fa-regular fa-calendar usersIcon"></i>
+                        </div>
+                        <div class="col-8">
+                            <div class="mt-auto mb-auto">
+                                <p class="userCountText mb-0 overflow3dots">Not subbed</p>
                             </div>
                         </div>
                     </div>
@@ -123,7 +135,7 @@
 
         <div class="row m-0 p-0">
             <!--            filters-->
-            <div class="col-12 col-md-3  mt-5 mt-md-0">
+            <div class="col-12 col-lg-3  mt-5 mt-md-0">
                 <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
                     <form>
                         <fieldset class="form-group border p-3 mt-4 bg-white" style="border-radius: 25px;">
@@ -171,19 +183,17 @@
             </div>
 
             <!--            items & pagination-->
-            <div class="col-12 col-md-8 offset-md-1  mt-5 mt-md-0">
+            <div class="col-12 col-lg-8 offset-lg-1  mt-5 mt-lg-0">
                 <!--                items-->
                 <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
-                    <div th:if="${ownedItemsCount>0}" class="col-md-3" th:each="item : ${ownedItems}">
+                    <div th:if="${ownedItemsCount>0}" class="col-xxl-3 col-lg-4 col-md-6" th:each="item : ${ownedItems}">
                         <a th:href="@{|/item/${item.id}|}" style="text-decoration: none; color: black;">
                             <div class="card mt-4" style="border-radius: 25px;">
                                 <div class="card-body">
                                     <iframe style="margin-top: 10%" th:src="${item.link}" frameborder='0'
                                             width='100%'
                                             height='100%'></iframe>
-                                    <h4 class="card-title" th:text="${item.name}"
-                                        style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-bottom: 6px">
-                                        Title</h4>
+                                    <h4 class="card-title overflow3dots pb-1" th:text="${item.name}">Title</h4>
                                 </div>
                             </div>
                         </a>

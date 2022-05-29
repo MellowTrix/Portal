@@ -56,7 +56,7 @@ public String home(Model model, @PathVariable(required = false) String error, @R
 
         int currentPage = page.orElse(1);
         List<Item> ownedItemList = itemRepository.findFilterForUser(user, search, color);
-        Page<Item> itemPage = itemService.findPaginated(ownedItemList, PageRequest.of(currentPage - 1, 12));
+        Page<Item> itemPage = itemService.findPaginated(ownedItemList, PageRequest.of(currentPage - 1, 8));
 
 
         model.addAttribute("loginName", username);

@@ -25,8 +25,6 @@ ul {
 }
 
 
-
-
 #homeBgImg {
     background-image: url("../img/homeImg.png");
     background-position: center;
@@ -632,6 +630,29 @@ footer a{
     border-color: #FF4591;
 }
 
+.analyticsInfoText {
+    font-size: 2vw;
+}
+
+.analyticsIcon {
+    font-size: 3.2vw;
+    color: white;
+    margin: 2% 7%;
+}
+
+#changeButton {
+    transition-duration: 0.6s;
+    background-color: #FF4591;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.5vw;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -704,6 +725,29 @@ footer a{
         font-size: 2.2vw;
     }
 
+
+    .analyticsInfoText {
+        font-size: 2vw;
+    }
+
+    .analyticsIcon {
+        font-size: 3.2vw;
+        color: white;
+        margin: 2% 7%;
+    }
+
+    #changeButton {
+        transition-duration: 0.6s;
+        background-color: #FF4591;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 1.8vw;
+    }
 }
 
 
@@ -719,6 +763,29 @@ footer a{
 
     .homeInfo p {
         font-size: 25px;
+    }
+
+    .analyticsInfoText {
+        font-size: 2.7vw;
+    }
+
+    .analyticsIcon {
+        font-size: 3.7vw;
+        color: white;
+        margin: 2% 7%;
+    }
+
+    #changeButton {
+        transition-duration: 0.6s;
+        background-color: #FF4591;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 2.1vw;
     }
 
 }
@@ -838,6 +905,29 @@ footer a{
         font-family: 'Roboto', sans-serif;
         font-weight: 400;
         font-size: 20px;
+    }
+
+    .analyticsInfoText {
+        font-size: 3.2vw;
+    }
+
+    .analyticsIcon {
+        font-size: 4.1vw;
+        color: white;
+        margin: 2% 7%;
+    }
+
+    #changeButton {
+        transition-duration: 0.6s;
+        background-color: #FF4591;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 3vw;
     }
 }
 

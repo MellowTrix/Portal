@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <!--                pagination-->
-                <div class="row mt-5">
+                <div class="row mt-5" th:if="${ownedItems.totalPages > 1}">
                     <nav>
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
@@ -198,7 +198,7 @@
                                     <a class="page-link" th:href="@{/wardrobe(page=${currentPage - 1})}">Previous</a>
                                 </div>
                             </li>
-                            <div th:if="${ownedItems.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+                            <div th:each="pageNumber : ${pageNumbers}">
                                 <li class="page-item">
                                     <a th:href="@{/wardrobe(page=${pageNumber})}" th:text="${pageNumber}"
                                        class="page-link"></a>

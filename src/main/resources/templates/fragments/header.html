@@ -21,22 +21,22 @@
             </button>
             <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/hub}">HUB</a>
+                    <li class="nav-item" >
+                        <a class="nav-link" th:href="@{/hub}"  th:classappend="${#httpServletRequest.getRequestURI().startsWith('/hub') ? 'selectedNav':''}">HUB</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/aboutUs}">ABOUT</a>
+                        <a class="nav-link" th:href="@{/aboutUs}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/aboutUs') ? 'selectedNav':''}">ABOUT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/wardrobe}">WARDROBE</a>
+                        <a class="nav-link" th:href="@{/wardrobe}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/wardrobe') ? 'selectedNav':''}">WARDROBE</a>
                     </li>
                     <div sec:authorize="isAuthenticated()">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{/studio}">STUDIO</a>
+                            <a class="nav-link" th:href="@{/studio}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/studio') ? 'selectedNav':''}">STUDIO</a>
                         </li>
                     </div>
                     <li class="nav-item">
-                        <a class="nav-link" th:href="@{/user/subscribe}">SUBSCRIBE</a>
+                        <a class="nav-link" th:href="@{/user/subscribe}" th:classappend="${#httpServletRequest.getRequestURI().startsWith('/user/subscribe') ? 'selectedNav':''}">SUBSCRIBE</a>
                     </li>
                 </ul>
                 <div class="d-flex">

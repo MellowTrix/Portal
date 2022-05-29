@@ -24,9 +24,7 @@ ul {
     list-style: none;
 }
 
-.selectedNav{
-    color: #071BF3;
-}
+
 
 
 #homeBgImg {
@@ -183,6 +181,9 @@ ul {
     font-size: 1.8vw;
 }
 
+a.nav-link.selectedNav {
+    color: #071BF3;
+}
 
 
 .nav-item a:hover{
@@ -651,6 +652,8 @@ footer a{
         max-width: 250px;
     }
 
+
+
 }
 
 @media only screen and (max-width: 1199px) {
@@ -698,10 +701,13 @@ footer a{
     .nav-item a{
         font-family: 'Roboto', sans-serif;
         font-weight: 600;
-        color: black;
         font-size: 2.2vw;
     }
+
 }
+
+
+
 
 @media only screen and (max-width: 991px) {
     .homeTopShirt {
@@ -714,6 +720,7 @@ footer a{
     .homeInfo p {
         font-size: 25px;
     }
+
 }
 
 @media only screen and (max-width: 767px) {

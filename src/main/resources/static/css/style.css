@@ -90,7 +90,6 @@ ul {
 
 .buttonFilter {
     border: none;
-    margin-top: 20px ;
     background-color: #FF4591;
     border-radius: 50px;
     padding: 5px 25px;
@@ -931,6 +930,20 @@ footer a{
         font-weight: 500;
         font-size: 3vw;
     }
+
+    .buttonFilter {
+        border: none;
+        background-color: #FF4591;
+        margin-top: 0;
+        border-radius: 50px;
+        padding: 5px 15px;
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+    }
+
 }
 
 

@@ -79,10 +79,10 @@
                         <div class="col-12 col-lg-6">
                             <div class="card" style="border-radius: 25px;">
                                 <div class="card-body">
-                                    <iframe th:src="${post.item.getLink()}" frameborder='0'
+                                    <iframe th:src="${post.item.link}" frameborder='0'
                                             width='100%'
                                             height='100%'></iframe>
-                                    <h4 class="card-title" th:text="${post.item.getName()}"
+                                    <h4 class="card-title" th:text="${post.item.name}"
                                         style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-bottom: 6px">
                                         Title</h4>
                                     <p style="color: black; font-size: 1rem">Posted By <span th:text="${post.owner.getDisplayname()}"></span> On <span th:text="${post.creationDate}"></span></p>

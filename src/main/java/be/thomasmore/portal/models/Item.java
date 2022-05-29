@@ -46,7 +46,7 @@ public class Item {
     }
 
     public String getColor() {
-        return color.toLowerCase();
+        return color;
     }
 
     public void setColor(String color) {
@@ -54,7 +54,7 @@ public class Item {
     }
 
     public String getItemType() {
-        return itemType.toLowerCase();
+        return itemType;
     }
 
     public void setItemType(String itemType) {

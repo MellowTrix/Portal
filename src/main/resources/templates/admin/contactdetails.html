@@ -18,15 +18,17 @@
         <div class="col-10 offset-1">
             <form th:action="@{|/admin/replyEmail|}" th:object="${message}" method="post">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-md-3 col-12">
                         <input th:field="*{name}" class="displayNone">
                         <p class="smallerParaBlack" th:text="|Name: ${message.name}|"></p>
-                        <input th:field="*{id}" class="displayNone">
-                        <p class="smallerParaBlack" th:text="|Id: ${message.id}|"></p>
                     </div>
-                    <div class="col-9">
+                    <div class="col-md-9 col-12">
                         <input th:field="*{email}" class="displayNone">
                         <p class="smallerParaBlack" th:text="|Email: ${message.email}|"></p>
+                    </div>
+                    <div class="col-12">
+                        <input th:field="*{id}" class="displayNone">
+                        <p class="smallerParaBlack" th:text="|Id: ${message.id}|"></p>
                     </div>
                     <div class="col-12">
                         <input th:field="*{subject}" class="displayNone">

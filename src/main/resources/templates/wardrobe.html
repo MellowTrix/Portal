@@ -208,18 +208,18 @@
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
                                 <div th:unless="${currentPage == 1}">
-                                    <a class="page-link" th:href="@{/wardrobe(page=${currentPage - 1})}">Previous</a>
+                                    <a class="page-link" th:href="@{${currentUrl}(page=${currentPage - 1})}">Previous</a>
                                 </div>
                             </li>
                             <div th:each="pageNumber : ${pageNumbers}">
                                 <li class="page-item">
-                                    <a th:href="@{/wardrobe(page=${pageNumber})}" th:text="${pageNumber}"
+                                    <a th:href="@{${currentUrl}(page=${pageNumber})}" th:text="${pageNumber}"
                                        class="page-link"></a>
                                 </li>
                             </div>
                             <li class="page-item">
                                 <div th:unless="${currentPage == ownedItems.totalPages}">
-                                    <a class="page-link" th:href="@{/wardrobe(page=${currentPage + 1})}">Next</a>
+                                    <a class="page-link" th:href="@{${currentUrl}(page=${currentPage + 1})}">Next</a>
                                 </div>
                             </li>
                         </ul>

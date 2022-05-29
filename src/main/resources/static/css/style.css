@@ -646,6 +646,13 @@ footer a{
     }
 }
 
+@media only screen and (max-width: 1320px) {
+    .infoLine textarea{
+        max-width: 250px;
+    }
+
+}
+
 @media only screen and (max-width: 1199px) {
     h1 {
         font-size: 50px;
@@ -796,6 +803,10 @@ footer a{
     .collapse p{
         color: black;
         font-size: 1rem;
+    }
+
+    .infoLine textarea{
+        max-width: 250px;
     }
 
 }

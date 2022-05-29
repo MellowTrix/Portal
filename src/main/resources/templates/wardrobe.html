@@ -21,9 +21,14 @@
 
 <div class="container p-4">
     <div class="row mt-5 ">
-<!--        profile dashboard-->
+        <!--        profile dashboard-->
         <div class="col-12 profileDashboard">
-            <div class="row ">
+            <div class="d-block d-lg-none text-end">
+                <button class="profileHamburg" type="button" data-bs-toggle="collapse" data-bs-target="#profile">
+                    <pre>Profile  <i class="fas fa-bars"></i></pre>
+                </button>
+            </div>
+            <div class="row collapse d-lg-flex" id="profile">
                 <div class="align-content-end col-1">
                     <a class="settingsButton float-start" id="settingsButton" style="color: #FF4591"
                        data-bs-toggle="modal"
@@ -186,7 +191,8 @@
             <div class="col-12 col-lg-8 offset-lg-1  mt-5 mt-lg-0">
                 <!--                items-->
                 <div class="row p-3" style="border-radius: 25px; background-color: #eeeeee;">
-                    <div th:if="${ownedItemsCount>0}" class="col-xxl-3 col-lg-4 col-md-6" th:each="item : ${ownedItems}">
+                    <div th:if="${ownedItemsCount>0}" class="col-xxl-3 col-lg-4 col-md-6"
+                         th:each="item : ${ownedItems}">
                         <a th:href="@{|/item/${item.id}|}" style="text-decoration: none; color: black;">
                             <div class="card mt-4" style="border-radius: 25px;">
                                 <div class="card-body">
@@ -208,7 +214,8 @@
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
                                 <div th:unless="${currentPage == 1}">
-                                    <a class="page-link" th:href="@{${currentUrl}(page=${currentPage - 1})}">Previous</a>
+                                    <a class="page-link"
+                                       th:href="@{${currentUrl}(page=${currentPage - 1})}">Previous</a>
                                 </div>
                             </li>
                             <div th:each="pageNumber : ${pageNumbers}">

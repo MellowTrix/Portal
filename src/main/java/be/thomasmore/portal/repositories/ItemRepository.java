@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import java.util.List;
+import java.util.Optional;
 
 public interface ItemRepository extends CrudRepository<Item, Integer> {
 
@@ -18,5 +19,10 @@ public interface ItemRepository extends CrudRepository<Item, Integer> {
 
     List<Item> findAllByOwner(@Param("owner") User owner);
     List<Item> findAll();
+
+    @Query("select v from Item v where" +
+            "(v.id = :id) and " +
+            "(v.deleted is null or v.deleted = false)")
+    Optional<Item> findById(@Param("id") Integer id);
 
 }

@@ -2,8 +2,10 @@ package be.thomasmore.portal.controllers;
 
 import be.thomasmore.portal.models.Item;
 import be.thomasmore.portal.models.ItemService;
+import be.thomasmore.portal.models.SocialPost;
 import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.ItemRepository;
+import be.thomasmore.portal.repositories.SocialHubRepository;
 import be.thomasmore.portal.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-import java.util.Comparator;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -30,6 +32,8 @@ public class WardrobeController {
     private ItemService itemService;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private SocialHubRepository socialHubRepository;
 
     private Logger logger = LoggerFactory.getLogger(UserController.class);
     @GetMapping({"/wardrobe", "/wardrobe/{error}"})
@@ -50,7 +54,7 @@ public class WardrobeController {
 
         int currentPage = page.orElse(1);
         List<Item> ownedItemList = itemRepository.findFilterForUser(user, search, color);
-        Page<Item> itemPage = itemService.findPaginated(ownedItemList, PageRequest.of(currentPage - 1, 12));
+        Page<Item> itemPage = itemService.findPaginated(ownedItemList, PageRequest.of(currentPage - 1, 8));
 
 
         model.addAttribute("loginName", username);
@@ -73,29 +77,54 @@ public class WardrobeController {
     }
 
     @GetMapping({"/item", "/item/{id}"})
-    public String itemDetails(Model model, @PathVariable(required = false) Integer id) {
+    public String itemDetails(Model model, @PathVariable(required = false) Integer id, Principal principal) {
         if (id == null) return "item";
 
         Optional<Item> item = itemRepository.findById(id);
         if (item.isPresent()) {
-            model.addAttribute("item", item.get());
+            if (principal.getName().equals(item.get().getOwner().getUsername())) {
+                model.addAttribute("item", item.get());
+                SocialPost post = new SocialPost();
+                model.addAttribute("post", post);
+                return "item";
+            } else {
+                return "redirect:/";
+            }
         }
 
         return "item";
     }
 
-//    @GetMapping({"/item/share/{id}"})
-//    public String share(Model model, @PathVariable(required = false) Integer id) {
-//        Item item = itemRepository.findById(id).get();
-//        Post post = new Post;
-//
-//        return "redirect:/hub/";
-//    }
+    @PostMapping({"/item/share"})
+    public String share(@ModelAttribute("post") SocialPost post, Principal principal, @RequestParam Integer itemId) {
+        Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
+        if (userFromDb.isEmpty()){
+            return "redirect:/login";
+        }
+        User user = userFromDb.get();
+        Optional<Item> itemFromDb = itemRepository.findById(itemId);
+        if (itemFromDb.isEmpty()) {
+            return "redirect:/wardrobe";
+        }
+        Item item = itemFromDb.get();
+        post.setOwner(user);
+        post.setItem(item);
+        post.setCreationDate(LocalDate.now());
+        socialHubRepository.save(post);
+
+        return "redirect:/hub/";
+    }
 
     @GetMapping({"/item/delete/{id}"})
-    public String delete(Model model, @PathVariable(required = false) Integer id) {
-        itemRepository.delete(itemRepository.findById(id).get());
-        return "redirect:/wardrobe/";
+    public String delete(Model model, @PathVariable(required = false) Integer id, Principal principal) {
+    Item item = itemRepository.findById(id).get();
+        if (principal.getName().equals(item.getOwner().getUsername())) {
+            item.setDeleted(true);
+            itemRepository.save(item);
+            return "redirect:/wardrobe/";
+        } else {
+            return "redirect:/";
+        }
     }
 }
 

@@ -16,9 +16,9 @@ public class Item {
     private String itemType;
     private LocalDate creationDate;
     private String link;
+    private Boolean deleted;
 
-    public Item() {
-    }
+    public Item() {}
 
     public int getId() {
         return id;
@@ -74,5 +74,13 @@ public class Item {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }

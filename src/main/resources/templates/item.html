@@ -35,13 +35,13 @@
                         <p class="userCountText mb-0" th:text="|Owner : ${item.owner.getUsername()}|"></p>
                     </div>
                     <div class="mt-auto mb-auto">
-                        <p class="userCountText mb-0" th:text="|Clothing piece : ${'placeholder'}|"></p>
+                        <p class="userCountText mb-0" th:text="|Clothing piece : ${item.itemType}|"></p>
                     </div>
                     <div class="mt-auto mb-auto">
                         <p class="userCountText mb-0" th:text="|Color : ${item.color}|"></p>
                     </div>
                     <div class="mt-auto mb-auto">
-                        <p class="userCountText mb-0" th:text="|Creation date : ${'placeholder'}|"></p>
+                        <p class="userCountText mb-0" th:text="|Creation date : ${item.creationDate}|"></p>
                     </div>
                 </div>
             </div>
@@ -49,11 +49,36 @@
     </div>
     <div class="row mt-5">
         <div class="col-md-2 offset-md-4">
-            <a class="buttonFilter" th:href="@{|/item/share/${item.id}|}">share item</a>
-        </div>
-        <div class="col-md-2">
             <a class="buttonFilter" th:href="@{|/item/delete/${item.id}|}">delete item</a>
         </div>
+        <div class="col-md-2">
+            <button class="buttonFilter" type="button" data-bs-toggle="collapse" data-bs-target="#area1" aria-expanded="false" aria-controls="area1">
+                share item
+            </button>
+        </div>
+    </div>
+
+    <div class="col-lg-6 offset-lg-3 mt-4 collapse multi-collapse studioCollapse" id="area1">
+        <form style="text-align: center" th:action="@{|/item/share|}" th:object="${post}" method="post">
+            <input hidden th:value="${item.id}" name="itemId">
+            <div class="itemInfo">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="infoLine">
+                            <label for="postSubject" class="infoLineName">Post Subject: </label><br>
+                            <input id="postSubject" required class="infoLineValue form-control" th:field="*{subject}" >
+                        </div>
+                        <div class="infoLine">
+                            <label for="postMessage" class="infoLineName">Post Message: </label><br>
+                            <textarea id="postMessage" rows="6" cols="40" class="infoLineValue form-control" th:field="*{message}" ></textarea>
+                        </div>
+                        <div class="infoLine">
+                            <input type="submit" value="Post" class="buttonFilter mb-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 
 </div>

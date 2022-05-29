@@ -106,7 +106,7 @@
                             <a class="buttonSmall" sec:authorize="isAnonymous()" th:href="@{/login}">Login to subscribe</a>
                         </div>
                 </div>
-                <form action="https://test.bitpay.com/checkout" method="post" target="bitpay" data-bitpay-button>
+                <form sec:authorize="isAuthenticated()" action="https://test.bitpay.com/checkout" method="post" target="bitpay" data-bitpay-button>
                     <input type="hidden" name="action" value="checkout" />
                     <input id="priceInput" type="hidden" name="price" value="1" />
                     <input type="hidden" name="currency" value="USD" />

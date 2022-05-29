@@ -24,6 +24,10 @@ ul {
     list-style: none;
 }
 
+.selectedNav{
+    color: #071BF3;
+}
+
 
 #homeBgImg {
     background-image: url("../img/homeImg.png");
@@ -814,6 +818,19 @@ footer a{
 @media only screen and (max-width: 500px) {
     .nav-item a{
         font-size: 5vw;!important;
+    }
+
+    .buttonSmall {
+        transition-duration: 0.6s;
+        background-color: #FF4591;
+        border-radius: 100px;
+        width: 50%;
+        filter: drop-shadow(0px 12px 25px #4C609B);
+        text-decoration: none;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-size: 20px;
     }
 }
 

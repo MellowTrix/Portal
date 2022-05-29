@@ -9,6 +9,7 @@ import be.thomasmore.portal.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,7 +43,7 @@ public class HubController {
             model.addAttribute("ownedItems", itemRepository.findAllByOwner(user));
         }
         logger.info("ItemNew");
-        model.addAttribute("posts", socialHubRepository.findAll());
+        model.addAttribute("posts", socialHubRepository.findAll(Sort.by(Sort.Direction.DESC, "id")));
         model.addAttribute("socialPost", new SocialPost());
         model.addAttribute("login", loginName);
         return "hub";

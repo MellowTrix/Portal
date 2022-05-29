@@ -3,6 +3,7 @@ package be.thomasmore.portal.repositories;
 import be.thomasmore.portal.models.Item;
 import be.thomasmore.portal.models.SocialPost;
 import be.thomasmore.portal.models.User;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -18,8 +19,11 @@ public interface SocialHubRepository extends CrudRepository<SocialPost, Integer>
     @Query("select sp from SocialPost sp where :message like LOWER(sp.message) or :message like sp.message")
     Optional<SocialPost> findByMessage (@Param("message") String message);
 
-    List<SocialPost> findAll();
+    List<SocialPost> findAll(Sort id);
+
 
 
     List<SocialPost> findAllByOwner(@Param("owner") User owner);
+
+
 }

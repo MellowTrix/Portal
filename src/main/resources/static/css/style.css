@@ -944,6 +944,18 @@ footer a{
         font-size: 20px;
     }
 
+    .contactUsTitle {
+        font-size: 3.8vw;
+    }
+
+    .contactInfo {
+        font-size: 3.2vw;
+    }
+
+    .contactInfoIcon {
+        font-size: 3vw;
+    }
+
 }
 
 

@@ -15,41 +15,44 @@
     <div class="row">
         <div class="col-xl-6 col-lg-8 col-10 offset-xl-3 offset-lg-2 offset-1">
             <div class="row registerBorder">
-                    <h1 class="text-center text-dark">Register</h1>
-                    <form th:action="@{|/user/register|}" th:object="${user}" method="post">
-                        <div class="form-group mb-3">
-                            <label for="username">Username</label>
-                            <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Username" onkeyup="enableSubmitCheck()">
-                            <p th:text="${nameError}" id="userErrorText"></p>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="email">Email</label>
-                            <input th:field="*{email}" type="email" class="form-control" id="email" placeholder="Email" onkeyup="enableSubmitCheck()">
-                            <p class="emailErrorText" th:if="${emailError}" th:text="${emailError}" style="display: block"></p>
-                            <p class="emailErrorText" id="emailValidationText">Email is empty, or email is not valid!</p>
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="password">Password</label>
-                            <input th:field="*{password}" type="password" class="form-control" id="password" placeholder="Password" onkeyup="enableSubmitCheck()">
-                        </div>
-                        <div class="form-group mb-3">
-                            <label for="confirmPassword">Confirm password</label>
-                            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" onkeyup="enableSubmitCheck()">
-                            <p id="passwordErrorText">Password is empty, or passwords do not match!</p>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="checkbox" class="form-check-input" id="trialCheck" name="trialCheck">
-                            <label class="form-check-label" for="trialCheck">I would like to get a 7 day subscription trial!</label>
-                        </div>
-                        <div class="form-group d-flex justify-content-center mb-3">
-                            <input id="submit" class="loginButtonDisabled" type="submit" value="Register" disabled>
-                        </div>
-                    </form>
-                    <p class="loginSubtext">Already have an account? <a class="registerLink" th:href="@{/login}">Login</a></p>
-                </div>
+                <h1 class="text-center text-dark">Register</h1>
+                <form th:action="@{|/user/register|}" th:object="${user}" method="post">
+                    <div class="form-group mb-3">
+                        <label for="username">Username</label>
+                        <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="Username" onkeyup="enableSubmitCheck()">
+                        <p th:text="${nameError}" id="userErrorText"></p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="email">Email</label>
+                        <input th:field="*{email}" type="email" class="form-control" id="email" placeholder="Email" onkeyup="enableSubmitCheck()">
+                        <p class="emailErrorText" th:if="${emailError}" th:text="${emailError}" style="display: block"></p>
+                        <p class="emailErrorText" id="emailValidationText">Email is empty, or email is not valid!</p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password">Password</label>
+                        <input th:field="*{password}" type="password" class="form-control" id="password" placeholder="Password" onkeyup="enableSubmitCheck()">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="confirmPassword">Confirm password</label>
+                        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" onkeyup="enableSubmitCheck()">
+                        <p id="passwordErrorText">Password is empty, or passwords do not match!</p>
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="checkbox" class="form-check-input" id="trialCheck" name="trialCheck">
+                        <label class="form-check-label" for="trialCheck">I would like to get a 7 day subscription trial!</label>
+                    </div>
+                    <div class="form-group d-flex justify-content-center mb-3">
+                        <input id="submit" class="loginButtonDisabled" type="submit" value="Register" disabled>
+                    </div>
+                </form>
+                <p class="loginSubtext">Already have an account? <a class="registerLink" th:href="@{/login}">Login</a></p>
+            </div>
+            <div class="row text-center">
+                <a class="registerLink loginSubtext" th:href="@{/home}">Take me back!</a>
             </div>
         </div>
     </div>
+</div>
 <script>
     const submit = document.getElementById("submit");
 

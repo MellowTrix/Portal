@@ -31,17 +31,22 @@
         </div>
         <div class="col-12 mt-3 col-lg-6 offset-lg-1 mt-lg-0 profileDashboard">
             <div class="row">
-                <div class="mt-auto mb-auto">
-                    <p class="userCountText mb-0" th:text="|Owner : ${item.owner.getUsername()}|"></p>
+                <div class="col-10">
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0 overflow3dots" th:text="|Owner : ${item.owner.getUsername()}|"></p>
+                    </div>
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0 overflow3dots" th:text="|Clothing piece : ${item.itemType}|"></p>
+                    </div>
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0 overflow3dots" th:text="|Color : ${item.color}|"></p>
+                    </div>
+                    <div class="mt-auto mb-auto">
+                        <p class="userCountText mb-0 overflow3dots" th:text="|Creation date : ${item.creationDate}|"></p>
+                    </div>
                 </div>
-                <div class="mt-auto mb-auto">
-                    <p class="userCountText mb-0" th:text="|Clothing piece : ${item.itemType}|"></p>
-                </div>
-                <div class="mt-auto mb-auto">
-                    <p class="userCountText mb-0" th:text="|Color : ${item.color}|"></p>
-                </div>
-                <div class="mt-auto mb-auto">
-                    <p class="userCountText mb-0" th:text="|Creation date : ${item.creationDate}|"></p>
+                <div class="col-2">
+                    <a href="https://www.messenger.com/"><i class="fa-brands fa-facebook-messenger usersIcon"></i></a>
                 </div>
             </div>
         </div>

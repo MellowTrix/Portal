@@ -8,7 +8,6 @@ VALUES (nextval('user_sequence'), 'Sofie', 'Sofie', '$2a$10$B34UYAqFJQDvSvVnYO7T
 ---------------------------------------------------------------------
 
 -- Bob --
-insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Portal T-Shirt', 2, 'black', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopy-81a74bc5f70ad55c1c341e14b98ee3aa/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Black Hoodie', 2, 'black', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopy-171ef111a9158ac493f588dcf10aaf8b/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Yellow Hoodie', 2, 'yellow', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopycopy-1e155e9a515cdf4a5497e98088b95691/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Green Hoodie', 2, 'green', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopycopy-c46af14d6d6f2d7d5dc077c21cb6b31e/');
@@ -23,7 +22,6 @@ insert into Item (id, name, owner_id, color, item_type, creation_date, link) val
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Yellow T-Shirt', 2, 'yellow', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopy-c9daef5c83ccca8250c18e5407275eb7/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Green T-Shirt', 2, 'green', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopycopy-0252fcd5e92ea09f67b1070dc533eaa2/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'White T-Shirt', 2, 'white', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopycopycopy-e37856f0ea297a87ecb5f9ce53233ff5/');
-insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Portal T-Shirt', 2, 'black', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopy-81a74bc5f70ad55c1c341e14b98ee3aa/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Black Hoodie', 2, 'black', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopy-171ef111a9158ac493f588dcf10aaf8b/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Yellow Hoodie', 2, 'yellow', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopycopy-1e155e9a515cdf4a5497e98088b95691/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Green Hoodie', 2, 'green', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopycopy-c46af14d6d6f2d7d5dc077c21cb6b31e/');
@@ -40,7 +38,6 @@ insert into Item (id, name, owner_id, color, item_type, creation_date, link) val
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'White T-Shirt', 2, 'white', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopycopycopycopycopycopy-e37856f0ea297a87ecb5f9ce53233ff5/');
 
 -- Sofie --
-insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Portal T-Shirt', 3, 'black', 't-shirt', '2022-05-17', 'https://my.spline.design/tshirtbodymaledarkcopy-81a74bc5f70ad55c1c341e14b98ee3aa/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Black Hoodie', 3, 'black', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopy-171ef111a9158ac493f588dcf10aaf8b/');
 insert into Item (id, name, owner_id, color, item_type, creation_date, link) values (nextval('item_seq'), 'Yellow Hoodie', 3, 'yellow', 'hoodie', '2022-05-17', 'https://my.spline.design/hoodiedarkcopycopy-1e155e9a515cdf4a5497e98088b95691/');
 

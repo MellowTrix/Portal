@@ -122,13 +122,8 @@
 <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 <script src="https://bitpay.com/bitpay.min.js"></script>
 <script>
-    let subButtonEl;
-    window.addEventListener("message", function (event) {
-        payment_status = event.data.status;
-        if (payment_status === "paid") {
-            subButtonEl.click();
-        }
-    });
+
+    let subButtonEl = document.getElementById("subOneMonth");
 
     const chooseSub = (price, cardId) => {
         let invoicePrice;
@@ -160,6 +155,13 @@
         }
         document.getElementById("priceInput").setAttribute("value", invoicePrice);
     }
+
+    window.addEventListener("message", function (event) {
+        payment_status = event.data.status;
+        if (payment_status === "paid") {
+            subButtonEl.click();
+        }
+    });
 </script>
 </body>
 </html>

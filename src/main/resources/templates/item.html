@@ -60,7 +60,7 @@
 
     <div class="col-lg-6 offset-lg-3 mt-4 collapse multi-collapse studioCollapse" id="area1">
         <form style="text-align: center" th:action="@{|/item/share|}" th:object="${post}" method="post">
-            <input hidden th:value="${item}" th:field="*{item}">
+            <input hidden th:value="${item.id}" name="itemId">
             <div class="itemInfo">
                 <div class="row">
                     <div class="col-12">

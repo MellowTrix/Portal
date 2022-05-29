@@ -98,8 +98,19 @@ public String home(Model model, @PathVariable(required = false) String error, @R
     }
 
     @PostMapping({"/item/share"})
-    public String share(@ModelAttribute("post") SocialPost post) {
-//        post.setOwner(itemRepository.findById(post.getItem().getId()).get().getOwner());
+    public String share(@ModelAttribute("post") SocialPost post, Principal principal, @RequestParam Integer itemId) {
+        Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
+        if (userFromDb.isEmpty()){
+            return "redirect:/login";
+        }
+        User user = userFromDb.get();
+        Optional<Item> itemFromDb = itemRepository.findById(itemId);
+        if (itemFromDb.isEmpty()) {
+            return "redirect:/wardrobe";
+        }
+        Item item = itemFromDb.get();
+        post.setOwner(user);
+        post.setItem(item);
         post.setCreationDate(LocalDate.now());
         socialHubRepository.save(post);
 

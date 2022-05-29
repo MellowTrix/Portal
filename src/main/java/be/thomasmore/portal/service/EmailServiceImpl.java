@@ -1,4 +1,4 @@
-package be.thomasmore.portal.mail;
+package be.thomasmore.portal.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;

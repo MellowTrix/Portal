@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
-@ComponentScan(basePackages = {"be.thomasmore.portal.mail"})
+@ComponentScan(basePackages = {"be.thomasmore.portal.service"})
 @PropertySource(value={"classpath:application.properties"})
 public class MailConfig {
 

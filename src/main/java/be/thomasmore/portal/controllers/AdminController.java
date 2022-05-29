@@ -6,7 +6,7 @@ import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.ContactMessageRepository;
 import be.thomasmore.portal.repositories.ItemRepository;
 import be.thomasmore.portal.repositories.UserRepository;
-import be.thomasmore.portal.mail.EmailService;
+import be.thomasmore.portal.service.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

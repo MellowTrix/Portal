@@ -1,7 +1,7 @@
 package be.thomasmore.portal.controllers;
 
 import be.thomasmore.portal.models.Item;
-import be.thomasmore.portal.models.ItemService;
+import be.thomasmore.portal.service.ItemService;
 import be.thomasmore.portal.models.SocialPost;
 import be.thomasmore.portal.models.User;
 import be.thomasmore.portal.repositories.ItemRepository;

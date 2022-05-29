@@ -1,5 +1,6 @@
-package be.thomasmore.portal.models;
+package be.thomasmore.portal.service;
 
+import be.thomasmore.portal.models.Item;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;

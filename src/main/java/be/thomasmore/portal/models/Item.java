@@ -2,6 +2,7 @@ package be.thomasmore.portal.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Locale;
 
 @Entity
 public class Item {
@@ -45,19 +46,19 @@ public class Item {
     }
 
     public String getColor() {
-        return color;
+        return color.toLowerCase();
     }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = color.toLowerCase();
     }
 
     public String getItemType() {
-        return itemType;
+        return itemType.toLowerCase();
     }
 
     public void setItemType(String itemType) {
-        this.itemType = itemType;
+        this.itemType = itemType.toLowerCase();
     }
 
     public LocalDate getCreationDate() {

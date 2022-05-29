@@ -73,6 +73,17 @@ public class WardrobeController {
             model.addAttribute("pageNumbers", pageNumbers);
         }
 
+        String currentUrl = "/wardrobe?";
+        if (search != null && !search.isEmpty()) {
+            currentUrl = String.format("%s&search=%s", currentUrl, search);
+        }
+        if (color != null && !color.isEmpty()) {
+            for (String col : color) {
+                currentUrl = String.format("%s&color=%s", currentUrl, col);
+            }
+        }
+        model.addAttribute("currentUrl", currentUrl);
+
         return "wardrobe";
     }
 
@@ -98,7 +109,7 @@ public class WardrobeController {
     @PostMapping({"/item/share"})
     public String share(@ModelAttribute("post") SocialPost post, Principal principal, @RequestParam Integer itemId) {
         Optional<User> userFromDb = userRepository.findByUsername(principal.getName());
-        if (userFromDb.isEmpty()){
+        if (userFromDb.isEmpty()) {
             return "redirect:/login";
         }
         User user = userFromDb.get();
@@ -117,7 +128,7 @@ public class WardrobeController {
 
     @GetMapping({"/item/delete/{id}"})
     public String delete(Model model, @PathVariable(required = false) Integer id, Principal principal) {
-    Item item = itemRepository.findById(id).get();
+        Item item = itemRepository.findById(id).get();
         if (principal.getName().equals(item.getOwner().getUsername())) {
             item.setDeleted(true);
             itemRepository.save(item);

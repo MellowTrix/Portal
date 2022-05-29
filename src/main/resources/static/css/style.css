@@ -183,7 +183,6 @@ a.nav-link.selectedNav {
     color: #071BF3;
 }
 
-
 .nav-item a:hover{
     color: #071BF3;
 }
@@ -445,7 +444,7 @@ footer a{
 }
 
 .userCountText {
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .contactInput {
@@ -653,6 +652,12 @@ footer a{
     font-size: 1.5vw;
 }
 
+.overflow3dots {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 
@@ -749,9 +754,6 @@ footer a{
         font-size: 1.8vw;
     }
 }
-
-
-
 
 @media only screen and (max-width: 991px) {
     .homeTopShirt {

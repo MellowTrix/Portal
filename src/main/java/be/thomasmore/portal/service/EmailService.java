@@ -1,4 +1,4 @@
-package be.thomasmore.portal.mail;
+package be.thomasmore.portal.service;
 
 
 public interface EmailService {

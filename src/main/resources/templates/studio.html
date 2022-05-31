@@ -90,7 +90,14 @@
                     </div>
                     <div class="infoLine">
                         <label for="color" class="infoLineName">Color: </label><br>
-                        <input id="color" th:field="*{color}" class="infoLineValue">
+                        <select id="color" th:field="*{color}" class="infoLineValue">
+                            <option th:value="'white'" th:text="White"></option>
+                            <option th:value="'black'" th:text="Black"></option>
+                            <option th:value="'red'" th:text="Red"></option>
+                            <option th:value="'blue'" th:text="Blue"></option>
+                            <option th:value="'green'" th:text="Green"></option>
+                            <option th:value="'yellow'" th:text="Yellow"></option>
+                        </select>
                     </div>
                     <div class="infoLine">
                         <label for="itemType" class="infoLineName">Design Type: </label><br>
